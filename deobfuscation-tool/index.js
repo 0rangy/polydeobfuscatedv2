@@ -139,12 +139,9 @@ function buildIndexFromCode(ast, top) {
     classes: new Map(),
   };
 
-  const tempVarMap = new Map(); // reserved temp vars (px/py/pz style)
-
-  function addToMap(map, fp, entry, isTemp=false) {
+  function addToMap(map, fp, entry) {
     if (!map.has(fp)) map.set(fp, []);
     map.get(fp).push(entry);
-    if (isTemp) tempVarMap.set(entry.name, true);
   }
 
   function buildUsageSignatureFor(name) {
@@ -187,7 +184,7 @@ function buildIndexFromCode(ast, top) {
 
       // --- TEMP VAR DETECTION ---
       const isTemp = /^p[x|y|z]$/i.test(name) && decl.init?.type === "NewExpression";
-      addToMap(index.variables, combinedFp, { name, node }, isTemp);
+      addToMap(index.variables, combinedFp, contentFp, { name, node });
     }
   }
 
@@ -220,7 +217,7 @@ function buildIndexFromCode(ast, top) {
     addToMap(index.classes, combinedFp, { name, node });
   }
 
-  return { index, tempVarMap };
+  return { index };
 }
 
 
@@ -228,19 +225,16 @@ function buildIndexFromCode(ast, top) {
  * findMatches(indexA, indexB)
  * - indexA: deob index (Map fingerprints -> [{ name, node, ... }])
  * - indexB: obf index (same shape)
- *
- * Returns matches in the shape:
- * { variables: [{ deobName, obfName, fingerprint }], functions: [...], classes: [...] }
  */
 function findMatches(indexAObj, indexBObj) {
-  const { index: indexA, tempVarMap } = indexAObj;
+  const { index: indexA } = indexAObj;
   const { index: indexB } = indexBObj;
 
   const matches = { variables: [], functions: [], classes: [] };
   const getEntries = (map, fp) => (map.has(fp) ? map.get(fp).slice() : []);
   const entryPos = (entry) => (entry?.node?.start ?? 0);
 
-  function disambiguate(fp, entriesA, entriesB, category) {
+  function disambiguate(fp, entriesA, entriesB) {
     entriesA.sort((a,b)=>entryPos(a)-entryPos(b));
     entriesB.sort((a,b)=>entryPos(a)-entryPos(b));
     const n = Math.min(entriesA.length, entriesB.length);
@@ -248,41 +242,41 @@ function findMatches(indexAObj, indexBObj) {
       deobName: entriesA[i].name,
       obfName: entriesB[i].name,
       fingerprint: fp,
-      category,
     }));
   }
 
   for (const cat of ["variables","functions","classes"]) {
     const mapA = indexA[cat], mapB = indexB[cat];
-    if (!mapA || !mapB) continue;
+    if (!mapA || !mapB) {
+      verbose && console.log(`No entries for category ${cat} in one of the indexes, skipping...`);
+      continue;
+    }
 
     for (const [fp, entriesA] of mapA.entries()) {
-      // TEMP VAR RESERVATION: if a temp var, reserve one-to-one first
-      const isTemp = entriesA.some(e => tempVarMap.has(e.name));
       let entriesB = getEntries(mapB, fp);
-      if (isTemp) {
-        if (entriesA.length === 1 && entriesB.length === 1) {
-          matches[cat].push({ deobName: entriesA[0].name, obfName: entriesB[0].name, fingerprint: fp });
-          continue;
-        }
-      }
-
-      // fallback: usage only
+      // fallback: content only
       if (!entriesB.length) {
-        const usageOnlyMapB = new Map();
+        verbose && console.log(`No direct match for ${cat} fingerprint ${fp} (${entriesA[0].name}), trying content-only fallback...`);
+        const contentOnlyMapB = new Map();
         for (const [fpB, entries] of mapB.entries()) {
-          const usageFp = fpB.split("|")[1] || fpB;
-          usageOnlyMapB.set(usageFp, entries);
+          const usageFp = fpB.split("|")[0] || fpB;
+          contentOnlyMapB.set(usageFp, entries);
         }
-        const usageFp = fp.split("|")[1] || fp;
-        entriesB = usageOnlyMapB.get(usageFp) || [];
+        const contentFp = fp.split("|")[0] || fp;
+        entriesB = contentOnlyMapB.get(contentFp) || [];
+        verbose && entriesB.length > 0 && console.log(`Found ${entriesB.length} entries for content-only fallback for ${cat} fingerprint ${fp} (${entriesA[0].name})`);
       }
 
-      if (!entriesB.length) continue;
+      if (!entriesB.length) {
+        verbose && console.log(`No match for ${cat} fingerprint ${fp} (${entriesA[0].name})`);
+        continue;
+      }
       if (entriesA.length===1 && entriesB.length===1) {
+        verbose && console.log(`Direct match for ${cat}: ${entriesA[0].name} ↔ ${entriesB[0].name}`);
         matches[cat].push({ deobName: entriesA[0].name, obfName: entriesB[0].name, fingerprint: fp });
       } else {
-        matches[cat].push(...disambiguate(fp, entriesA, entriesB, cat));
+        verbose && console.log(`Ambiguous match for ${cat} (count A: ${entriesA.length}, count B: ${entriesB.length}), disambiguating...`);
+        matches[cat].push(...disambiguate(fp, entriesA, entriesB));
       }
     }
   }
@@ -314,13 +308,5 @@ if(process.argv[2] === "m") {
 
     const matches = findMatches(deobIndex, obIndex);
 
-    for (const m of matches.variables) {
-        console.log(`var ${m.deobName} ↔ ${m.obfName}`);
-    }
-    for (const m of matches.functions) {
-        console.log(`function ${m.deobName} ↔ ${m.obfName}`);
-    }
-    for (const m of matches.classes) {
-        console.log(`class ${m.deobName} ↔ ${m.obfName}`);
-    }
+    console.log(JSON.stringify(matches, null, 2));
 }
