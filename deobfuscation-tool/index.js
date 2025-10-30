@@ -9,6 +9,8 @@ let verbose = false;
 let inFile = null;
 let inObfuscated = null;
 let outFile = "out.js";
+let ptMain = false;
+let ptSim = false;
 
 for (let i = 3; i < process.argv.length; i++) {
     if (process.argv[i].startsWith("-v")) {
@@ -18,7 +20,15 @@ for (let i = 3; i < process.argv.length; i++) {
     // Merge subcommand arguments
     if (process.argv[2] === "m") {
         if (process.argv[i].startsWith("-o")) {
-            obfFile = process.argv[i + 1];
+            outFile = process.argv[i + 1];
+        } else if (process.argv[i].startsWith("-ptm")) {
+            ptMain = true;
+            outFile = "./polytrack-deobfuscated/main.bundle.js";
+            inObfuscated = "./polytrack/main.bundle.js"
+        } else if (process.argv[i].startsWith("-pts")) {
+            ptSim = true;
+            outFile = "./polytrack-deobfuscated/simulation_worker.bundle.js";
+            inObfuscated = "./polytrack/simulation_worker.bundle.js"
         } else {
             typeof inFile !== "string"
                 ? (inFile = process.argv[i])
@@ -361,7 +371,7 @@ function applyRenames(ast, _renameMap) {
     estraverse.traverse(ast, {
         enter(node, parent) {
             // Only top level
-            if(parent === ast) {
+            if (parent === ast) {
                 return;
             }
             // Skip static property names: obj.prop
@@ -415,7 +425,6 @@ if (process.argv[2] === "m") {
 
     let inAst = acorn.parse(inData);
     let obfAst = acorn.parse(outData);
-
     const deobIndex = buildIndexFromCode(inAst, inAst.body);
     console.log("Indexed deobfuscated code:");
     console.log(
@@ -430,11 +439,12 @@ if (process.argv[2] === "m") {
         "  classes:",
         [...deobIndex.index.classes.values()].reduce((a, b) => a + b.length, 0)
     );
-
+    obfTop = ptMain ? obfAst.body[0].expression.callee.body.body[2].expression.expressions[15]
+            .callee.body : ptSim ? obfAst.body[0].expression.callee.body.body[2].expression.expressions[2]
+            .callee.body : obfAst;
     const obIndex = buildIndexFromCode(
         obfAst,
-        obfAst.body[0].expression.callee.body.body[2].expression.expressions[15]
-            .callee.body.body
+        obfTop.body
     );
     console.log("Indexed obfuscated code:");
     console.log(
@@ -463,8 +473,7 @@ if (process.argv[2] === "m") {
         }
     }
     applyRenames(
-        obfAst.body[0].expression.callee.body.body[2].expression.expressions[15]
-            .callee.body,
+        obfTop,
         renameMap
     );
 
