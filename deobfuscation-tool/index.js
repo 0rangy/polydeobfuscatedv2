@@ -286,7 +286,6 @@ function findMatches(indexAObj, indexBObj) {
 
         for (const [fp, entriesA] of mapA.entries()) {
             let entriesB = getEntries(mapB, fp);
-            console.log(JSON.stringify(fp));
             // fallback: content only
             if (!entriesB.length) {
                 verbose &&
@@ -365,59 +364,101 @@ function findMatches(indexAObj, indexBObj) {
 }
 
 function applyRenames(ast, _renameMap) {
-    const usedNames = new Set();
     const renameMap = _renameMap;
+    const scopeStack = [new Set()]; // top is current scope
+    const usedNames = new Set();
 
+    function enterScope() {
+        scopeStack.push(new Set());
+    }
+    function exitScope() {
+        scopeStack.pop();
+    }
+    function declare(name, backPedal = 0) {
+        scopeStack[scopeStack.length -(1 + backPedal)].add(name);
+    }
+    function isDeclaredLocally(name) {
+        return (scopeStack.length > 1 && scopeStack.some(s => s.has(name) && scopeStack.lastIndexOf(s) > (ptMain || ptSim ? 1 : 0)));
+    }
     estraverse.traverse(ast, {
         enter(node, parent) {
-            // Only top level
-            if (parent === ast) {
-                return;
-            }
-            // Skip static property names: obj.prop
+            // ---- handle entering new scopes ----
             if (
-                parent &&
-                parent.type === "MemberExpression" &&
-                parent.property === node &&
-                !parent.computed
+                (node.type === "FunctionDeclaration" ||
+                    node.type === "FunctionExpression" ||
+                    node.type === "ArrowFunctionExpression")
             ) {
-                return;
+                console.log("entering func scope")
+                enterScope();
+                // function parameters are local
+                // console.log(node)
+                node.params.forEach(param => {
+                    if (param.type === "AssignmentPattern" && param.left.type === "Identifier") {console.log(`declaring ${param.left.name}`);declare(param.left.name)}
+                    if (param.type === "Identifier") {console.log(`declaring ${param.name}`);declare(param.name)};
+                });
+                if (node.id) { declare(node.id.name, 1);declare(node.id.name);console.log("declaring " + node.id.name) };
+            } else if (node.type === "BlockStatement") {
+                console.log("entering block scope")
+                for(let bodyNode of node.body) {
+                    if(bodyNode.type === "FunctionDeclaration" || bodyNode.type === "FunctionExpression")
+                        declare(bodyNode.id.name),console.log(`declaring ${bodyNode.id.name}`)
+                    if (bodyNode.type === "VariableDeclarator" && bodyNode.id.type === "Identifier") {
+                        declare(bodyNode.id.name);console.log(`declaring ${bodyNode.id.name}`)
+                    }
+                    if(bodyNode.type === "VariableDeclaration") {
+                        for(let declaration of bodyNode.declarations)
+                            if (declaration.type === "VariableDeclarator" && declaration.id.type === "Identifier")
+                                declare(declaration.id.name),console.log(`declaring ${declaration.id.name}`)
+                    }
+                }
+                enterScope();
             }
 
-            // Skip object literal keys: { key: value }
+            // ---- skip object keys, class keys, etc. ----
             if (
                 parent &&
-                parent.type === "Property" &&
-                parent.key === node &&
-                !parent.computed
-            ) {
-                return;
-            }
+                (
+                    (parent.type === "MemberExpression" && parent.property === node && !parent.computed) ||
+                    (parent.type === "Property" && parent.key === node && !parent.computed) ||
+                    (parent.type === "MethodDefinition" && parent.key === node && (!parent.computed || parent.kind === "constructor"))
+                )
+            ) return;
 
-            // Skip method keys in classes
-            if (parent && parent.type === "MethodDefinition" && parent.key === node) {
-                // Skip the constructor or any uncomputed method names
-                if (parent.kind === "constructor" || !parent.computed) {
-                    return;
+            // ---- main rename logic ----
+            if (node.type === "Identifier" && renameMap[node.name]) {
+                // only rename if it's not shadowed locally
+                if (!isDeclaredLocally(node.name)) {
+                    const newName = renameMap[node.name];
+                    usedNames.add(newName);
+                    console.log(`renaming ${node.name} to ${newName}`)
+                    node.name = newName;
+                }
+            } else if (node.type === "Identifier" && usedNames.has(node.name)) {
+                if (!isDeclaredLocally(node.name)) {
+                    let i = 1;
+                    let newName = node.name;
+                    while (usedNames.has(`${newName}_${i}`)) i++;
+                    newName = `${newName}_${i}`;
+                    renameMap[node.name] = newName;
+                    usedNames.add(newName);
+                    node.name = newName;
                 }
             }
-
-            if (node.type === "Identifier" && renameMap[node.name]) {
-                let newName = renameMap[node.name];
-                usedNames.add(newName);
-                node.name = newName;
-            } else if (node.type === "Identifier" && usedNames.has(node.name)) {
-                let i = 1;
-                let newName = node.name;
-                while (usedNames.has(`${newName}_${i}`)) i++;
-                newName = `${newName}_${i}`;
-                renameMap[node.name] = newName;
-                usedNames.add(newName);
-                node.name = newName;
+        },
+        leave(node) {
+            if (
+                node.type === "FunctionDeclaration" ||
+                node.type === "FunctionExpression" ||
+                node.type === "ArrowFunctionExpression" ||
+                node.type === "BlockStatement"
+            ) {
+                console.log("leaving node")
+                exitScope();
             }
         },
     });
 }
+
 
 if (process.argv[2] === "m") {
     const inData = fs.readFileSync(inFile, "utf-8");
@@ -425,6 +466,9 @@ if (process.argv[2] === "m") {
 
     let inAst = acorn.parse(inData);
     let obfAst = acorn.parse(outData);
+    obfTop = ptMain ? obfAst.body[0].expression.callee.body.body[2].expression.expressions[15]
+        .callee.body : ptSim ? obfAst.body[0].expression.callee.body.body[2].expression.expressions[2]
+            .callee.body : obfAst;
     const deobIndex = buildIndexFromCode(inAst, inAst.body);
     console.log("Indexed deobfuscated code:");
     console.log(
@@ -439,9 +483,6 @@ if (process.argv[2] === "m") {
         "  classes:",
         [...deobIndex.index.classes.values()].reduce((a, b) => a + b.length, 0)
     );
-    obfTop = ptMain ? obfAst.body[0].expression.callee.body.body[2].expression.expressions[15]
-            .callee.body : ptSim ? obfAst.body[0].expression.callee.body.body[2].expression.expressions[2]
-            .callee.body : obfAst;
     const obIndex = buildIndexFromCode(
         obfAst,
         obfTop.body
@@ -479,8 +520,9 @@ if (process.argv[2] === "m") {
 
     fs.writeFileSync(outFile, escodegen.generate(obfAst));
 } else if (process.argv[2] === "t") {
+    // For testing, has a lot of edge cases in a relatively small snippet
     let inAst = acorn.parse(`
-        let ten = 10;
+        const ten = 10;
         let ab = "ab";
 
         class Vector3 {
@@ -491,38 +533,48 @@ if (process.argv[2] === "m") {
                 this.z = z;
             }
             setScalar( scalar ) {
-                this.x = scalar;
-                this.y = scalar;
-                this.z = scalar;
+                const thisCopy = this;
+                thisCopy.x = scalar;
+                thisCopy.y = scalar;
+                thisCopy.z = scalar;
 
-                return this;
+                return thisCopy;
             }
-            multiplyByTen() {
-                this.x *= ten;
-                this.y *= ten;
-                this.z *= ten;
+            multiplyByTen(times = 1) {
+                this.x = multiply(this.x, ten * times);
+                this.y = multiply(this.y, ten * times);
+                this.z = multiply(this.z, ten * times);
+
+                function multiply(first, second) {
+                    return first * second;
+                }    
                 return this;
             }
         }
         `);
     let obfAst = acorn.parse(`
-        let a = 10;
+        const a = 10;
         let b = "ab";
         let ab = 43;
         class bn {       
-            constructor( e, t, n ) { 
+            constructor( a, b, c ) { 
                 bn.prototype.isVector3 = true;
-                this.x = e;
-                this.y = t;
-                this.z = n;
+                this.x = a;
+                this.y = b;
+                this.z = c;
             }
-            setScalar(e) {
-                return (this.x = e), (this.y = e), (this.z = e), this;
+            setScalar(a) {
+                const b = this;
+                return (b.x = a), (b.y = a), (b.z = a), b;
             }
-            multiplyByTen() {
-                this.x *= a;
-                this.y *= a;
-                this.z *= a;
+            multiplyByTen(ab = 1) {
+                this.x = b(this.x, a*ab);
+                this.y = b(this.y, a*ab);
+                this.z = b(this.z, a*ab);
+                
+                function b(a, ab) {
+                    return a * ab;
+                }    
                 return this;
             }
         }
