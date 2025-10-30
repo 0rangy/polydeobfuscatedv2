@@ -375,7 +375,7 @@ function applyRenames(ast, _renameMap) {
         scopeStack.pop();
     }
     function declare(name, backPedal = 0) {
-        scopeStack[scopeStack.length -(1 + backPedal)].add(name);
+        scopeStack[scopeStack.length - (1 + backPedal)].add(name);
     }
     function isDeclaredLocally(name) {
         return (scopeStack.length > 1 && scopeStack.some(s => s.has(name) && scopeStack.lastIndexOf(s) > (ptMain || ptSim ? 1 : 0)));
@@ -389,26 +389,44 @@ function applyRenames(ast, _renameMap) {
                     node.type === "ArrowFunctionExpression")
             ) {
                 console.log("entering func scope")
+                if(node.type === "FunctionDeclaration") {
+                    if(!isDeclaredLocally(node.id.name)) {
+                        if(renameMap[node.id.name]) {
+                            const newName = renameMap[node.id.name];
+                            usedNames.add(newName);
+                            console.log(`renaming ${node.id.name} to ${newName}`)
+                            node.id.name = newName;
+                        } else if (usedNames.has(node.id.name)) {
+                            let i = 1;
+                            let newName = node.id.name;
+                            while (usedNames.has(`${newName}_${i}`)) i++;
+                            newName = `${newName}_${i}`;
+                            renameMap[node.id.name] = newName;
+                            usedNames.add(newName);
+                            node.id.name = newName;
+                        }
+                    }
+                }
                 enterScope();
                 // function parameters are local
                 // console.log(node)
                 node.params.forEach(param => {
-                    if (param.type === "AssignmentPattern" && param.left.type === "Identifier") {console.log(`declaring ${param.left.name}`);declare(param.left.name)}
-                    if (param.type === "Identifier") {console.log(`declaring ${param.name}`);declare(param.name)};
+                    if (param.type === "AssignmentPattern" && param.left.type === "Identifier") { console.log(`declaring ${param.left.name}`); declare(param.left.name) }
+                    if (param.type === "Identifier") { console.log(`declaring ${param.name}`); declare(param.name) };
                 });
-                if (node.id) { declare(node.id.name, 1);declare(node.id.name);console.log("declaring " + node.id.name) };
+                if (node.id) { declare(node.id.name, 1); declare(node.id.name); console.log("declaring " + node.id.name) };
             } else if (node.type === "BlockStatement") {
                 console.log("entering block scope")
-                for(let bodyNode of node.body) {
-                    if(bodyNode.type === "FunctionDeclaration" || bodyNode.type === "FunctionExpression")
-                        declare(bodyNode.id.name),console.log(`declaring ${bodyNode.id.name}`)
+                for (let bodyNode of node.body) {
+                    if (bodyNode.type === "FunctionDeclaration" || bodyNode.type === "FunctionExpression")
+                        declare(bodyNode.id.name), console.log(`declaring ${bodyNode.id.name}`)
                     if (bodyNode.type === "VariableDeclarator" && bodyNode.id.type === "Identifier") {
-                        declare(bodyNode.id.name);console.log(`declaring ${bodyNode.id.name}`)
+                        declare(bodyNode.id.name); console.log(`declaring ${bodyNode.id.name}`)
                     }
-                    if(bodyNode.type === "VariableDeclaration") {
-                        for(let declaration of bodyNode.declarations)
+                    if (bodyNode.type === "VariableDeclaration") {
+                        for (let declaration of bodyNode.declarations)
                             if (declaration.type === "VariableDeclarator" && declaration.id.type === "Identifier")
-                                declare(declaration.id.name),console.log(`declaring ${declaration.id.name}`)
+                                declare(declaration.id.name), console.log(`declaring ${declaration.id.name}`)
                     }
                 }
                 enterScope();
@@ -423,18 +441,14 @@ function applyRenames(ast, _renameMap) {
                     (parent.type === "MethodDefinition" && parent.key === node && (!parent.computed || parent.kind === "constructor"))
                 )
             ) return;
-
             // ---- main rename logic ----
-            if (node.type === "Identifier" && renameMap[node.name]) {
-                // only rename if it's not shadowed locally
-                if (!isDeclaredLocally(node.name)) {
+            if (!isDeclaredLocally(node.name)) {
+                if (node.type === "Identifier" && renameMap[node.name]) {
                     const newName = renameMap[node.name];
                     usedNames.add(newName);
                     console.log(`renaming ${node.name} to ${newName}`)
                     node.name = newName;
-                }
-            } else if (node.type === "Identifier" && usedNames.has(node.name)) {
-                if (!isDeclaredLocally(node.name)) {
+                } else if (node.type === "Identifier" && usedNames.has(node.name)) {
                     let i = 1;
                     let newName = node.name;
                     while (usedNames.has(`${newName}_${i}`)) i++;
@@ -457,6 +471,7 @@ function applyRenames(ast, _renameMap) {
             }
         },
     });
+    console.log(renameMap["fT"])
 }
 
 
@@ -524,7 +539,9 @@ if (process.argv[2] === "m") {
     let inAst = acorn.parse(`
         const ten = 10;
         let ab = "ab";
-
+        function clamp( value, min, max ) {
+            return Math.max( min, Math.min( max, value ) );
+        }
         class Vector3 {
             constructor( x, y, z ) {
                 Vector3.prototype.isVector3 = true;
@@ -550,12 +567,22 @@ if (process.argv[2] === "m") {
                 }    
                 return this;
             }
+            clamp( min, max ) {
+                this.x = clamp( this.x, min.x, max.x );
+                this.y = clamp( this.y, min.y, max.y );
+                this.z = clamp( this.z, min.z, max.z );
+
+                return this;
+            }
         }
         `);
     let obfAst = acorn.parse(`
         const a = 10;
         let b = "ab";
         let ab = 43;
+        function fT( a, b, c ) {
+            return Math.max( b, Math.min( c, a ) );
+        }
         class bn {       
             constructor( a, b, c ) { 
                 bn.prototype.isVector3 = true;
@@ -575,6 +602,13 @@ if (process.argv[2] === "m") {
                 function b(a, ab) {
                     return a * ab;
                 }    
+                return this;
+            }
+            clamp(a, b) {
+                this.x = fT( this.x, a.x, b.x );
+                this.y = fT( this.y, a.y, b.y );
+                this.z = fT( this.z, a.z, b.z );
+
                 return this;
             }
         }

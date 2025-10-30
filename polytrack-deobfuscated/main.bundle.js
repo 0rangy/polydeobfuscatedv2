@@ -1972,16 +1972,16 @@
             const e = 4294967295 * Math.random() | 0, t = 4294967295 * Math.random() | 0, n = 4294967295 * Math.random() | 0, i = 4294967295 * Math.random() | 0;
             return (_lut[255 & e] + _lut[e >> 8 & 255] + _lut[e >> 16 & 255] + _lut[e >> 24 & 255] + '-' + _lut[255 & t] + _lut[t >> 8 & 255] + '-' + _lut[t >> 16 & 15 | 64] + _lut[t >> 24 & 255] + '-' + _lut[63 & n | 128] + _lut[n >> 8 & 255] + '-' + _lut[n >> 16 & 255] + _lut[n >> 24 & 255] + _lut[255 & i] + _lut[i >> 8 & 255] + _lut[i >> 16 & 255] + _lut[i >> 24 & 255]).toLowerCase();
         }
-        function Ft(e, t, n) {
+        function clamp(e, t, n) {
             return Math.max(t, Math.min(n, e));
         }
-        function Wt(e, t) {
+        function euclideanModulo(e, t) {
             return (e % t + t) % t;
         }
-        function Ht(e, t, n) {
+        function lerp(e, t, n) {
             return (1 - n) * e + n * t;
         }
-        function Vt(e, t) {
+        function denormalize(e, t) {
             switch (t.constructor) {
             case Float32Array:
                 return e;
@@ -2418,7 +2418,7 @@
             return !1;
         }
         Int8Array, Uint8Array, Uint8ClampedArray, Int16Array, Uint16Array, Int32Array, Uint32Array, Float32Array, Float64Array;
-        function Xt(e) {
+        function createElementNS(e) {
             return document.createElementNS('http://www.w3.org/1999/xhtml', e);
         }
         function Zt() {
@@ -7495,7 +7495,7 @@
                 s = s.next;
             } while (s !== e);
         }
-        function gs(e, t) {
+        function compareX(e, t) {
             return e.x - t.x;
         }
         function vs(e, t) {
@@ -7525,7 +7525,7 @@
             const i = Cs(n, e);
             return hs(i, i.next), hs(n, n.next);
         }
-        function ws(e, t) {
+        function sectorContainsSector(e, t) {
             return area(e.prev, e, t.prev) < 0 && area(t.next, e, e.next) < 0;
         }
         function ys(e, t, n, i, r) {
@@ -7538,7 +7538,7 @@
             } while (t !== e);
             return n;
         }
-        function As(e, t, n, i, r, a, s, o) {
+        function pointInTriangle(e, t, n, i, r, a, s, o) {
             return (r - s) * (t - o) >= (e - s) * (a - o) && (e - s) * (i - o) >= (n - s) * (t - o) && (n - s) * (a - o) >= (r - s) * (i - o);
         }
         function xs(e, t) {
@@ -7559,23 +7559,23 @@
                 return i;
             }(e, t) && (area(e.prev, e, t.prev) || area(e, t.prev, t)) || equals(e, t) && area(e.prev, e, e.next) > 0 && area(t.prev, t, t.next) > 0);
         }
-        function ks(e, t, n) {
+        function area(e, t, n) {
             return (t.y - e.y) * (n.x - t.x) - (t.x - e.x) * (n.y - t.y);
         }
-        function Es(e, t) {
+        function equals(e, t) {
             return e.x === t.x && e.y === t.y;
         }
         function Ss(e, t, n, i) {
             const r = sign(area(e, t, n)), a = sign(area(e, t, i)), s = sign(area(n, i, e)), o = sign(area(n, i, t));
             return r !== a && s !== o || (!(0 !== r || !onSegment(e, n, t)) || (!(0 !== a || !onSegment(e, i, t)) || (!(0 !== s || !onSegment(n, e, i)) || !(0 !== o || !onSegment(n, t, i)))));
         }
-        function Ms(e, t, n) {
+        function onSegment(e, t, n) {
             return t.x <= Math.max(e.x, n.x) && t.x >= Math.min(e.x, n.x) && t.y <= Math.max(e.y, n.y) && t.y >= Math.min(e.y, n.y);
         }
-        function _s(e) {
+        function sign(e) {
             return e > 0 ? 1 : e < 0 ? -1 : 0;
         }
-        function Ts(e, t) {
+        function locallyInside(e, t) {
             return area(e.prev, e, e.next) < 0 ? area(e, t, e.next) >= 0 && area(e, e.prev, t) >= 0 : area(e, t, e.prev) < 0 || area(e, e.next, t) < 0;
         }
         function Cs(e, t) {
@@ -7854,7 +7854,7 @@
         function Gs(e, t, n) {
             return !e || !n && e.constructor === t ? e : 'number' == typeof t.BYTES_PER_ELEMENT ? new t(e) : Array.prototype.slice.call(e);
         }
-        function js(e) {
+        function isTypedArray(e) {
             return ArrayBuffer.isView(e) && !(e instanceof DataView);
         }
         function Qs(e) {
@@ -9168,7 +9168,7 @@
                 return n.sort(ascSort), n;
             }
         }
-        function Ko(e, t) {
+        function ascSort(e, t) {
             return e.distance - t.distance;
         }
         function qo(e, t, n, i) {

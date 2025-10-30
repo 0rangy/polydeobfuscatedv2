@@ -599,16 +599,16 @@
             const e = 4294967295 * Math.random() | 0, t = 4294967295 * Math.random() | 0, n = 4294967295 * Math.random() | 0, i = 4294967295 * Math.random() | 0;
             return (_lut[255 & e] + _lut[e >> 8 & 255] + _lut[e >> 16 & 255] + _lut[e >> 24 & 255] + '-' + _lut[255 & t] + _lut[t >> 8 & 255] + '-' + _lut[t >> 16 & 15 | 64] + _lut[t >> 24 & 255] + '-' + _lut[63 & n | 128] + _lut[n >> 8 & 255] + '-' + _lut[n >> 16 & 255] + _lut[n >> 24 & 255] + _lut[255 & i] + _lut[i >> 8 & 255] + _lut[i >> 16 & 255] + _lut[i >> 24 & 255]).toLowerCase();
         }
-        function _t(e, t, n) {
+        function clamp(e, t, n) {
             return Math.max(t, Math.min(n, e));
         }
-        function vt(e, t) {
+        function euclideanModulo(e, t) {
             return (e % t + t) % t;
         }
-        function wt(e, t, n) {
+        function lerp(e, t, n) {
             return (1 - n) * e + n * t;
         }
-        function yt(e, t) {
+        function denormalize(e, t) {
             switch (t.constructor) {
             case Float32Array:
                 return e;
@@ -1045,7 +1045,7 @@
             return !1;
         }
         Int8Array, Uint8Array, Uint8ClampedArray, Int16Array, Uint16Array, Int32Array, Uint32Array, Float32Array, Float64Array;
-        function Ct(e) {
+        function createElementNS(e) {
             return document.createElementNS('http://www.w3.org/1999/xhtml', e);
         }
         function It() {
@@ -5477,7 +5477,7 @@
         function Ma(e, t, n) {
             return !e || !n && e.constructor === t ? e : 'number' == typeof t.BYTES_PER_ELEMENT ? new t(e) : Array.prototype.slice.call(e);
         }
-        function Ta(e) {
+        function isTypedArray(e) {
             return ArrayBuffer.isView(e) && !(e instanceof DataView);
         }
         function Ca(e) {
