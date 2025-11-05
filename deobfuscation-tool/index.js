@@ -1,5 +1,6 @@
 const fs = require("fs");
 const acorn = require("acorn");
+const { parseSync } = require("oxc-parser")
 const walk = require("acorn-walk");
 const crypto = require("crypto");
 const estraverse = require("estraverse");
@@ -536,6 +537,7 @@ if (process.argv[2] === "m") {
     fs.writeFileSync(outFile, escodegen.generate(obfAst));
 } else if (process.argv[2] === "t") {
     // For testing, has a lot of edge cases in a relatively small snippet
+    return;
     let inAst = acorn.parse(`
         const ten = 10;
         let ab = "ab";

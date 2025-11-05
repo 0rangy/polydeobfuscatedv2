@@ -16443,7 +16443,7 @@
         !function (e) {
             e[e.ImperialUnitsEnabled = 0] = 'ImperialUnitsEnabled', e[e.ResetHintEnabled = 1] = 'ResetHintEnabled', e[e.GhostCarEnabled = 2] = 'GhostCarEnabled', e[e.DefaultCameraMode = 3] = 'DefaultCameraMode', e[e.CockpitCameraToggle = 4] = 'CockpitCameraToggle', e[e.Checkpoints = 5] = 'Checkpoints', e[e.Timer = 6] = 'Timer', e[e.Speedometer = 7] = 'Speedometer', e[e.Language = 8] = 'Language', e[e.ShadowQuality = 9] = 'ShadowQuality', e[e.CloudsEnabled = 10] = 'CloudsEnabled', e[e.ParticlesEnabled = 11] = 'ParticlesEnabled', e[e.SkidmarksEnabled = 12] = 'SkidmarksEnabled', e[e.RenderScale = 13] = 'RenderScale', e[e.Antialiasing = 14] = 'Antialiasing', e[e.SoundEffectVolume = 15] = 'SoundEffectVolume', e[e.MusicVolume = 16] = 'MusicVolume', e[e.CheckpointVolume = 17] = 'CheckpointVolume', e[e.VibrationEnabled = 18] = 'VibrationEnabled', e[e.TouchSteeringSide = 19] = 'TouchSteeringSide';
         }(hm || (hm = {}));
-        const dm = hm, um = JSON.parse('{"rE":"0.5.1","l$":{"r":2,"M":4}}');
+        const dm = hm, um = JSON.parse('{"rE":"0.5.2","l$":{"r":1,"M":4}}');
         const fm = !1, pm = um.l$.r;
         if (!Number.isSafeInteger(pm) || pm < 1)
             throw new Error('package.json beta version property must be a positive integer');
@@ -16452,7 +16452,7 @@
         const gm = um.l$.M;
         if (!Number.isSafeInteger(gm) || gm < 1)
             throw new Error('package.json beta physicsVersion property must be a positive integer');
-        var Am, _m, vm, wm, ym, xm, bm, Sm, Em, Mm, Tm, Cm, Im, Rm, Pm, Bm, Dm, Lm, Um, Nm = function (e, t, n, i) {
+        var Am, _m, vm, wm, ym, xm, bm, Sm, Em, Mm, Tm, Cm, Im, Rm, Pm, Bm, Dm, Lm, Um, Nm, km = function (e, t, n, i) {
                 return new (n || (n = Promise))(function (r, a) {
                     function s(e) {
                         try {
@@ -16476,7 +16476,7 @@
                     }
                     l((i = i.apply(e, t || [])).next());
                 });
-            }, km = function (e, t, n, i, r) {
+            }, Fm = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -16484,138 +16484,148 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, Fm = function (e, t, n, i) {
+            }, Om = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        class Om {
+        class zm {
             constructor(e, t, n = !0, i = !1) {
                 var r;
-                Am.add(this), _m.set(this, void 0), vm.set(this, void 0), wm.set(this, void 0), ym.set(this, void 0), xm.set(this, new PerspectiveCamera()), bm.set(this, null), Sm.set(this, null), Em.set(this, []), Mm.set(this, null), Tm.set(this, new Vector3(8, 10, 10)), Cm.set(this, []), Im.set(this, []), km(this, _m, e, 'f'), km(this, vm, t, 'f'), km(this, wm, new Kp({
+                Am.add(this), _m.set(this, void 0), vm.set(this, void 0), wm.set(this, void 0), ym.set(this, !1), xm.set(this, void 0), bm.set(this, new PerspectiveCamera()), Sm.set(this, null), Em.set(this, null), Mm.set(this, []), Tm.set(this, null), Cm.set(this, new Vector3(8, 10, 10)), Im.set(this, []), Rm.set(this, []), Fm(this, _m, e, 'f'), Fm(this, vm, t, 'f');
+                const a = {
                     antialias: null === (r = null == t ? void 0 : t.getSettingBoolean(dm.Antialiasing)) || void 0 === r || r,
                     powerPreference: 'high-performance',
                     canvas: e,
                     alpha: i
-                }), 'f'), Fm(this, wm, 'f').outputColorSpace = LinearSRGBColorSpace, Fm(this, wm, 'f').debug.checkShaderErrors = fm, km(this, ym, new _r(), 'f'), n && (Fm(this, ym, 'f').fog = new Fog(10211839, 0, Om.maxViewDistance)), Fm(this, ym, 'f').add(new HemisphereLight(3891597, 11714755, 4.7)), document.addEventListener('fullscreenchange', () => {
-                    Fm(this, Am, 'm', Lm).call(this);
-                }), Fm(this, _m, 'f').addEventListener('webglcontextrestored', () => {
-                    for (const e of Fm(this, Im, 'f'))
+                };
+                try {
+                    a.failIfMajorPerformanceCaveat = !0, Fm(this, wm, new Kp(a), 'f'), Fm(this, ym, !1, 'f');
+                } catch (e) {
+                    a.failIfMajorPerformanceCaveat = !1, Fm(this, wm, new Kp(a), 'f'), Fm(this, ym, !0, 'f');
+                }
+                Om(this, wm, 'f').outputColorSpace = LinearSRGBColorSpace, Om(this, wm, 'f').debug.checkShaderErrors = fm, Fm(this, xm, new _r(), 'f'), n && (Om(this, xm, 'f').fog = new Fog(10211839, 0, zm.maxViewDistance)), Om(this, xm, 'f').add(new HemisphereLight(3891597, 11714755, 4.7)), document.addEventListener('fullscreenchange', () => {
+                    Om(this, Am, 'm', Um).call(this);
+                }), Om(this, _m, 'f').addEventListener('webglcontextrestored', () => {
+                    for (const e of Om(this, Rm, 'f'))
                         e();
                 }), null != window.electron && window.electron.addFullscreenChangeListener(() => {
-                    Fm(this, Am, 'm', Lm).call(this);
+                    Om(this, Am, 'm', Um).call(this);
                 });
             }
             clear() {
-                Fm(this, wm, 'f').clear();
+                Om(this, wm, 'f').clear();
             }
             update(e) {
                 var t, n, i;
-                Fm(this, Tm, 'f').copy(e.getSunPosition());
-                let r = null !== (n = null === (t = Fm(this, vm, 'f')) || void 0 === t ? void 0 : t.getSettingInteger(dm.ShadowQuality)) && void 0 !== n ? n : 0;
+                Om(this, Cm, 'f').copy(e.getSunPosition());
+                let r = null !== (n = null === (t = Om(this, vm, 'f')) || void 0 === t ? void 0 : t.getSettingInteger(dm.ShadowQuality)) && void 0 !== n ? n : 0;
                 if (this.isShadowQualitySupported(r) || (r = 0), !Number.isSafeInteger(r) || r <= 2 || r > 5)
-                    if (null != Fm(this, bm, 'f') && (Fm(this, bm, 'f').remove(), Fm(this, bm, 'f').dispose(), km(this, bm, null, 'f'), km(this, Sm, null, 'f')), null == Fm(this, Mm, 'f') && (km(this, Mm, new DirectionalLight(16777215, 4.7), 'f'), Fm(this, Mm, 'f').position.copy(Fm(this, Tm, 'f')), Fm(this, ym, 'f').add(Fm(this, Mm, 'f')), Fm(this, ym, 'f').add(Fm(this, Mm, 'f').target)), 1 == r || 2 == r) {
-                        if (!Fm(this, Mm, 'f').castShadow) {
-                            const e = Fm(this, Am, 'm', Dm).call(this, r);
-                            Fm(this, Mm, 'f').castShadow = !0, Fm(this, Mm, 'f').shadow.camera.top = 10, Fm(this, Mm, 'f').shadow.camera.right = 10, Fm(this, Mm, 'f').shadow.camera.bottom = -10, Fm(this, Mm, 'f').shadow.camera.left = -10, Fm(this, Mm, 'f').shadow.camera.near = 1, Fm(this, Mm, 'f').shadow.camera.far = 50, Fm(this, Mm, 'f').shadow.mapSize.width = e, Fm(this, Mm, 'f').shadow.mapSize.height = e, Fm(this, Mm, 'f').shadow.normalBias = 0.03, Fm(this, Mm, 'f').shadow.intensity = 0.6;
+                    if (null != Om(this, Sm, 'f') && (Om(this, Sm, 'f').remove(), Om(this, Sm, 'f').dispose(), Fm(this, Sm, null, 'f'), Fm(this, Em, null, 'f')), null == Om(this, Tm, 'f') && (Fm(this, Tm, new DirectionalLight(16777215, 4.7), 'f'), Om(this, Tm, 'f').position.copy(Om(this, Cm, 'f')), Om(this, xm, 'f').add(Om(this, Tm, 'f')), Om(this, xm, 'f').add(Om(this, Tm, 'f').target)), 1 == r || 2 == r) {
+                        if (!Om(this, Tm, 'f').castShadow) {
+                            const e = Om(this, Am, 'm', Lm).call(this, r);
+                            Om(this, Tm, 'f').castShadow = !0, Om(this, Tm, 'f').shadow.camera.top = 10, Om(this, Tm, 'f').shadow.camera.right = 10, Om(this, Tm, 'f').shadow.camera.bottom = -10, Om(this, Tm, 'f').shadow.camera.left = -10, Om(this, Tm, 'f').shadow.camera.near = 1, Om(this, Tm, 'f').shadow.camera.far = 50, Om(this, Tm, 'f').shadow.mapSize.width = e, Om(this, Tm, 'f').shadow.mapSize.height = e, Om(this, Tm, 'f').shadow.normalBias = 0.03, Om(this, Tm, 'f').shadow.intensity = 0.6;
                         }
-                        Fm(this, Mm, 'f').position.addVectors(Fm(this, xm, 'f').position, Fm(this, Tm, 'f').multiplyScalar(12.5)), Fm(this, Mm, 'f').target.position.copy(Fm(this, xm, 'f').position), Fm(this, wm, 'f').shadowMap.type = 1, Fm(this, wm, 'f').shadowMap.enabled = !0;
+                        Om(this, Tm, 'f').position.addVectors(Om(this, bm, 'f').position, Om(this, Cm, 'f').multiplyScalar(12.5)), Om(this, Tm, 'f').target.position.copy(Om(this, bm, 'f').position), Om(this, wm, 'f').shadowMap.type = 1, Om(this, wm, 'f').shadowMap.enabled = !0;
                     } else
-                        Fm(this, Mm, 'f').castShadow = !1, null === (i = Fm(this, Mm, 'f').shadow.map) || void 0 === i || i.dispose(), Fm(this, Mm, 'f').shadow.map = null, Fm(this, wm, 'f').shadowMap.enabled = !1;
+                        Om(this, Tm, 'f').castShadow = !1, null === (i = Om(this, Tm, 'f').shadow.map) || void 0 === i || i.dispose(), Om(this, Tm, 'f').shadow.map = null, Om(this, wm, 'f').shadowMap.enabled = !1;
                 else {
-                    if (null != Fm(this, bm, 'f') && Fm(this, Sm, 'f') != r && (Fm(this, bm, 'f').remove(), Fm(this, bm, 'f').dispose(), km(this, bm, null, 'f'), km(this, Sm, null, 'f'), Fm(this, wm, 'f').compile(Fm(this, ym, 'f'), Fm(this, xm, 'f'))), null == Fm(this, bm, 'f')) {
-                        Fm(this, wm, 'f').shadowMap.enabled = !0, Fm(this, wm, 'f').shadowMap.type = 2, km(this, bm, Fm(this, Am, 'm', Rm).call(this, r), 'f'), km(this, Sm, r, 'f');
+                    if (null != Om(this, Sm, 'f') && Om(this, Em, 'f') != r && (Om(this, Sm, 'f').remove(), Om(this, Sm, 'f').dispose(), Fm(this, Sm, null, 'f'), Fm(this, Em, null, 'f'), Om(this, wm, 'f').compile(Om(this, xm, 'f'), Om(this, bm, 'f'))), null == Om(this, Sm, 'f')) {
+                        Om(this, wm, 'f').shadowMap.enabled = !0, Om(this, wm, 'f').shadowMap.type = 2, Fm(this, Sm, Om(this, Am, 'm', Pm).call(this, r), 'f'), Fm(this, Em, r, 'f');
                         for (const {
                                     material: e,
                                     onBeforeCompile: t,
                                     customProgramCacheKey: n
-                                } of Fm(this, Em, 'f'))
-                            Fm(this, Am, 'm', Bm).call(this, e, t, n);
+                                } of Om(this, Mm, 'f'))
+                            Om(this, Am, 'm', Dm).call(this, e, t, n);
                     }
-                    null != Fm(this, Mm, 'f') && (Fm(this, ym, 'f').remove(Fm(this, Mm, 'f')), Fm(this, ym, 'f').remove(Fm(this, Mm, 'f').target), km(this, Mm, null, 'f')), Fm(this, bm, 'f').lightDirection = Fm(this, Tm, 'f').clone().negate().normalize(), Fm(this, bm, 'f').update();
+                    null != Om(this, Tm, 'f') && (Om(this, xm, 'f').remove(Om(this, Tm, 'f')), Om(this, xm, 'f').remove(Om(this, Tm, 'f').target), Fm(this, Tm, null, 'f')), Om(this, Sm, 'f').lightDirection = Om(this, Cm, 'f').clone().negate().normalize(), Om(this, Sm, 'f').update();
                 }
-                Fm(this, Am, 'm', Pm).call(this), Fm(this, wm, 'f').render(Fm(this, ym, 'f'), Fm(this, xm, 'f'));
+                Om(this, Am, 'm', Bm).call(this), Om(this, wm, 'f').render(Om(this, xm, 'f'), Om(this, bm, 'f'));
             }
             addMaterial(e) {
                 const t = Array.isArray(e) ? e : [e];
                 for (const e of t) {
                     const t = e.onBeforeCompile.bind(e), n = e.onBeforeCompile.toString();
-                    Fm(this, Em, 'f').push({
+                    Om(this, Mm, 'f').push({
                         material: e,
                         onBeforeCompile: t,
                         customProgramCacheKey: n
-                    }), null != Fm(this, bm, 'f') && Fm(this, Am, 'm', Bm).call(this, e, t, n);
+                    }), null != Om(this, Sm, 'f') && Om(this, Am, 'm', Dm).call(this, e, t, n);
                 }
             }
             removeMaterial(e) {
                 if (Array.isArray(e))
                     for (const t of e) {
-                        const e = Fm(this, Em, 'f').findIndex(e => e.material == t);
-                        e >= 0 && Fm(this, Em, 'f').splice(e, 1);
+                        const e = Om(this, Mm, 'f').findIndex(e => e.material == t);
+                        e >= 0 && Om(this, Mm, 'f').splice(e, 1);
                     }
                 else {
-                    const t = Fm(this, Em, 'f').findIndex(t => t.material == e);
-                    t >= 0 && Fm(this, Em, 'f').splice(t, 1);
+                    const t = Om(this, Mm, 'f').findIndex(t => t.material == e);
+                    t >= 0 && Om(this, Mm, 'f').splice(t, 1);
                 }
             }
             isTrackShadowsEnabled() {
                 var e, t;
-                const n = null !== (t = null === (e = Fm(this, vm, 'f')) || void 0 === e ? void 0 : e.getSettingInteger(dm.ShadowQuality)) && void 0 !== t ? t : 0;
+                const n = null !== (t = null === (e = Om(this, vm, 'f')) || void 0 === e ? void 0 : e.getSettingInteger(dm.ShadowQuality)) && void 0 !== t ? t : 0;
                 return 3 == n || 4 == n || 5 == n;
             }
             isShadowQualitySupported(e) {
-                return !Number.isSafeInteger(e) || e <= 0 || e > 5 || Fm(this, wm, 'f').capabilities.maxTextureSize >= Fm(this, Am, 'm', Dm).call(this, e);
+                return !Number.isSafeInteger(e) || e <= 0 || e > 5 || Om(this, wm, 'f').capabilities.maxTextureSize >= Om(this, Am, 'm', Lm).call(this, e);
             }
             getMaxAnisotropy() {
-                return Fm(this, wm, 'f').capabilities.getMaxAnisotropy();
+                return Om(this, wm, 'f').capabilities.getMaxAnisotropy();
+            }
+            get isUsingSoftwareRenderer() {
+                return Om(this, ym, 'f');
             }
             get isFullscreen() {
                 return null != window.electron ? window.electron.isFullscreen() : null != document.fullscreenElement;
             }
             toggleFullscreen() {
-                return Nm(this, void 0, void 0, function* () {
+                return km(this, void 0, void 0, function* () {
                     this.isFullscreen ? null != window.electron ? window.electron.setFullscreen(!1) : yield document.exitFullscreen() : null != window.electron ? window.electron.setFullscreen(!0) : yield document.body.requestFullscreen();
                 });
             }
             addFullscreenChangeListener(e) {
-                Fm(this, Cm, 'f').push(e);
+                Om(this, Im, 'f').push(e);
             }
             removeFullscreenChangeListener(e) {
-                const t = Fm(this, Cm, 'f').indexOf(e);
-                t >= 0 && Fm(this, Cm, 'f').splice(t, 1);
+                const t = Om(this, Im, 'f').indexOf(e);
+                t >= 0 && Om(this, Im, 'f').splice(t, 1);
             }
             addContextRestoredEventListener(e) {
-                Fm(this, Im, 'f').push(e);
+                Om(this, Rm, 'f').push(e);
             }
             removeContextRestoredEventListener(e) {
-                const t = Fm(this, Im, 'f').indexOf(e);
-                t >= 0 && Fm(this, Im, 'f').splice(t, 1);
+                const t = Om(this, Rm, 'f').indexOf(e);
+                t >= 0 && Om(this, Rm, 'f').splice(t, 1);
             }
             get csm() {
-                return Fm(this, bm, 'f');
+                return Om(this, Sm, 'f');
             }
             setCamera(e) {
-                km(this, xm, e, 'f'), null != Fm(this, bm, 'f') && (Fm(this, bm, 'f').camera = e, Fm(this, Am, 'm', Um).call(this));
+                Fm(this, bm, e, 'f'), null != Om(this, Sm, 'f') && (Om(this, Sm, 'f').camera = e, Om(this, Am, 'm', Nm).call(this));
             }
             get camera() {
-                return Fm(this, xm, 'f');
+                return Om(this, bm, 'f');
             }
             get canvas() {
-                return Fm(this, _m, 'f');
+                return Om(this, _m, 'f');
             }
             setAnimationLoop(e) {
-                Fm(this, wm, 'f').setAnimationLoop(e);
+                Om(this, wm, 'f').setAnimationLoop(e);
             }
             get scene() {
-                return Fm(this, ym, 'f');
+                return Om(this, xm, 'f');
             }
         }
-        _m = new WeakMap(), vm = new WeakMap(), wm = new WeakMap(), ym = new WeakMap(), xm = new WeakMap(), bm = new WeakMap(), Sm = new WeakMap(), Em = new WeakMap(), Mm = new WeakMap(), Tm = new WeakMap(), Cm = new WeakMap(), Im = new WeakMap(), Am = new WeakSet(), Rm = function (e) {
+        _m = new WeakMap(), vm = new WeakMap(), wm = new WeakMap(), ym = new WeakMap(), xm = new WeakMap(), bm = new WeakMap(), Sm = new WeakMap(), Em = new WeakMap(), Mm = new WeakMap(), Tm = new WeakMap(), Cm = new WeakMap(), Im = new WeakMap(), Rm = new WeakMap(), Am = new WeakSet(), Pm = function (e) {
             if (3 != e && 4 != e && 5 != e)
                 throw new Error('Unsupported shadow quality: ' + e.toString());
-            const t = Fm(this, Am, 'm', Dm).call(this, e);
+            const t = Om(this, Am, 'm', Lm).call(this, e);
             let n, i;
             switch (e) {
             case 5:
@@ -16645,38 +16655,38 @@
                 customSplitsCallback: (t, n, i, r) => {
                     5 == e ? (r.push((15 - n) / i), r.push((40 - n) / i), r.push((150 - n) / i), r.push((500 - n) / i), r.push(1)) : 4 == e ? (r.push((15 - n) / i), r.push((80 - n) / i), r.push((300 - n) / i), r.push(1)) : (r.push((15 - n) / i), r.push((60 - n) / i), r.push((150 - n) / i), r.push(1));
                 },
-                parent: Fm(this, ym, 'f'),
+                parent: Om(this, xm, 'f'),
                 shadowMapSize: t,
                 lightDirection: new Vector3(0, 0, -1),
                 lightIntensity: 4.7,
-                camera: Fm(this, xm, 'f')
+                camera: Om(this, bm, 'f')
             });
             r.fade = !0, 5 == e ? (r.lights[0].shadow.normalBias = 0.025, r.lights[1].shadow.normalBias = 0.04, r.lights[2].shadow.normalBias = 0.11, r.lights[3].shadow.normalBias = 0.32, r.lights[4].shadow.normalBias = 1.25) : 4 == e ? (r.lights[0].shadow.normalBias = 0.041, r.lights[1].shadow.normalBias = 0.13, r.lights[2].shadow.normalBias = 0.48, r.lights[3].shadow.normalBias = 1.25) : (r.lights[0].shadow.normalBias = 0.08, r.lights[1].shadow.normalBias = 0.21, r.lights[2].shadow.normalBias = 0.6, r.lights[3].shadow.normalBias = 1.9);
             for (const e of r.lights)
                 e.shadow.intensity = 0.6;
             return r;
-        }, Pm = function () {
+        }, Bm = function () {
             var e, t;
-            let n = null !== (t = null === (e = Fm(this, vm, 'f')) || void 0 === e ? void 0 : e.getSettingFloat(dm.RenderScale)) && void 0 !== t ? t : 1;
+            let n = null !== (t = null === (e = Om(this, vm, 'f')) || void 0 === e ? void 0 : e.getSettingFloat(dm.RenderScale)) && void 0 !== t ? t : 1;
             n = Number.isFinite(n) ? Math.min(Math.max(n, 0.25), 2) : 1;
             const i = window.devicePixelRatio * n;
-            if (Fm(this, wm, 'f').getPixelRatio() != i && Fm(this, wm, 'f').setPixelRatio(i), Fm(this, xm, 'f') instanceof PerspectiveCamera) {
+            if (Om(this, wm, 'f').getPixelRatio() != i && Om(this, wm, 'f').setPixelRatio(i), Om(this, bm, 'f') instanceof PerspectiveCamera) {
                 const e = window.innerWidth / window.innerHeight, t = new Vector2();
-                Fm(this, wm, 'f').getSize(t);
+                Om(this, wm, 'f').getSize(t);
                 const n = Math.max(1, 0.5 * e);
-                t.width == window.innerWidth && t.height == window.innerHeight && Fm(this, xm, 'f').aspect == e && Fm(this, xm, 'f').zoom == n || (Fm(this, wm, 'f').setSize(window.innerWidth, window.innerHeight), Fm(this, xm, 'f').aspect = e, Fm(this, xm, 'f').zoom = n, Fm(this, Am, 'm', Um).call(this), Fm(this, xm, 'f').updateProjectionMatrix());
+                t.width == window.innerWidth && t.height == window.innerHeight && Om(this, bm, 'f').aspect == e && Om(this, bm, 'f').zoom == n || (Om(this, wm, 'f').setSize(window.innerWidth, window.innerHeight), Om(this, bm, 'f').aspect = e, Om(this, bm, 'f').zoom = n, Om(this, Am, 'm', Nm).call(this), Om(this, bm, 'f').updateProjectionMatrix());
             }
-        }, Bm = function (e, t, n) {
+        }, Dm = function (e, t, n) {
             var i;
             const r = Array.isArray(e) ? e : [e];
             for (const e of r) {
-                null === (i = Fm(this, bm, 'f')) || void 0 === i || i.setupMaterial(e);
+                null === (i = Om(this, Sm, 'f')) || void 0 === i || i.setupMaterial(e);
                 const r = e.onBeforeCompile.toString(), a = e.onBeforeCompile.bind(e);
                 e.onBeforeCompile = (e, n) => {
                     a(e, n), t(e, n);
                 }, e.customProgramCacheKey = () => r + n, e.needsUpdate = !0;
             }
-        }, Dm = function (e) {
+        }, Lm = function (e) {
             switch (e) {
             case 5:
                 return 8192;
@@ -16690,52 +16700,52 @@
             default:
                 throw new Error('Unsupported shadow quality: ' + e.toString());
             }
-        }, Lm = function () {
-            for (const REVISION of Fm(this, Cm, 'f'))
-                REVISION();
         }, Um = function () {
-            if (null != Fm(this, bm, 'f'))
-                if (Fm(this, xm, 'f') instanceof PerspectiveCamera) {
-                    const e = Fm(this, xm, 'f').fov;
-                    Fm(this, xm, 'f').fov = 100, Fm(this, bm, 'f').updateFrustums(), Fm(this, xm, 'f').fov = e;
+            for (const REVISION of Om(this, Im, 'f'))
+                REVISION();
+        }, Nm = function () {
+            if (null != Om(this, Sm, 'f'))
+                if (Om(this, bm, 'f') instanceof PerspectiveCamera) {
+                    const e = Om(this, bm, 'f').fov;
+                    Om(this, bm, 'f').fov = 100, Om(this, Sm, 'f').updateFrustums(), Om(this, bm, 'f').fov = e;
                 } else
-                    Fm(this, bm, 'f').updateFrustums();
-        }, Om.maxViewDistance = 10000;
-        const zm = Om;
-        var Hm, Wm, Vm, Gm, Qm, Xm = function (e, t, n, i) {
+                    Om(this, Sm, 'f').updateFrustums();
+        }, zm.maxViewDistance = 10000;
+        const Hm = zm;
+        var Wm, Vm, Gm, Qm, Xm, jm = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        class jm {
+        class qm {
             constructor() {
-                Hm.add(this), Gm.set(this, new PerspectiveCamera(Xm(Wm, Wm, 'f', Vm), 1, 0.5, zm.maxViewDistance));
+                Wm.add(this), Qm.set(this, new PerspectiveCamera(jm(Vm, Vm, 'f', Gm), 1, 0.5, Hm.maxViewDistance));
             }
             reset(e, t, n) {
-                this.update(e, t, 0), Xm(this, Gm, 'f').fov = Xm(this, Hm, 'm', Qm).call(this, null != n ? n : 0), Xm(this, Gm, 'f').updateProjectionMatrix();
+                this.update(e, t, 0), jm(this, Qm, 'f').fov = jm(this, Wm, 'm', Xm).call(this, null != n ? n : 0), jm(this, Qm, 'f').updateProjectionMatrix();
             }
             update(e, t, n) {
-                Xm(this, Gm, 'f').fov = Xm(this, Hm, 'm', Qm).call(this, n), Xm(this, Gm, 'f').updateProjectionMatrix();
-                const i = new Vector3(0, 1.1 + 0.46 / Xm(this, Gm, 'f').zoom - 0.46, 0.4);
-                Xm(this, Gm, 'f').position.addVectors(e, i.applyQuaternion(t)), Xm(this, Gm, 'f').quaternion.copy(t), Xm(this, Gm, 'f').quaternion.multiply(new Quaternion().setFromEuler(new Euler(0, Math.PI, 0))), Xm(this, Gm, 'f').updateMatrix();
+                jm(this, Qm, 'f').fov = jm(this, Wm, 'm', Xm).call(this, n), jm(this, Qm, 'f').updateProjectionMatrix();
+                const i = new Vector3(0, 1.1 + 0.46 / jm(this, Qm, 'f').zoom - 0.46, 0.4);
+                jm(this, Qm, 'f').position.addVectors(e, i.applyQuaternion(t)), jm(this, Qm, 'f').quaternion.copy(t), jm(this, Qm, 'f').quaternion.multiply(new Quaternion().setFromEuler(new Euler(0, Math.PI, 0))), jm(this, Qm, 'f').updateMatrix();
             }
             get camera() {
-                return Xm(this, Gm, 'f');
+                return jm(this, Qm, 'f');
             }
         }
-        Wm = jm, Gm = new WeakMap(), Hm = new WeakSet(), Qm = function (e) {
-            return Xm(Wm, Wm, 'f', Vm) + (80 - Xm(Wm, Wm, 'f', Vm)) * (1 - Math.exp(-Math.abs(e) / 200));
-        }, Vm = { value: 70 };
-        const qm = jm;
-        class Ym {
+        Vm = qm, Qm = new WeakMap(), Wm = new WeakSet(), Xm = function (e) {
+            return jm(Vm, Vm, 'f', Gm) + (80 - jm(Vm, Vm, 'f', Gm)) * (1 - Math.exp(-Math.abs(e) / 200));
+        }, Gm = { value: 70 };
+        const Ym = qm;
+        class Km {
             constructor(e, t, n, i) {
                 this.primary = e, this.secondary = t, this.frame = n, this.rims = i;
             }
             static random() {
                 const e = 360 * Math.random(), t = 100 * (1 - Math.pow(Math.random(), 2)), n = 100 * (0.05 + 0.25 * (1 - Math.pow(Math.random(), 2)));
-                return new Ym(new Color('hsl(' + e.toString() + ',' + t.toString() + '%,' + n.toString() + '%)'), new Color('#ffffff'), new Color('#131313'), new Color('#666666'));
+                return new Km(new Color('hsl(' + e.toString() + ',' + t.toString() + '%,' + n.toString() + '%)'), new Color('#ffffff'), new Color('#131313'), new Color('#666666'));
             }
             serialize() {
                 return this.primary.getHexString() + this.secondary.getHexString() + this.frame.getHexString() + this.rims.getHexString();
@@ -16746,11 +16756,11 @@
                     const i = e.substring(6 * n, 6 * (n + 1));
                     /^[0-9a-f]{6}$/i.test(i) ? t.push(new Color('#' + i)) : t.push(new Color('#555'));
                 }
-                return new Ym(t[0], t[1], t[2], t[3]);
+                return new Km(t[0], t[1], t[2], t[3]);
             }
         }
-        const Km = Ym;
-        var Zm, Jm, $m, eg, tg, ng, ig, rg = function (e, t, n, i, r) {
+        const Zm = Km;
+        var Jm, $m, eg, tg, ng, ig, rg, ag = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -16758,40 +16768,40 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, ag = function (e, t, n, i) {
+            }, sg = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        class sg {
+        class og {
             constructor() {
-                Zm.add(this), eg.set(this, new PerspectiveCamera(ag(Jm, Jm, 'f', $m), 1, 0.5, 10000)), tg.set(this, new Vector3()), ng.set(this, new Vector3(0, 1, 0));
+                Jm.add(this), tg.set(this, new PerspectiveCamera(sg($m, $m, 'f', eg), 1, 0.5, 10000)), ng.set(this, new Vector3()), ig.set(this, new Vector3(0, 1, 0));
             }
             reset(e, t, n) {
-                rg(this, tg, new Vector3(0.00001, 0, -1), 'f'), ag(this, tg, 'f').applyQuaternion(t), ag(this, tg, 'f').add(e), rg(this, ng, new Vector3(0, 1, 0), 'f'), ag(this, ng, 'f').applyQuaternion(t), this.update(0, e, t, 0), ag(this, eg, 'f').fov = ag(this, Zm, 'm', ig).call(this, null != n ? n : 0), ag(this, eg, 'f').updateProjectionMatrix();
+                ag(this, ng, new Vector3(0.00001, 0, -1), 'f'), sg(this, ng, 'f').applyQuaternion(t), sg(this, ng, 'f').add(e), ag(this, ig, new Vector3(0, 1, 0), 'f'), sg(this, ig, 'f').applyQuaternion(t), this.update(0, e, t, 0), sg(this, tg, 'f').fov = sg(this, Jm, 'm', rg).call(this, null != n ? n : 0), sg(this, tg, 'f').updateProjectionMatrix();
             }
             update(e, t, n, i) {
-                ag(this, eg, 'f').fov = ag(this, Zm, 'm', ig).call(this, i), ag(this, eg, 'f').updateProjectionMatrix();
+                sg(this, tg, 'f').fov = sg(this, Jm, 'm', rg).call(this, i), sg(this, tg, 'f').updateProjectionMatrix();
                 const r = new Vector3(0, 1, 0);
                 r.applyQuaternion(n);
                 const a = Math.min(1, 5 * e);
-                ag(this, ng, 'f').set(a * r.x + (1 - a) * ag(this, ng, 'f').x, a * r.y + (1 - a) * ag(this, ng, 'f').y, a * r.z + (1 - a) * ag(this, ng, 'f').z);
-                const s = new Vector3().subVectors(t, ag(this, tg, 'f'));
+                sg(this, ig, 'f').set(a * r.x + (1 - a) * sg(this, ig, 'f').x, a * r.y + (1 - a) * sg(this, ig, 'f').y, a * r.z + (1 - a) * sg(this, ig, 'f').z);
+                const s = new Vector3().subVectors(t, sg(this, ng, 'f'));
                 s.normalize();
-                const o = 5.5, l = 1.8 / Math.min(ag(this, eg, 'f').zoom, 2);
-                ag(this, eg, 'f').position.x = t.x - s.x * o + 2 * ag(this, ng, 'f').x, ag(this, eg, 'f').position.y = Math.max(0.25, t.y - s.y * o + 2 * ag(this, ng, 'f').y), ag(this, eg, 'f').position.z = t.z - s.z * o + 2 * ag(this, ng, 'f').z, ag(this, eg, 'f').lookAt(t.x + ag(this, ng, 'f').x * l, t.y + ag(this, ng, 'f').y * l, t.z + ag(this, ng, 'f').z * l), ag(this, eg, 'f').updateMatrix(), ag(this, tg, 'f').set(t.x - s.x * o, t.y - s.y * o, t.z - s.z * o);
+                const o = 5.5, l = 1.8 / Math.min(sg(this, tg, 'f').zoom, 2);
+                sg(this, tg, 'f').position.x = t.x - s.x * o + 2 * sg(this, ig, 'f').x, sg(this, tg, 'f').position.y = Math.max(0.25, t.y - s.y * o + 2 * sg(this, ig, 'f').y), sg(this, tg, 'f').position.z = t.z - s.z * o + 2 * sg(this, ig, 'f').z, sg(this, tg, 'f').lookAt(t.x + sg(this, ig, 'f').x * l, t.y + sg(this, ig, 'f').y * l, t.z + sg(this, ig, 'f').z * l), sg(this, tg, 'f').updateMatrix(), sg(this, ng, 'f').set(t.x - s.x * o, t.y - s.y * o, t.z - s.z * o);
             }
             get camera() {
-                return ag(this, eg, 'f');
+                return sg(this, tg, 'f');
             }
         }
-        Jm = sg, eg = new WeakMap(), tg = new WeakMap(), ng = new WeakMap(), Zm = new WeakSet(), ig = function (e) {
-            return ag(Jm, Jm, 'f', $m) + (100 - ag(Jm, Jm, 'f', $m)) * (1 - Math.exp(-Math.abs(e) / 200));
-        }, $m = { value: 70 };
-        const og = sg;
-        var lg, cg, hg, dg, ug, fg, pg, mg, gg = function (e, t, n, i, r) {
+        $m = og, tg = new WeakMap(), ng = new WeakMap(), ig = new WeakMap(), Jm = new WeakSet(), rg = function (e) {
+            return sg($m, $m, 'f', eg) + (100 - sg($m, $m, 'f', eg)) * (1 - Math.exp(-Math.abs(e) / 200));
+        }, eg = { value: 70 };
+        const lg = og;
+        var cg, hg, dg, ug, fg, pg, mg, gg, Ag = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -16799,25 +16809,25 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, Ag = function (e, t, n, i) {
+            }, _g = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        class _g {
+        class vg {
             constructor(e) {
-                cg.set(this, void 0), hg.set(this, void 0), dg.set(this, []), ug.set(this, 256), fg.set(this, new Vector3(0, 1, 0)), gg(this, cg, e, 'f'), gg(this, hg, new InstancedMesh(Ag(lg, lg, 'f', pg), Ag(lg, lg, 'f', mg), Ag(this, ug, 'f')), 'f'), Ag(this, hg, 'f').frustumCulled = !1, e.scene.add(Ag(this, hg, 'f')), this.clear();
+                hg.set(this, void 0), dg.set(this, void 0), ug.set(this, []), fg.set(this, 256), pg.set(this, new Vector3(0, 1, 0)), Ag(this, hg, e, 'f'), Ag(this, dg, new InstancedMesh(_g(cg, cg, 'f', mg), _g(cg, cg, 'f', gg), _g(this, fg, 'f')), 'f'), _g(this, dg, 'f').frustumCulled = !1, e.scene.add(_g(this, dg, 'f')), this.clear();
             }
             dispose() {
-                Ag(this, hg, 'f').dispose(), Ag(this, cg, 'f').scene.remove(Ag(this, hg, 'f'));
+                _g(this, dg, 'f').dispose(), _g(this, hg, 'f').scene.remove(_g(this, dg, 'f'));
             }
             clear() {
-                Ag(this, dg, 'f').length = 0, Ag(this, hg, 'f').count = 0, Ag(this, hg, 'f').instanceMatrix.needsUpdate = !0;
+                _g(this, ug, 'f').length = 0, _g(this, dg, 'f').count = 0, _g(this, dg, 'f').instanceMatrix.needsUpdate = !0;
             }
             spawn(e, t, n) {
-                Ag(this, dg, 'f').push({
+                _g(this, ug, 'f').push({
                     x: e + 0.25 * (Math.random() - 0.5),
                     y: t + 0.25 * (Math.random() - 0.5),
                     z: n + 0.25 * (Math.random() - 0.5),
@@ -16829,42 +16839,42 @@
                 });
             }
             update(e) {
-                for (let t = Ag(this, dg, 'f').length - 1; t >= 0; --t) {
-                    const n = Ag(this, dg, 'f')[t];
-                    n.vy += 15 * e, n.x += n.vx * e, n.y += n.vy * e, n.z += n.vz * e, n.lifetime -= e, n.lifetime <= 0 && Ag(this, dg, 'f').splice(t, 1);
+                for (let t = _g(this, ug, 'f').length - 1; t >= 0; --t) {
+                    const n = _g(this, ug, 'f')[t];
+                    n.vy += 15 * e, n.x += n.vx * e, n.y += n.vy * e, n.z += n.vz * e, n.lifetime -= e, n.lifetime <= 0 && _g(this, ug, 'f').splice(t, 1);
                 }
                 let t = !1;
-                Ag(this, hg, 'f').count != Ag(this, dg, 'f').length && (Ag(this, hg, 'f').count = Math.min(Ag(this, dg, 'f').length, Ag(this, ug, 'f')), t = !0);
-                for (let e = 0; e < Ag(this, hg, 'f').count; ++e) {
-                    const t = Ag(this, dg, 'f')[Ag(this, dg, 'f').length - 1 - e], n = new Matrix4();
-                    n.lookAt(new Vector3(t.x, t.y, t.z), Ag(this, cg, 'f').camera.position, Ag(this, fg, 'f')), n.setPosition(t.x, t.y, t.z), n.multiply(new Matrix4().makeRotationZ(t.rotation));
+                _g(this, dg, 'f').count != _g(this, ug, 'f').length && (_g(this, dg, 'f').count = Math.min(_g(this, ug, 'f').length, _g(this, fg, 'f')), t = !0);
+                for (let e = 0; e < _g(this, dg, 'f').count; ++e) {
+                    const t = _g(this, ug, 'f')[_g(this, ug, 'f').length - 1 - e], n = new Matrix4();
+                    n.lookAt(new Vector3(t.x, t.y, t.z), _g(this, hg, 'f').camera.position, _g(this, pg, 'f')), n.setPosition(t.x, t.y, t.z), n.multiply(new Matrix4().makeRotationZ(t.rotation));
                     const i = 0.5 + 2 * (0.5 - t.lifetime);
-                    n.scale(new Vector3(i, i, i)), Ag(this, hg, 'f').setMatrixAt(e, n);
+                    n.scale(new Vector3(i, i, i)), _g(this, dg, 'f').setMatrixAt(e, n);
                 }
-                (t || Ag(this, dg, 'f').length > 0) && (Ag(this, hg, 'f').instanceMatrix.needsUpdate = !0);
+                (t || _g(this, ug, 'f').length > 0) && (_g(this, dg, 'f').instanceMatrix.needsUpdate = !0);
             }
             static initResources(e) {
                 e.addResource();
                 const t = new AudioLoader().load('images/smoke.png', () => {
                     e.loadedResource();
                 });
-                Ag(this, lg, 'f', mg).map = t;
+                _g(this, cg, 'f', gg).map = t;
             }
         }
-        lg = _g, cg = new WeakMap(), hg = new WeakMap(), dg = new WeakMap(), ug = new WeakMap(), fg = new WeakMap(), pg = {
+        cg = vg, hg = new WeakMap(), dg = new WeakMap(), ug = new WeakMap(), fg = new WeakMap(), pg = new WeakMap(), mg = {
             value: (() => {
                 const e = new TorusKnotGeometry();
                 return e.rotateX(Math.PI), e;
             })()
-        }, mg = {
+        }, gg = {
             value: new Si({
                 opacity: 0.3,
                 depthWrite: !1,
                 transparent: !0
             })
         };
-        const vg = _g;
-        var wg, yg, xg, bg, Sg, Eg, Mg, Tg, Cg, Ig, Rg = function (e, t, n, i, r) {
+        const wg = vg;
+        var yg, xg, bg, Sg, Eg, Mg, Tg, Cg, Ig, Rg, Pg = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -16872,43 +16882,43 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, Pg = function (e, t, n, i) {
+            }, Bg = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        class Bg {
+        class Dg {
             constructor(e) {
-                yg.set(this, void 0), xg.set(this, void 0), bg.set(this, void 0), Sg.set(this, void 0), Eg.set(this, 1000), Mg.set(this, 0), Tg.set(this, null), Cg.set(this, null), Rg(this, yg, e, 'f');
+                xg.set(this, void 0), bg.set(this, void 0), Sg.set(this, void 0), Eg.set(this, void 0), Mg.set(this, 1000), Tg.set(this, 0), Cg.set(this, null), Ig.set(this, null), Pg(this, xg, e, 'f');
                 const t = new BufferGeometry();
-                Rg(this, bg, new Float32Array(6 * Pg(this, Eg, 'f') * 3), 'f'), Rg(this, Sg, new BufferAttribute(Pg(this, bg, 'f'), 3), 'f'), t.setAttribute('position', Pg(this, Sg, 'f')), Rg(this, xg, new Mesh(t, Pg(wg, wg, 'f', Ig)), 'f'), Pg(this, xg, 'f').frustumCulled = !1, Pg(this, yg, 'f').scene.add(Pg(this, xg, 'f'));
+                Pg(this, Sg, new Float32Array(6 * Bg(this, Mg, 'f') * 3), 'f'), Pg(this, Eg, new BufferAttribute(Bg(this, Sg, 'f'), 3), 'f'), t.setAttribute('position', Bg(this, Eg, 'f')), Pg(this, bg, new Mesh(t, Bg(yg, yg, 'f', Rg)), 'f'), Bg(this, bg, 'f').frustumCulled = !1, Bg(this, xg, 'f').scene.add(Bg(this, bg, 'f'));
             }
             dispose() {
-                Pg(this, xg, 'f').geometry.dispose(), Pg(this, yg, 'f').scene.remove(Pg(this, xg, 'f'));
+                Bg(this, bg, 'f').geometry.dispose(), Bg(this, xg, 'f').scene.remove(Bg(this, bg, 'f'));
             }
             clear() {
-                for (let REVISION = 0; REVISION < Pg(this, bg, 'f').length; ++REVISION)
-                    Pg(this, bg, 'f')[REVISION] = 0;
-                Pg(this, Sg, 'f').needsUpdate = !0, Rg(this, Mg, 0, 'f'), this.break();
+                for (let REVISION = 0; REVISION < Bg(this, Sg, 'f').length; ++REVISION)
+                    Bg(this, Sg, 'f')[REVISION] = 0;
+                Bg(this, Eg, 'f').needsUpdate = !0, Pg(this, Tg, 0, 'f'), this.break();
             }
             break() {
-                Rg(this, Tg, null, 'f'), Rg(this, Cg, null, 'f');
+                Pg(this, Cg, null, 'f'), Pg(this, Ig, null, 'f');
             }
             spawn(e, t, n, i) {
                 var r, a;
-                const s = Pg(this, Tg, 'f'), o = Pg(this, Cg, 'f'), l = new Vector3().addVectors(e, new Vector3(0.172, -0.3, 0).applyQuaternion(t)), c = new Vector3().addVectors(e, new Vector3(-0.172, -0.3, 0).applyQuaternion(t)), h = new Vector3().copy(l), d = new Vector3().copy(c), u = new Vector3().subVectors(l, n).dot(i);
+                const s = Bg(this, Cg, 'f'), o = Bg(this, Ig, 'f'), l = new Vector3().addVectors(e, new Vector3(0.172, -0.3, 0).applyQuaternion(t)), c = new Vector3().addVectors(e, new Vector3(-0.172, -0.3, 0).applyQuaternion(t)), h = new Vector3().copy(l), d = new Vector3().copy(c), u = new Vector3().subVectors(l, n).dot(i);
                 h.addScaledVector(i, -u);
                 const f = new Vector3().subVectors(c, n).dot(i);
                 if (d.addScaledVector(i, -f), null != s && null != o) {
-                    const e = (Rg(this, Mg, (a = Pg(this, Mg, 'f'), r = a++, a), 'f'), r);
-                    Pg(this, bg, 'f')[6 * e * 3 + 0] = h.x, Pg(this, bg, 'f')[6 * e * 3 + 1] = h.y, Pg(this, bg, 'f')[6 * e * 3 + 2] = h.z, Pg(this, bg, 'f')[6 * e * 3 + 3] = s.x, Pg(this, bg, 'f')[6 * e * 3 + 4] = s.y, Pg(this, bg, 'f')[6 * e * 3 + 5] = s.z, Pg(this, bg, 'f')[6 * e * 3 + 6] = d.x, Pg(this, bg, 'f')[6 * e * 3 + 7] = d.y, Pg(this, bg, 'f')[6 * e * 3 + 8] = d.z, Pg(this, bg, 'f')[6 * e * 3 + 9] = d.x, Pg(this, bg, 'f')[6 * e * 3 + 10] = d.y, Pg(this, bg, 'f')[6 * e * 3 + 11] = d.z, Pg(this, bg, 'f')[6 * e * 3 + 12] = s.x, Pg(this, bg, 'f')[6 * e * 3 + 13] = s.y, Pg(this, bg, 'f')[6 * e * 3 + 14] = s.z, Pg(this, bg, 'f')[6 * e * 3 + 15] = o.x, Pg(this, bg, 'f')[6 * e * 3 + 16] = o.y, Pg(this, bg, 'f')[6 * e * 3 + 17] = o.z, Pg(this, Sg, 'f').needsUpdate = !0, Pg(this, Mg, 'f') >= Pg(this, Eg, 'f') - 1 && Rg(this, Mg, 0, 'f');
+                    const e = (Pg(this, Tg, (a = Bg(this, Tg, 'f'), r = a++, a), 'f'), r);
+                    Bg(this, Sg, 'f')[6 * e * 3 + 0] = h.x, Bg(this, Sg, 'f')[6 * e * 3 + 1] = h.y, Bg(this, Sg, 'f')[6 * e * 3 + 2] = h.z, Bg(this, Sg, 'f')[6 * e * 3 + 3] = s.x, Bg(this, Sg, 'f')[6 * e * 3 + 4] = s.y, Bg(this, Sg, 'f')[6 * e * 3 + 5] = s.z, Bg(this, Sg, 'f')[6 * e * 3 + 6] = d.x, Bg(this, Sg, 'f')[6 * e * 3 + 7] = d.y, Bg(this, Sg, 'f')[6 * e * 3 + 8] = d.z, Bg(this, Sg, 'f')[6 * e * 3 + 9] = d.x, Bg(this, Sg, 'f')[6 * e * 3 + 10] = d.y, Bg(this, Sg, 'f')[6 * e * 3 + 11] = d.z, Bg(this, Sg, 'f')[6 * e * 3 + 12] = s.x, Bg(this, Sg, 'f')[6 * e * 3 + 13] = s.y, Bg(this, Sg, 'f')[6 * e * 3 + 14] = s.z, Bg(this, Sg, 'f')[6 * e * 3 + 15] = o.x, Bg(this, Sg, 'f')[6 * e * 3 + 16] = o.y, Bg(this, Sg, 'f')[6 * e * 3 + 17] = o.z, Bg(this, Eg, 'f').needsUpdate = !0, Bg(this, Tg, 'f') >= Bg(this, Mg, 'f') - 1 && Pg(this, Tg, 0, 'f');
                 }
-                Rg(this, Tg, h, 'f'), Rg(this, Cg, d, 'f');
+                Pg(this, Cg, h, 'f'), Pg(this, Ig, d, 'f');
             }
         }
-        wg = Bg, yg = new WeakMap(), xg = new WeakMap(), bg = new WeakMap(), Sg = new WeakMap(), Eg = new WeakMap(), Mg = new WeakMap(), Tg = new WeakMap(), Cg = new WeakMap(), Ig = {
+        yg = Dg, xg = new WeakMap(), bg = new WeakMap(), Sg = new WeakMap(), Eg = new WeakMap(), Mg = new WeakMap(), Tg = new WeakMap(), Cg = new WeakMap(), Ig = new WeakMap(), Rg = {
             value: new Si({
                 color: 1118481,
                 side: 2,
@@ -16917,8 +16927,8 @@
                 polygonOffsetUnits: 0
             })
         };
-        const Dg = Bg;
-        var Lg, Ug, Ng, kg, Fg, Og, zg, Hg, Wg, Vg, Gg, Qg, Xg, jg, qg, Yg, Kg, Zg, Jg, $g, eA, tA, nA, iA, rA, aA, sA, oA, lA, cA, hA, dA, uA, fA, pA, mA, gA, AA, _A, vA, wA, yA, xA, bA, SA, EA, MA, TA, CA, IA, RA, PA, BA, DA, LA, UA, NA, kA, FA, OA, zA, HA, WA = function (e, t, n, i) {
+        const Lg = Dg;
+        var Ug, Ng, kg, Fg, Og, zg, Hg, Wg, Vg, Gg, Qg, Xg, jg, qg, Yg, Kg, Zg, Jg, $g, eA, tA, nA, iA, rA, aA, sA, oA, lA, cA, hA, dA, uA, fA, pA, mA, gA, AA, _A, vA, wA, yA, xA, bA, SA, EA, MA, TA, CA, IA, RA, PA, BA, DA, LA, UA, NA, kA, FA, OA, zA, HA, WA, VA = function (e, t, n, i) {
                 return new (n || (n = Promise))(function (r, a) {
                     function s(e) {
                         try {
@@ -16942,7 +16952,7 @@
                     }
                     l((i = i.apply(e, t || [])).next());
                 });
-            }, VA = function (e, t, n, i, r) {
+            }, GA = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -16950,22 +16960,17 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, GA = function (e, t, n, i) {
+            }, QA = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        class QA {
+        class XA {
             constructor(e, t, n, i, r, a, s, o, l) {
                 var c;
-                if (Lg.add(this), Ng.set(this, void 0), kg.set(this, null), Fg.set(this, 1), Og.set(this, null), zg.set(this, []), Hg.set(this, null), Wg.set(this, null), Vg.set(this, null), Gg.set(this, []), this.notificationAudioEnabled = !1, Qg.set(this, void 0), Xg.set(this, void 0), jg.set(this, void 0), qg.set(this, !1), Yg.set(this, void 0), Kg.set(this, void 0), Zg.set(this, void 0), Jg.set(this, void 0), nA.set(this, []), iA.set(this, []), rA.set(this, []), aA.set(this, [
-                        0,
-                        0,
-                        0,
-                        0
-                    ]), sA.set(this, [
+                if (Ug.add(this), kg.set(this, void 0), Fg.set(this, null), Og.set(this, 1), zg.set(this, null), Hg.set(this, []), Wg.set(this, null), Vg.set(this, null), Gg.set(this, null), Qg.set(this, []), this.notificationAudioEnabled = !1, Xg.set(this, void 0), jg.set(this, void 0), qg.set(this, void 0), Yg.set(this, !1), Kg.set(this, void 0), Zg.set(this, void 0), Jg.set(this, void 0), $g.set(this, void 0), iA.set(this, []), rA.set(this, []), aA.set(this, []), sA.set(this, [
                         0,
                         0,
                         0,
@@ -16975,35 +16980,40 @@
                         0,
                         0,
                         0
-                    ]), lA.set(this, void 0), cA.set(this, void 0), hA.set(this, null), dA.set(this, null), uA.set(this, []), fA.set(this, null), pA.set(this, void 0), mA.set(this, void 0), gA.set(this, void 0), AA.set(this, void 0), _A.set(this, void 0), vA.set(this, void 0), wA.set(this, []), yA.set(this, null), xA.set(this, [
+                    ]), lA.set(this, [
+                        0,
+                        0,
+                        0,
+                        0
+                    ]), cA.set(this, void 0), hA.set(this, void 0), dA.set(this, null), uA.set(this, null), fA.set(this, []), pA.set(this, null), mA.set(this, void 0), gA.set(this, void 0), AA.set(this, void 0), _A.set(this, void 0), vA.set(this, void 0), wA.set(this, void 0), yA.set(this, []), xA.set(this, null), bA.set(this, [
                         0.075,
                         0.075,
                         0.075,
                         0.075
-                    ]), bA.set(this, void 0), SA.set(this, null), EA.set(this, void 0), MA.set(this, !1), VA(this, Ng, a, 'f'), VA(this, lA, r, 'f'), VA(this, AA, s, 'f'), VA(this, _A, o, 'f'), VA(this, vA, l, 'f'), VA(this, jg, e, 'f'), (null == l ? void 0 : l.getSettingBoolean(dm.ParticlesEnabled)) ? VA(this, bA, new vg(r), 'f') : VA(this, bA, null, 'f'), null != GA(this, AA, 'f') && null != GA(this, _A, 'f') && VA(this, wA, [
-                        new Dg(GA(this, lA, 'f')),
-                        new Dg(GA(this, lA, 'f')),
-                        new Dg(GA(this, lA, 'f')),
-                        new Dg(GA(this, lA, 'f'))
-                    ], 'f'), VA(this, Qg, new og(), 'f'), GA(this, Qg, 'f').reset(t.position, t.quaternion), r.scene.add(GA(this, Qg, 'f').camera), VA(this, Xg, new qm(), 'f'), GA(this, Xg, 'f').reset(t.position, t.quaternion), r.scene.add(GA(this, Xg, 'f').camera), null == Ug.models)
+                    ]), SA.set(this, void 0), EA.set(this, null), MA.set(this, void 0), TA.set(this, !1), GA(this, kg, a, 'f'), GA(this, cA, r, 'f'), GA(this, _A, s, 'f'), GA(this, vA, o, 'f'), GA(this, wA, l, 'f'), GA(this, qg, e, 'f'), (null == l ? void 0 : l.getSettingBoolean(dm.ParticlesEnabled)) ? GA(this, SA, new wg(r), 'f') : GA(this, SA, null, 'f'), null != QA(this, _A, 'f') && null != QA(this, vA, 'f') && GA(this, yA, [
+                        new Lg(QA(this, cA, 'f')),
+                        new Lg(QA(this, cA, 'f')),
+                        new Lg(QA(this, cA, 'f')),
+                        new Lg(QA(this, cA, 'f'))
+                    ], 'f'), GA(this, Xg, new lg(), 'f'), QA(this, Xg, 'f').reset(t.position, t.quaternion), r.scene.add(QA(this, Xg, 'f').camera), GA(this, jg, new Ym(), 'f'), QA(this, jg, 'f').reset(t.position, t.quaternion), r.scene.add(QA(this, jg, 'f').camera), null == Ng.models)
                     throw new Error('Car model isn\'t loaded yet');
-                if (null != GA(this, jg, 'f') && null != GA(this, AA, 'f') && null != GA(this, _A, 'f'))
-                    VA(this, Yg, GA(this, jg, 'f').createCar(t, GA(this, AA, 'f').getMountainVertices(), GA(this, AA, 'f').getMountainOffset(), GA(this, _A, 'f').getTrackData(), n, e => {
+                if (null != QA(this, qg, 'f') && null != QA(this, _A, 'f') && null != QA(this, vA, 'f'))
+                    GA(this, Kg, QA(this, qg, 'f').createCar(t, QA(this, _A, 'f').getMountainVertices(), QA(this, _A, 'f').getMountainOffset(), QA(this, vA, 'f').getTrackData(), n, e => {
                         this.setCarState(e);
                     }), 'f');
                 else {
                     const e = [
-                            new Vector3(0.627909, 0.27 - Ug.suspensionResetLengthFront, 1.3478).applyQuaternion(t.quaternion).add(t.position),
-                            new Vector3(-0.627909, 0.27 - Ug.suspensionResetLengthFront, 1.3478).applyQuaternion(t.quaternion).add(t.position),
-                            new Vector3(0.720832, 0.27 - Ug.suspensionResetLengthRear, -1.52686).applyQuaternion(t.quaternion).add(t.position),
-                            new Vector3(-0.720832, 0.27 - Ug.suspensionResetLengthRear, -1.52686).applyQuaternion(t.quaternion).add(t.position)
+                            new Vector3(0.627909, 0.27 - Ng.suspensionResetLengthFront, 1.3478).applyQuaternion(t.quaternion).add(t.position),
+                            new Vector3(-0.627909, 0.27 - Ng.suspensionResetLengthFront, 1.3478).applyQuaternion(t.quaternion).add(t.position),
+                            new Vector3(0.720832, 0.27 - Ng.suspensionResetLengthRear, -1.52686).applyQuaternion(t.quaternion).add(t.position),
+                            new Vector3(-0.720832, 0.27 - Ng.suspensionResetLengthRear, -1.52686).applyQuaternion(t.quaternion).add(t.position)
                         ], n = [
                             new Quaternion().setFromEuler(new Euler().set(0, Math.PI, 0)).multiply(t.quaternion),
                             new Quaternion().setFromEuler(new Euler().set(0, Math.PI, 0)).multiply(t.quaternion),
                             new Quaternion().setFromEuler(new Euler().set(0, Math.PI, 0)).multiply(t.quaternion),
                             new Quaternion().setFromEuler(new Euler().set(0, Math.PI, 0)).multiply(t.quaternion)
                         ];
-                    VA(this, Yg, {
+                    GA(this, Kg, {
                         id: 0,
                         frames: 0,
                         speedKmh: 0,
@@ -17030,10 +17040,10 @@
                             null
                         ],
                         wheelSuspensionLength: [
-                            Ug.suspensionResetLengthFront,
-                            Ug.suspensionResetLengthFront,
-                            Ug.suspensionResetLengthRear,
-                            Ug.suspensionResetLengthRear
+                            Ng.suspensionResetLengthFront,
+                            Ng.suspensionResetLengthFront,
+                            Ng.suspensionResetLengthRear,
+                            Ng.suspensionResetLengthRear
                         ],
                         wheelSuspensionVelocity: [
                             0,
@@ -17071,36 +17081,36 @@
                         }
                     }, 'f');
                 }
-                if (VA(this, Kg, i, 'f'), null == n)
-                    VA(this, Zg, null != GA(this, Kg, 'f'), 'f'), VA(this, Jg, new Sh(), 'f');
+                if (GA(this, Zg, i, 'f'), null == n)
+                    GA(this, Jg, null != QA(this, Zg, 'f'), 'f'), GA(this, $g, new Sh(), 'f');
                 else {
-                    if (null != GA(this, Kg, 'f'))
+                    if (null != QA(this, Zg, 'f'))
                         throw new Error('Can\'t control car when recording is set');
-                    VA(this, Zg, !1, 'f'), VA(this, Jg, n, 'f');
+                    GA(this, Jg, !1, 'f'), GA(this, $g, n, 'f');
                 }
-                VA(this, gA, Km.random(), 'f'), VA(this, pA, Ug.createTexture(r), 'f'), VA(this, mA, { value: new Vector3(0, 0, 0) }, 'f'), VA(this, cA, new pr(), 'f'), GA(this, cA, 'f').add(Ug.models.chassis.clone()), GA(this, cA, 'f').add(Ug.models.suspension.clone()), GA(this, cA, 'f').add(Ug.models.wheelFL.clone()), GA(this, cA, 'f').add(Ug.models.wheelFR.clone()), GA(this, cA, 'f').add(Ug.models.wheelBL.clone()), GA(this, cA, 'f').add(Ug.models.wheelBR.clone());
-                for (const e of GA(this, cA, 'f').children) {
+                GA(this, AA, Zm.random(), 'f'), GA(this, mA, Ng.createTexture(r), 'f'), GA(this, gA, { value: new Vector3(0, 0, 0) }, 'f'), GA(this, hA, new pr(), 'f'), QA(this, hA, 'f').add(Ng.models.chassis.clone()), QA(this, hA, 'f').add(Ng.models.suspension.clone()), QA(this, hA, 'f').add(Ng.models.wheelFL.clone()), QA(this, hA, 'f').add(Ng.models.wheelFR.clone()), QA(this, hA, 'f').add(Ng.models.wheelBL.clone()), QA(this, hA, 'f').add(Ng.models.wheelBR.clone());
+                for (const e of QA(this, hA, 'f').children) {
                     const t = e;
                     let n;
                     Array.isArray(t.material) ? (n = t.material.map(e => e.clone()), t.material = n) : (n = [t.material.clone()], t.material = n[0]);
                     for (const e of n)
                         if ('Main' == e.name)
                             e.onBeforeCompile = e => {
-                                e.fragmentShader = 'uniform sampler2D carColorPattern;\nuniform vec3 carColorSecondary;\n' + e.fragmentShader, e.fragmentShader = e.fragmentShader.replace('vec4 diffuseColor = vec4( diffuse, opacity );', 'float colorSource = texture(carColorPattern, vUv).a;\nvec4 diffuseColor = vec4( carColorSecondary * colorSource + diffuse * (1.0 - colorSource), opacity );'), e.uniforms.carColorPattern = { value: GA(this, pA, 'f') }, e.uniforms.carColorSecondary = GA(this, mA, 'f'), null == e.defines && (e.defines = {}), e.defines.USE_UV = !0;
+                                e.fragmentShader = 'uniform sampler2D carColorPattern;\nuniform vec3 carColorSecondary;\n' + e.fragmentShader, e.fragmentShader = e.fragmentShader.replace('vec4 diffuseColor = vec4( diffuse, opacity );', 'float colorSource = texture(carColorPattern, vUv).a;\nvec4 diffuseColor = vec4( carColorSecondary * colorSource + diffuse * (1.0 - colorSource), opacity );'), e.uniforms.carColorPattern = { value: QA(this, mA, 'f') }, e.uniforms.carColorSecondary = QA(this, gA, 'f'), null == e.defines && (e.defines = {}), e.defines.USE_UV = !0;
                             }, e.needsUpdate = !0;
                         else if ('Metal' == e.name)
                             e.needsUpdate = !0;
                         else if ('BrakeLight' == e.name) {
                             if (!(e instanceof xa))
                                 throw new Error('Brake light material must be MeshStandardMaterial');
-                            VA(this, fA, e, 'f');
+                            GA(this, pA, e, 'f');
                         }
                     t.castShadow = !0, t.receiveShadow = !0, t.frustumCulled = !1, r.addMaterial(t.material);
                 }
-                GA(this, lA, 'f').scene.add(GA(this, cA, 'f')), VA(this, hA, GA(this, cA, 'f').getObjectByName('Body'), 'f'), VA(this, dA, GA(this, cA, 'f').getObjectByName('Suspension'), 'f'), GA(this, dA, 'f').geometry.morphAttributes.position = [];
-                const h = GA(this, dA, 'f'), d = Ug.models.suspensionFL, u = Ug.models.suspensionFR, f = Ug.models.suspensionBL, p = Ug.models.suspensionBR;
-                for (const e of GA(this, cA, 'f').children)
-                    if (e != GA(this, hA, 'f') && e != GA(this, dA, 'f')) {
+                QA(this, cA, 'f').scene.add(QA(this, hA, 'f')), GA(this, dA, QA(this, hA, 'f').getObjectByName('Body'), 'f'), GA(this, uA, QA(this, hA, 'f').getObjectByName('Suspension'), 'f'), QA(this, uA, 'f').geometry.morphAttributes.position = [];
+                const h = QA(this, uA, 'f'), d = Ng.models.suspensionFL, u = Ng.models.suspensionFR, f = Ng.models.suspensionBL, p = Ng.models.suspensionBR;
+                for (const e of QA(this, hA, 'f').children)
+                    if (e != QA(this, dA, 'f') && e != QA(this, uA, 'f')) {
                         const t = e;
                         if (!(d.geometry.attributes.position instanceof BufferAttribute && u.geometry.attributes.position instanceof BufferAttribute && f.geometry.attributes.position instanceof BufferAttribute && p.geometry.attributes.position instanceof BufferAttribute))
                             throw new Error('Vertices must use BufferAttribute');
@@ -17116,107 +17126,107 @@
                                 throw new Error('Unidentified wheel');
                             s.push(new BufferAttribute(a, 3));
                         }
-                        GA(this, uA, 'f').push(t);
+                        QA(this, fA, 'f').push(t);
                     }
-                GA(this, dA, 'f').updateMorphTargets(), null != GA(this, Kg, 'f') && (null === (c = GA(this, jg, 'f')) || void 0 === c || c.controlCar(GA(this, Yg, 'f').id, GA(this, Kg, 'f').up, GA(this, Kg, 'f').right, GA(this, Kg, 'f').down, GA(this, Kg, 'f').left, GA(this, Kg, 'f').reset), GA(this, Kg, 'f').addChangeCallback(VA(this, SA, e => {
+                QA(this, uA, 'f').updateMorphTargets(), null != QA(this, Zg, 'f') && (null === (c = QA(this, qg, 'f')) || void 0 === c || c.controlCar(QA(this, Kg, 'f').id, QA(this, Zg, 'f').up, QA(this, Zg, 'f').right, QA(this, Zg, 'f').down, QA(this, Zg, 'f').left, QA(this, Zg, 'f').reset), QA(this, Zg, 'f').addChangeCallback(GA(this, EA, e => {
                     var t;
-                    null === (t = GA(this, jg, 'f')) || void 0 === t || t.controlCar(GA(this, Yg, 'f').id, e.up, e.right, e.down, e.left, e.reset);
-                }, 'f'))), r.addContextRestoredEventListener(VA(this, EA, () => {
-                    GA(this, pA, 'f').dispose(), VA(this, pA, Ug.createTexture(r), 'f');
+                    null === (t = QA(this, qg, 'f')) || void 0 === t || t.controlCar(QA(this, Kg, 'f').id, e.up, e.right, e.down, e.left, e.reset);
+                }, 'f'))), r.addContextRestoredEventListener(GA(this, MA, () => {
+                    QA(this, mA, 'f').dispose(), GA(this, mA, Ng.createTexture(r), 'f');
                 }, 'f'));
             }
             dispose() {
                 var e, t, n;
-                VA(this, MA, !0, 'f'), GA(this, Lg, 'm', TA).call(this), GA(this, lA, 'f').scene.remove(GA(this, Qg, 'f').camera), GA(this, lA, 'f').scene.remove(GA(this, Xg, 'f').camera), null === (e = GA(this, bA, 'f')) || void 0 === e || e.dispose();
-                for (const e of GA(this, wA, 'f'))
+                GA(this, TA, !0, 'f'), QA(this, Ug, 'm', CA).call(this), QA(this, cA, 'f').scene.remove(QA(this, Xg, 'f').camera), QA(this, cA, 'f').scene.remove(QA(this, jg, 'f').camera), null === (e = QA(this, SA, 'f')) || void 0 === e || e.dispose();
+                for (const e of QA(this, yA, 'f'))
                     e.dispose();
-                GA(this, wA, 'f').length = 0, GA(this, lA, 'f').scene.remove(GA(this, cA, 'f')), GA(this, pA, 'f').dispose();
-                for (const e of GA(this, cA, 'f').children) {
+                QA(this, yA, 'f').length = 0, QA(this, cA, 'f').scene.remove(QA(this, hA, 'f')), QA(this, mA, 'f').dispose();
+                for (const e of QA(this, hA, 'f').children) {
                     if (!(e instanceof Mesh))
                         throw new Error('Mesh is not a THREE.Mesh');
-                    GA(this, lA, 'f').removeMaterial(e.material);
+                    QA(this, cA, 'f').removeMaterial(e.material);
                 }
-                null === (t = GA(this, jg, 'f')) || void 0 === t || t.deleteCar(GA(this, Yg, 'f').id), null != GA(this, SA, 'f') && (null === (n = GA(this, Kg, 'f')) || void 0 === n || n.removeChangeCallback(GA(this, SA, 'f'))), GA(this, lA, 'f').removeContextRestoredEventListener(GA(this, EA, 'f'));
+                null === (t = QA(this, qg, 'f')) || void 0 === t || t.deleteCar(QA(this, Kg, 'f').id), null != QA(this, EA, 'f') && (null === (n = QA(this, Zg, 'f')) || void 0 === n || n.removeChangeCallback(QA(this, EA, 'f'))), QA(this, cA, 'f').removeContextRestoredEventListener(QA(this, MA, 'f'));
             }
             addResetCallback(e) {
-                GA(this, nA, 'f').push(e);
+                QA(this, iA, 'f').push(e);
             }
             addCheckpointCallback(e) {
-                GA(this, iA, 'f').push(e);
+                QA(this, rA, 'f').push(e);
             }
             addFinishCallback(e) {
-                GA(this, rA, 'f').push(e);
+                QA(this, aA, 'f').push(e);
             }
             getChassisMatrix() {
-                return null != GA(this, hA, 'f') ? GA(this, hA, 'f').matrix : null;
+                return null != QA(this, dA, 'f') ? QA(this, dA, 'f').matrix : null;
             }
             getSpeedKmh() {
-                return GA(this, Yg, 'f').speedKmh;
+                return QA(this, Kg, 'f').speedKmh;
             }
             start() {
                 var e;
-                null === (e = GA(this, jg, 'f')) || void 0 === e || e.startCar(GA(this, Yg, 'f').id, null);
+                null === (e = QA(this, qg, 'f')) || void 0 === e || e.startCar(QA(this, Kg, 'f').id, null);
             }
             hasStarted() {
-                return GA(this, Yg, 'f').hasStarted;
+                return QA(this, Kg, 'f').hasStarted;
             }
             hasFinished() {
-                return null != GA(this, Yg, 'f').finishFrames;
+                return null != QA(this, Kg, 'f').finishFrames;
             }
             getFinishTime() {
-                return null == GA(this, Yg, 'f').finishFrames ? null : new Xh(GA(this, Yg, 'f').finishFrames);
+                return null == QA(this, Kg, 'f').finishFrames ? null : new Xh(QA(this, Kg, 'f').finishFrames);
             }
             getRecording() {
-                return GA(this, Jg, 'f');
+                return QA(this, $g, 'f');
             }
             getTime() {
-                return new Xh(GA(this, Yg, 'f').frames);
+                return new Xh(QA(this, Kg, 'f').frames);
             }
             getNextCheckpointIndex() {
-                return GA(this, Yg, 'f').nextCheckpointIndex;
+                return QA(this, Kg, 'f').nextCheckpointIndex;
             }
             hasCheckpointToRespawnAt() {
-                return GA(this, Yg, 'f').hasCheckpointToRespawnAt;
+                return QA(this, Kg, 'f').hasCheckpointToRespawnAt;
             }
             getPosition() {
-                return new Vector3(GA(this, Yg, 'f').position.x, GA(this, Yg, 'f').position.y, GA(this, Yg, 'f').position.z);
+                return new Vector3(QA(this, Kg, 'f').position.x, QA(this, Kg, 'f').position.y, QA(this, Kg, 'f').position.z);
             }
             getQuaternion() {
-                return new Quaternion(GA(this, Yg, 'f').quaternion.x, GA(this, Yg, 'f').quaternion.y, GA(this, Yg, 'f').quaternion.z, GA(this, Yg, 'f').quaternion.w);
+                return new Quaternion(QA(this, Kg, 'f').quaternion.x, QA(this, Kg, 'f').quaternion.y, QA(this, Kg, 'f').quaternion.z, QA(this, Kg, 'f').quaternion.w);
             }
             getMatrix4() {
                 const e = this.getPosition(), t = this.getQuaternion(), n = new Matrix4().makeRotationFromQuaternion(t);
                 return n.setPosition(e), n;
             }
             get isPaused() {
-                return GA(this, qg, 'f');
+                return QA(this, Yg, 'f');
             }
             set isPaused(e) {
                 var t;
-                GA(this, qg, 'f') != e && (null === (t = GA(this, jg, 'f')) || void 0 === t || t.pauseCar(GA(this, Yg, 'f').id, e), VA(this, qg, e, 'f'));
+                QA(this, Yg, 'f') != e && (null === (t = QA(this, qg, 'f')) || void 0 === t || t.pauseCar(QA(this, Kg, 'f').id, e), GA(this, Yg, e, 'f'));
             }
             getControls() {
-                return null != GA(this, Kg, 'f') ? GA(this, Kg, 'f').getControls() : GA(this, Yg, 'f').controls;
+                return null != QA(this, Zg, 'f') ? QA(this, Zg, 'f').getControls() : QA(this, Kg, 'f').controls;
             }
             getColors() {
-                return GA(this, gA, 'f');
+                return QA(this, AA, 'f');
             }
             setColors(e) {
-                if (GA(this, mA, 'f').value = new Vector3().setFromColor(e.secondary), null != GA(this, hA, 'f') && Array.isArray(GA(this, hA, 'f').material))
-                    for (const t of GA(this, hA, 'f').material)
+                if (QA(this, gA, 'f').value = new Vector3().setFromColor(e.secondary), null != QA(this, dA, 'f') && Array.isArray(QA(this, dA, 'f').material))
+                    for (const t of QA(this, dA, 'f').material)
                         'Main' == t.name ? t.color.set(e.primary) : 'Metal' == t.name && t.color.set(e.frame);
-                if (null != GA(this, dA, 'f') && !Array.isArray(GA(this, dA, 'f').material)) {
-                    const t = GA(this, dA, 'f').material;
+                if (null != QA(this, uA, 'f') && !Array.isArray(QA(this, uA, 'f').material)) {
+                    const t = QA(this, uA, 'f').material;
                     'Metal' == t.name && t.color.set(e.frame);
                 }
-                for (const t of GA(this, uA, 'f'))
+                for (const t of QA(this, fA, 'f'))
                     if (Array.isArray(t.material))
                         for (const n of t.material)
                             'Metal' == n.name ? n.color.set(e.frame) : 'Rim' == n.name && n.color.set(e.rims);
-                VA(this, gA, e, 'f');
+                GA(this, AA, e, 'f');
             }
             static createTexture(e) {
-                if (null == Ug.images)
+                if (null == Ng.images)
                     throw new Error('Car images are not loaded yet');
                 const t = document.createElement('canvas');
                 t.width = 2048, t.height = 2048;
@@ -17224,10 +17234,10 @@
                 if (null == n)
                     throw new Error('Failed to get context for car texture');
                 const i = new Texture(t);
-                return i.flipY = !1, i.anisotropy = e.getMaxAnisotropy(), i.needsUpdate = !0, n.clearRect(0, 0, n.canvas.width, n.canvas.height), n.drawImage(Ug.images.stripe, 0, 0, n.canvas.width, n.canvas.height), i.needsUpdate = !0, i;
+                return i.flipY = !1, i.anisotropy = e.getMaxAnisotropy(), i.needsUpdate = !0, n.clearRect(0, 0, n.canvas.width, n.canvas.height), n.drawImage(Ng.images.stripe, 0, 0, n.canvas.width, n.canvas.height), i.needsUpdate = !0, i;
             }
             setOpacity(e) {
-                for (const t of GA(this, cA, 'f').children) {
+                for (const t of QA(this, hA, 'f').children) {
                     const n = t;
                     let i;
                     i = Array.isArray(n.material) ? n.material : [n.material];
@@ -17239,90 +17249,88 @@
                 }
             }
             setVisible(e) {
-                GA(this, cA, 'f').visible = e;
+                QA(this, hA, 'f').visible = e;
             }
             getCarState() {
-                return GA(this, Yg, 'f');
+                return QA(this, Kg, 'f');
             }
             setCarState(e) {
                 var t;
-                if (GA(this, MA, 'f'))
+                if (QA(this, TA, 'f'))
                     return;
-                const n = GA(this, Yg, 'f');
-                VA(this, Yg, e, 'f');
-                const i = GA(this, Yg, 'f').frames != n.frames && GA(this, Yg, 'f').frames != n.frames + 1;
-                if (GA(this, Yg, 'f').nextCheckpointIndex > n.nextCheckpointIndex) {
-                    this.notificationAudioEnabled && GA(this, Lg, 'm', IA).call(this);
-                    for (const e of GA(this, iA, 'f'))
-                        e(n.nextCheckpointIndex);
-                }
-                if (null != GA(this, Yg, 'f').finishFrames && null == n.finishFrames) {
-                    this.notificationAudioEnabled && GA(this, Lg, 'm', RA).call(this);
-                    for (const e of GA(this, rA, 'f'))
-                        e(this);
-                }
-                const r = 0.001;
+                const n = QA(this, Kg, 'f');
+                GA(this, Kg, e, 'f');
+                const i = QA(this, Kg, 'f').frames != n.frames && QA(this, Kg, 'f').frames != n.frames + 1, r = 0.001;
                 if (i) {
-                    null === (t = GA(this, bA, 'f')) || void 0 === t || t.clear();
-                    for (const e of GA(this, wA, 'f'))
+                    null === (t = QA(this, SA, 'f')) || void 0 === t || t.clear();
+                    for (const e of QA(this, yA, 'f'))
                         e.clear();
                 }
-                if (this.getTime().numberOfFrames % 10 == 0 && GA(this, Lg, 'm', PA).call(this, 0.01), i || !n.controls.reset && GA(this, Yg, 'f').controls.reset) {
-                    GA(this, Qg, 'f').reset(this.getPosition(), this.getQuaternion(), this.getSpeedKmh()), GA(this, Xg, 'f').reset(this.getPosition(), this.getQuaternion(), this.getSpeedKmh());
-                    for (const e of GA(this, nA, 'f'))
+                if (this.getTime().numberOfFrames % 10 == 0 && QA(this, Ug, 'm', BA).call(this, 0.01), i || !n.controls.reset && QA(this, Kg, 'f').controls.reset) {
+                    QA(this, Xg, 'f').reset(this.getPosition(), this.getQuaternion(), this.getSpeedKmh()), QA(this, jg, 'f').reset(this.getPosition(), this.getQuaternion(), this.getSpeedKmh());
+                    for (const e of QA(this, iA, 'f'))
                         e();
                 }
-                GA(this, Lg, 'm', LA).call(this, r), GA(this, Lg, 'm', NA).call(this, r), GA(this, Zg, 'f') && GA(this, Yg, 'f').hasStarted && null == n.finishFrames && GA(this, Jg, 'f').recordFrame(n.frames, GA(this, Yg, 'f').controls);
+                if (QA(this, Ug, 'm', UA).call(this, r), QA(this, Ug, 'm', kA).call(this, r), QA(this, Jg, 'f') && QA(this, Kg, 'f').hasStarted && null == n.finishFrames && QA(this, $g, 'f').recordFrame(n.frames, QA(this, Kg, 'f').controls), QA(this, Kg, 'f').nextCheckpointIndex > n.nextCheckpointIndex) {
+                    this.notificationAudioEnabled && QA(this, Ug, 'm', RA).call(this);
+                    for (const e of QA(this, rA, 'f'))
+                        e(n.nextCheckpointIndex);
+                }
+                if (null != QA(this, Kg, 'f').finishFrames && null == n.finishFrames) {
+                    this.notificationAudioEnabled && QA(this, Ug, 'm', PA).call(this);
+                    for (const e of QA(this, aA, 'f'))
+                        e(this);
+                }
             }
             update(e) {
                 var t, n;
-                if (null != GA(this, hA, 'f') && null != GA(this, dA, 'f')) {
-                    GA(this, Lg, 'm', BA).call(this), null === (t = GA(this, bA, 'f')) || void 0 === t || t.update(e);
+                if (null != QA(this, dA, 'f') && null != QA(this, uA, 'f')) {
+                    QA(this, Ug, 'm', DA).call(this), null === (t = QA(this, SA, 'f')) || void 0 === t || t.update(e);
                     const i = this.getMatrix4(), r = this.getQuaternion();
-                    GA(this, hA, 'f').matrixAutoUpdate = !1, GA(this, hA, 'f').matrix.copy(i), GA(this, hA, 'f').matrix.multiply(new Matrix4().makeTranslation(0, Ug.massOffset, 0)), GA(this, dA, 'f').matrixAutoUpdate = !1, GA(this, dA, 'f').matrix.copy(GA(this, hA, 'f').matrix);
+                    QA(this, dA, 'f').matrixAutoUpdate = !1, QA(this, dA, 'f').matrix.copy(i), QA(this, dA, 'f').matrix.multiply(new Matrix4().makeTranslation(0, Ng.massOffset, 0)), QA(this, uA, 'f').matrixAutoUpdate = !1, QA(this, uA, 'f').matrix.copy(QA(this, dA, 'f').matrix);
                     const a = 4;
                     for (let t = 0; t < a; t++) {
-                        const i = null != GA(this, Yg, 'f').wheelContact[t], a = GA(this, Yg, 'f').wheelDeltaRotation[t];
+                        const i = null != QA(this, Kg, 'f').wheelContact[t], a = QA(this, Kg, 'f').wheelDeltaRotation[t];
                         if (this.hasStarted()) {
                             if (i)
-                                GA(this, aA, 'f')[t] = 1000 * a, GA(this, sA, 'f')[t] = 1000 * a;
+                                QA(this, sA, 'f')[t] = 1000 * a, QA(this, oA, 'f')[t] = 1000 * a;
                             else {
                                 const {
                                         up: n,
                                         down: i
                                     } = this.getControls(), r = 2 == t || 3 == t;
-                                i ? GA(this, Yg, 'f').brakeLightEnabled ? GA(this, sA, 'f')[t] > 0 ? GA(this, sA, 'f')[t] = Math.max(0, GA(this, sA, 'f')[t] - 50 * e) : GA(this, sA, 'f')[t] < 0 && (GA(this, sA, 'f')[t] = Math.min(0, GA(this, sA, 'f')[t] + 50 * e)) : r && (GA(this, aA, 'f')[t] -= 25 * e, GA(this, sA, 'f')[t] -= 25 * e) : n && r && (GA(this, aA, 'f')[t] += 25 * e, GA(this, sA, 'f')[t] += 50 * e), GA(this, aA, 'f')[t] *= Math.max(0, 1 - e), GA(this, sA, 'f')[t] *= Math.max(0, 1 - e);
+                                i ? QA(this, Kg, 'f').brakeLightEnabled ? QA(this, oA, 'f')[t] > 0 ? QA(this, oA, 'f')[t] = Math.max(0, QA(this, oA, 'f')[t] - 50 * e) : QA(this, oA, 'f')[t] < 0 && (QA(this, oA, 'f')[t] = Math.min(0, QA(this, oA, 'f')[t] + 50 * e)) : r && (QA(this, sA, 'f')[t] -= 25 * e, QA(this, oA, 'f')[t] -= 25 * e) : n && r && (QA(this, sA, 'f')[t] += 25 * e, QA(this, oA, 'f')[t] += 50 * e), QA(this, sA, 'f')[t] *= Math.max(0, 1 - e), QA(this, oA, 'f')[t] *= Math.max(0, 1 - e);
                             }
-                            GA(this, oA, 'f')[t] += GA(this, sA, 'f')[t] * e;
+                            QA(this, lA, 'f')[t] += QA(this, oA, 'f')[t] * e;
                         }
-                        const s = GA(this, Yg, 'f').wheelPosition[t], o = new Quaternion(GA(this, Yg, 'f').wheelQuaternion[t].x, GA(this, Yg, 'f').wheelQuaternion[t].y, GA(this, Yg, 'f').wheelQuaternion[t].z, GA(this, Yg, 'f').wheelQuaternion[t].w), l = GA(this, Yg, 'f').wheelRotation[t];
-                        o.multiply(new Quaternion().setFromAxisAngle(new Vector3(-1, 0, 0), GA(this, oA, 'f')[t] - l)), GA(this, uA, 'f')[t].position.set(s.x, s.y, s.z), GA(this, uA, 'f')[t].quaternion.set(o.x, o.y, o.z, o.w);
-                        const c = GA(this, Yg, 'f').wheelSuspensionLength[t], h = GA(this, Yg, 'f').wheelSkidInfo[t];
-                        if (GA(this, dA, 'f').morphTargetInfluences || (GA(this, dA, 'f').morphTargetInfluences = []), GA(this, dA, 'f').morphTargetInfluences[t] = 2 * c + 0.06, e > 0 && (null === (n = GA(this, vA, 'f')) || void 0 === n ? void 0 : n.getSettingBoolean(dm.SkidmarksEnabled)) && t < GA(this, wA, 'f').length) {
-                            const e = GA(this, Yg, 'f').wheelContact[t], n = Math.min(1, Math.abs(a) / GA(Ug, Ug, 'f', $g)), i = Math.pow(n, GA(Ug, Ug, 'f', eA)) * GA(Ug, Ug, 'f', tA);
-                            null != e && h < i && 0 == GA(this, xA, 'f')[t] && GA(this, wA, 'f')[t].spawn(new Vector3(s.x, s.y, s.z), r, new Vector3(e.position.x, e.position.y, e.position.z), new Vector3(e.normal.x, e.normal.y, e.normal.z));
+                        const s = QA(this, Kg, 'f').wheelPosition[t], o = new Quaternion(QA(this, Kg, 'f').wheelQuaternion[t].x, QA(this, Kg, 'f').wheelQuaternion[t].y, QA(this, Kg, 'f').wheelQuaternion[t].z, QA(this, Kg, 'f').wheelQuaternion[t].w), l = QA(this, Kg, 'f').wheelRotation[t];
+                        o.multiply(new Quaternion().setFromAxisAngle(new Vector3(-1, 0, 0), QA(this, lA, 'f')[t] - l)), QA(this, fA, 'f')[t].position.set(s.x, s.y, s.z), QA(this, fA, 'f')[t].quaternion.set(o.x, o.y, o.z, o.w);
+                        const c = QA(this, Kg, 'f').wheelSuspensionLength[t], h = QA(this, Kg, 'f').wheelSkidInfo[t];
+                        if (QA(this, uA, 'f').morphTargetInfluences || (QA(this, uA, 'f').morphTargetInfluences = []), QA(this, uA, 'f').morphTargetInfluences[t] = 2 * c + 0.06, e > 0 && (null === (n = QA(this, wA, 'f')) || void 0 === n ? void 0 : n.getSettingBoolean(dm.SkidmarksEnabled)) && t < QA(this, yA, 'f').length) {
+                            const e = QA(this, Kg, 'f').wheelContact[t], n = Math.min(1, Math.abs(a) / QA(Ng, Ng, 'f', eA)), i = Math.pow(n, QA(Ng, Ng, 'f', tA)) * QA(Ng, Ng, 'f', nA);
+                            null != e && h < i && 0 == QA(this, bA, 'f')[t] && QA(this, yA, 'f')[t].spawn(new Vector3(s.x, s.y, s.z), r, new Vector3(e.position.x, e.position.y, e.position.z), new Vector3(e.normal.x, e.normal.y, e.normal.z));
                         }
                     }
-                    GA(this, Lg, 'm', OA).call(this, GA(this, Yg, 'f').brakeLightEnabled);
+                    QA(this, Ug, 'm', zA).call(this, QA(this, Kg, 'f').brakeLightEnabled);
                 }
             }
             updateCameras(e) {
-                if (null == GA(this, Yg, 'f').finishFrames) {
+                if (null == QA(this, Kg, 'f').finishFrames) {
                     const t = this.getPosition(), n = this.getQuaternion(), i = this.getSpeedKmh();
-                    GA(this, Qg, 'f').update(e, t, n, i), GA(this, Xg, 'f').update(t, n, i);
+                    QA(this, Xg, 'f').update(e, t, n, i), QA(this, jg, 'f').update(t, n, i);
                 }
             }
             get cameraOrbit() {
-                return GA(this, Qg, 'f').camera;
+                return QA(this, Xg, 'f').camera;
             }
             get cameraCockpit() {
-                return GA(this, Xg, 'f').camera;
+                return QA(this, jg, 'f').camera;
             }
             set audioVolume(e) {
-                VA(this, Fg, e, 'f'), null != GA(this, kg, 'f') && GA(this, kg, 'f').gain.setTargetAtTime(GA(this, Fg, 'f'), 0, 0.01);
+                GA(this, Og, e, 'f'), null != QA(this, Fg, 'f') && QA(this, Fg, 'f').gain.setTargetAtTime(QA(this, Og, 'f'), 0, 0.01);
             }
             static initResources() {
-                return WA(this, void 0, void 0, function* () {
+                return VA(this, void 0, void 0, function* () {
                     const e = yield new Promise((e, t) => {
                         new gd().load('models/car.glb', n => {
                             function i(e) {
@@ -17412,7 +17420,7 @@
                                     e.side = 0, e.shadowSide = 0;
                                 return e;
                             }
-                            Ug.models = {
+                            Ng.models = {
                                 chassis: r(i('Body')),
                                 suspension: r(i('Suspension')),
                                 suspensionFL: r(i('SuspensionFL')),
@@ -17423,8 +17431,8 @@
                                 wheelFR: r(i('WheelFR')),
                                 wheelBL: r(i('WheelBL')),
                                 wheelBR: r(i('WheelBR')),
-                                collisionShapeVertices: GA(Ug, Ug, 'm', zA).call(Ug, i('Collision'))
-                            }, Ug.models.wheelFL.geometry.translate(-0.627909, 0.218824, -1.3478), Ug.models.wheelFR.geometry.translate(0.627909, 0.218824, -1.3478), Ug.models.wheelBL.geometry.translate(-0.720832, 0.218824, 1.52686), Ug.models.wheelBR.geometry.translate(0.720832, 0.218824, 1.52686), Ug.models.wheelFL.geometry.rotateZ(Math.PI), Ug.models.wheelFR.geometry.rotateZ(Math.PI), Ug.models.wheelBL.geometry.rotateZ(Math.PI), Ug.models.wheelBR.geometry.rotateZ(Math.PI), GA(Ug, Ug, 'm', HA).call(Ug).then(t => {
+                                collisionShapeVertices: QA(Ng, Ng, 'm', HA).call(Ng, i('Collision'))
+                            }, Ng.models.wheelFL.geometry.translate(-0.627909, 0.218824, -1.3478), Ng.models.wheelFR.geometry.translate(0.627909, 0.218824, -1.3478), Ng.models.wheelBL.geometry.translate(-0.720832, 0.218824, 1.52686), Ng.models.wheelBR.geometry.translate(0.720832, 0.218824, 1.52686), Ng.models.wheelFL.geometry.rotateZ(Math.PI), Ng.models.wheelFR.geometry.rotateZ(Math.PI), Ng.models.wheelBL.geometry.rotateZ(Math.PI), Ng.models.wheelBR.geometry.rotateZ(Math.PI), QA(Ng, Ng, 'm', WA).call(Ng).then(t => {
                                 e(t);
                             }).catch(t);
                         }, void 0, t);
@@ -17435,140 +17443,140 @@
                             e();
                         }), n.addEventListener('error', () => {
                             t(new Error('Failed to load image'));
-                        }), n.src = 'images/car_stripe.svg', Ug.images = { stripe: n };
+                        }), n.src = 'images/car_stripe.svg', Ng.images = { stripe: n };
                     }), e;
                 });
             }
         }
-        Ug = QA, Ng = new WeakMap(), kg = new WeakMap(), Fg = new WeakMap(), Og = new WeakMap(), zg = new WeakMap(), Hg = new WeakMap(), Wg = new WeakMap(), Vg = new WeakMap(), Gg = new WeakMap(), Qg = new WeakMap(), Xg = new WeakMap(), jg = new WeakMap(), qg = new WeakMap(), Yg = new WeakMap(), Kg = new WeakMap(), Zg = new WeakMap(), Jg = new WeakMap(), nA = new WeakMap(), iA = new WeakMap(), rA = new WeakMap(), aA = new WeakMap(), sA = new WeakMap(), oA = new WeakMap(), lA = new WeakMap(), cA = new WeakMap(), hA = new WeakMap(), dA = new WeakMap(), uA = new WeakMap(), fA = new WeakMap(), pA = new WeakMap(), mA = new WeakMap(), gA = new WeakMap(), AA = new WeakMap(), _A = new WeakMap(), vA = new WeakMap(), wA = new WeakMap(), yA = new WeakMap(), xA = new WeakMap(), bA = new WeakMap(), SA = new WeakMap(), EA = new WeakMap(), MA = new WeakMap(), Lg = new WeakSet(), TA = function () {
-            GA(this, Lg, 'm', CA).call(this), setTimeout(() => {
-                if (null != GA(this, Og, 'f') && (GA(this, Og, 'f').source.stop(), VA(this, Og, null, 'f')), null != GA(this, Hg, 'f')) {
-                    for (const {source: REVISION} of GA(this, Hg, 'f'))
+        Ng = XA, kg = new WeakMap(), Fg = new WeakMap(), Og = new WeakMap(), zg = new WeakMap(), Hg = new WeakMap(), Wg = new WeakMap(), Vg = new WeakMap(), Gg = new WeakMap(), Qg = new WeakMap(), Xg = new WeakMap(), jg = new WeakMap(), qg = new WeakMap(), Yg = new WeakMap(), Kg = new WeakMap(), Zg = new WeakMap(), Jg = new WeakMap(), $g = new WeakMap(), iA = new WeakMap(), rA = new WeakMap(), aA = new WeakMap(), sA = new WeakMap(), oA = new WeakMap(), lA = new WeakMap(), cA = new WeakMap(), hA = new WeakMap(), dA = new WeakMap(), uA = new WeakMap(), fA = new WeakMap(), pA = new WeakMap(), mA = new WeakMap(), gA = new WeakMap(), AA = new WeakMap(), _A = new WeakMap(), vA = new WeakMap(), wA = new WeakMap(), yA = new WeakMap(), xA = new WeakMap(), bA = new WeakMap(), SA = new WeakMap(), EA = new WeakMap(), MA = new WeakMap(), TA = new WeakMap(), Ug = new WeakSet(), CA = function () {
+            QA(this, Ug, 'm', IA).call(this), setTimeout(() => {
+                if (null != QA(this, zg, 'f') && (QA(this, zg, 'f').source.stop(), GA(this, zg, null, 'f')), null != QA(this, Wg, 'f')) {
+                    for (const {source: REVISION} of QA(this, Wg, 'f'))
                         REVISION.stop();
-                    VA(this, Hg, null, 'f');
+                    GA(this, Wg, null, 'f');
                 }
             }, 200);
-        }, CA = function () {
-            if (null != GA(this, Og, 'f') && (GA(this, Og, 'f').source.playbackRate.setTargetAtTime(0.7, 0, 0.15), GA(this, Og, 'f').gain.gain.setTargetAtTime(0, 0, 0.15)), null != GA(this, Hg, 'f'))
-                for (const REVISION of GA(this, Hg, 'f'))
-                    REVISION.source.playbackRate.setTargetAtTime(0.3, 0, 0.15), REVISION.gain.gain.setTargetAtTime(0, 0, 0.15);
-            if (null != GA(this, yA, 'f')) {
-                for (const {source: REVISION} of GA(this, yA, 'f'))
-                    REVISION.stop();
-                VA(this, yA, null, 'f');
-            }
         }, IA = function () {
-            var e, t;
-            const n = null !== (t = null === (e = GA(this, vA, 'f')) || void 0 === e ? void 0 : e.getSettingFloat(dm.CheckpointVolume)) && void 0 !== t ? t : 0;
-            let i = Math.min(Math.max(GA(this, Fg, 'f') * n, 0), 1);
-            if (Number.isNaN(i) && (i = 0), i > 0 && null != GA(this, Ng, 'f')) {
-                const e = GA(this, Ng, 'f').getBuffer('checkpoint');
-                if (null != e && null != GA(this, Ng, 'f').context && null != GA(this, Ng, 'f').destinationMaster) {
-                    const t = GA(this, Ng, 'f').context.createBufferSource();
-                    t.buffer = e, t.playbackRate.value = 1.25;
-                    const n = GA(this, Ng, 'f').context.createGain();
-                    n.gain.value = 0.03 * i, t.connect(n), n.connect(GA(this, Ng, 'f').destinationMaster), t.start(0);
-                }
+            if (null != QA(this, zg, 'f') && (QA(this, zg, 'f').source.playbackRate.setTargetAtTime(0.7, 0, 0.15), QA(this, zg, 'f').gain.gain.setTargetAtTime(0, 0, 0.15)), null != QA(this, Wg, 'f'))
+                for (const REVISION of QA(this, Wg, 'f'))
+                    REVISION.source.playbackRate.setTargetAtTime(0.3, 0, 0.15), REVISION.gain.gain.setTargetAtTime(0, 0, 0.15);
+            if (null != QA(this, xA, 'f')) {
+                for (const {source: REVISION} of QA(this, xA, 'f'))
+                    REVISION.stop();
+                GA(this, xA, null, 'f');
             }
         }, RA = function () {
             var e, t;
-            const n = null !== (t = null === (e = GA(this, vA, 'f')) || void 0 === e ? void 0 : e.getSettingFloat(dm.CheckpointVolume)) && void 0 !== t ? t : 0;
-            let i = Math.min(Math.max(GA(this, Fg, 'f') * n, 0), 1);
-            if (Number.isNaN(i) && (i = 0), i > 0 && null != GA(this, Ng, 'f')) {
-                const e = GA(this, Ng, 'f').getBuffer('finish');
-                if (null != e && null != GA(this, Ng, 'f').context && null != GA(this, Ng, 'f').destinationMaster) {
-                    const t = GA(this, Ng, 'f').context.createBufferSource();
+            const n = null !== (t = null === (e = QA(this, wA, 'f')) || void 0 === e ? void 0 : e.getSettingFloat(dm.CheckpointVolume)) && void 0 !== t ? t : 0;
+            let i = Math.min(Math.max(QA(this, Og, 'f') * n, 0), 1);
+            if (Number.isNaN(i) && (i = 0), i > 0 && null != QA(this, kg, 'f')) {
+                const e = QA(this, kg, 'f').getBuffer('checkpoint');
+                if (null != e && null != QA(this, kg, 'f').context && null != QA(this, kg, 'f').destinationMaster) {
+                    const t = QA(this, kg, 'f').context.createBufferSource();
                     t.buffer = e, t.playbackRate.value = 1.25;
-                    const n = GA(this, Ng, 'f').context.createGain();
-                    n.gain.value = 0.03, t.connect(n), n.connect(GA(this, Ng, 'f').destinationMaster), t.start(0);
+                    const n = QA(this, kg, 'f').context.createGain();
+                    n.gain.value = 0.03 * i, t.connect(n), n.connect(QA(this, kg, 'f').destinationMaster), t.start(0);
                 }
             }
-        }, PA = function (e) {
+        }, PA = function () {
+            var e, t;
+            const n = null !== (t = null === (e = QA(this, wA, 'f')) || void 0 === e ? void 0 : e.getSettingFloat(dm.CheckpointVolume)) && void 0 !== t ? t : 0;
+            let i = Math.min(Math.max(QA(this, Og, 'f') * n, 0), 1);
+            if (Number.isNaN(i) && (i = 0), i > 0 && null != QA(this, kg, 'f')) {
+                const e = QA(this, kg, 'f').getBuffer('finish');
+                if (null != e && null != QA(this, kg, 'f').context && null != QA(this, kg, 'f').destinationMaster) {
+                    const t = QA(this, kg, 'f').context.createBufferSource();
+                    t.buffer = e, t.playbackRate.value = 1.25;
+                    const n = QA(this, kg, 'f').context.createGain();
+                    n.gain.value = 0.03, t.connect(n), n.connect(QA(this, kg, 'f').destinationMaster), t.start(0);
+                }
+            }
+        }, BA = function (e) {
             var t;
             for (let n = 0; n < 4; n++) {
-                const i = GA(this, Yg, 'f').wheelPosition[n], r = null != GA(this, Yg, 'f').wheelContact[n], a = GA(this, Yg, 'f').wheelDeltaRotation[n], s = GA(this, Yg, 'f').wheelSkidInfo[n], o = Math.min(1, Math.abs(a) / GA(Ug, Ug, 'f', $g)), l = Math.pow(o, GA(Ug, Ug, 'f', eA)) * GA(Ug, Ug, 'f', tA);
-                r && s < l ? (n < GA(this, wA, 'f').length && (GA(this, xA, 'f')[n] = Math.max(0, GA(this, xA, 'f')[n] - e)), 0 == GA(this, xA, 'f')[n] && null != GA(this, bA, 'f') && GA(this, bA, 'f').spawn(i.x, i.y, i.z)) : (n < GA(this, wA, 'f').length && (null === (t = GA(this, vA, 'f')) || void 0 === t ? void 0 : t.getSettingBoolean(dm.SkidmarksEnabled)) && GA(this, wA, 'f')[n].break(), GA(this, xA, 'f')[n] = 0.075);
+                const i = QA(this, Kg, 'f').wheelPosition[n], r = null != QA(this, Kg, 'f').wheelContact[n], a = QA(this, Kg, 'f').wheelDeltaRotation[n], s = QA(this, Kg, 'f').wheelSkidInfo[n], o = Math.min(1, Math.abs(a) / QA(Ng, Ng, 'f', eA)), l = Math.pow(o, QA(Ng, Ng, 'f', tA)) * QA(Ng, Ng, 'f', nA);
+                r && s < l ? (n < QA(this, yA, 'f').length && (QA(this, bA, 'f')[n] = Math.max(0, QA(this, bA, 'f')[n] - e)), 0 == QA(this, bA, 'f')[n] && null != QA(this, SA, 'f') && QA(this, SA, 'f').spawn(i.x, i.y, i.z)) : (n < QA(this, yA, 'f').length && (null === (t = QA(this, wA, 'f')) || void 0 === t ? void 0 : t.getSettingBoolean(dm.SkidmarksEnabled)) && QA(this, yA, 'f')[n].break(), QA(this, bA, 'f')[n] = 0.075);
             }
-        }, BA = function () {
-            if (null != GA(this, Ng, 'f') && null != GA(this, Ng, 'f').context && null != GA(this, Ng, 'f').destinationSfx) {
-                null == GA(this, kg, 'f') && (VA(this, kg, GA(this, Ng, 'f').context.createGain(), 'f'), GA(this, kg, 'f').gain.value = GA(this, Fg, 'f'), GA(this, kg, 'f').connect(GA(this, Ng, 'f').destinationSfx)), null == GA(this, Vg, 'f') && (VA(this, Vg, GA(this, Ng, 'f').context.createPanner(), 'f'), GA(this, Vg, 'f').refDistance = 5, GA(this, Vg, 'f').connect(GA(this, kg, 'f')));
+        }, DA = function () {
+            if (null != QA(this, kg, 'f') && null != QA(this, kg, 'f').context && null != QA(this, kg, 'f').destinationSfx) {
+                null == QA(this, Fg, 'f') && (GA(this, Fg, QA(this, kg, 'f').context.createGain(), 'f'), QA(this, Fg, 'f').gain.value = QA(this, Og, 'f'), QA(this, Fg, 'f').connect(QA(this, kg, 'f').destinationSfx)), null == QA(this, Gg, 'f') && (GA(this, Gg, QA(this, kg, 'f').context.createPanner(), 'f'), QA(this, Gg, 'f').refDistance = 5, QA(this, Gg, 'f').connect(QA(this, Fg, 'f')));
                 const e = this.getPosition();
-                GA(this, Vg, 'f').positionX.value = e.x, GA(this, Vg, 'f').positionY.value = e.y, GA(this, Vg, 'f').positionZ.value = e.z;
+                QA(this, Gg, 'f').positionX.value = e.x, QA(this, Gg, 'f').positionY.value = e.y, QA(this, Gg, 'f').positionZ.value = e.z;
                 const t = 4;
-                if (GA(this, Gg, 'f').length < t) {
-                    GA(this, Gg, 'f').length = 0;
+                if (QA(this, Qg, 'f').length < t) {
+                    QA(this, Qg, 'f').length = 0;
                     for (let e = 0; e < t; ++e) {
-                        const e = GA(this, Ng, 'f').context.createPanner();
-                        e.refDistance = 5, e.connect(GA(this, kg, 'f')), GA(this, Gg, 'f').push(e);
+                        const e = QA(this, kg, 'f').context.createPanner();
+                        e.refDistance = 5, e.connect(QA(this, Fg, 'f')), QA(this, Qg, 'f').push(e);
                     }
                 }
                 for (let e = 0; e < t; ++e) {
-                    const t = GA(this, Gg, 'f')[e], n = GA(this, Yg, 'f').wheelPosition[e];
+                    const t = QA(this, Qg, 'f')[e], n = QA(this, Kg, 'f').wheelPosition[e];
                     t.positionX.value = n.x, t.positionY.value = n.y, t.positionZ.value = n.z;
                 }
-                GA(this, lA, 'f').camera != GA(this, Qg, 'f').camera && GA(this, lA, 'f').camera != GA(this, Xg, 'f').camera || GA(this, Ng, 'f').refreshListener(GA(this, lA, 'f')), GA(this, Lg, 'm', DA).call(this), GA(this, Lg, 'm', UA).call(this), GA(this, Lg, 'm', FA).call(this);
+                QA(this, cA, 'f').camera != QA(this, Xg, 'f').camera && QA(this, cA, 'f').camera != QA(this, jg, 'f').camera || QA(this, kg, 'f').refreshListener(QA(this, cA, 'f')), QA(this, Ug, 'm', LA).call(this), QA(this, Ug, 'm', NA).call(this), QA(this, Ug, 'm', OA).call(this);
             }
-        }, DA = function () {
-            if (null == GA(this, Og, 'f') && null != GA(this, Vg, 'f') && null != GA(this, Ng, 'f')) {
-                const e = GA(this, Ng, 'f').getBuffer('engine');
-                if (null != e && null != GA(this, Ng, 'f').context) {
-                    const t = GA(this, Ng, 'f').context.createBufferSource();
+        }, LA = function () {
+            if (null == QA(this, zg, 'f') && null != QA(this, Gg, 'f') && null != QA(this, kg, 'f')) {
+                const e = QA(this, kg, 'f').getBuffer('engine');
+                if (null != e && null != QA(this, kg, 'f').context) {
+                    const t = QA(this, kg, 'f').context.createBufferSource();
                     t.buffer = e, t.loop = !0, t.playbackRate.value = 0.7;
-                    const n = GA(this, Ng, 'f').context.createGain();
-                    n.gain.value = 0, t.connect(n), n.connect(GA(this, Vg, 'f')), t.start(0, 2 * Math.random()), VA(this, Og, {
+                    const n = QA(this, kg, 'f').context.createGain();
+                    n.gain.value = 0, t.connect(n), n.connect(QA(this, Gg, 'f')), t.start(0, 2 * Math.random()), GA(this, zg, {
                         source: t,
                         gain: n
                     }, 'f');
                 }
             }
-            if (null != GA(this, Og, 'f')) {
-                const e = (GA(this, aA, 'f')[0] + GA(this, aA, 'f')[1] + GA(this, aA, 'f')[2] + GA(this, aA, 'f')[3]) / 4, t = 0.7 + Math.pow(Math.abs(e), 1 / 3) / 3, n = null != GA(this, Yg, 'f').wheelContact[0] || null != GA(this, Yg, 'f').wheelContact[1] || null != GA(this, Yg, 'f').wheelContact[2] || null != GA(this, Yg, 'f').wheelContact[3], {
+            if (null != QA(this, zg, 'f')) {
+                const e = (QA(this, sA, 'f')[0] + QA(this, sA, 'f')[1] + QA(this, sA, 'f')[2] + QA(this, sA, 'f')[3]) / 4, t = 0.7 + Math.pow(Math.abs(e), 1 / 3) / 3, n = null != QA(this, Kg, 'f').wheelContact[0] || null != QA(this, Kg, 'f').wheelContact[1] || null != QA(this, Kg, 'f').wheelContact[2] || null != QA(this, Kg, 'f').wheelContact[3], {
                         up: i,
                         down: r
-                    } = this.getControls(), a = this.hasStarted() && !this.hasFinished() && (i && !(r && GA(this, Yg, 'f').brakeLightEnabled) || r && !GA(this, Yg, 'f').brakeLightEnabled);
+                    } = this.getControls(), a = this.hasStarted() && !this.hasFinished() && (i && !(r && QA(this, Kg, 'f').brakeLightEnabled) || r && !QA(this, Kg, 'f').brakeLightEnabled);
                 let s;
-                s = n ? a ? t : Math.max(0.7, t / 2) : a ? Math.max(0.7, 1.15 * t) : Math.max(0.7, t / 2), GA(this, Og, 'f').source.playbackRate.setTargetAtTime(s, 0, 0.05), GA(this, Og, 'f').gain.gain.setTargetAtTime(Math.min(0.285, s / 14), 0, 0.05);
+                s = n ? a ? t : Math.max(0.7, t / 2) : a ? Math.max(0.7, 1.15 * t) : Math.max(0.7, t / 2), QA(this, zg, 'f').source.playbackRate.setTargetAtTime(s, 0, 0.05), QA(this, zg, 'f').gain.gain.setTargetAtTime(Math.min(0.285, s / 14), 0, 0.05);
             }
-        }, LA = function (e) {
-            if (GA(this, zg, 'f').length < 4) {
-                GA(this, zg, 'f').length = 0;
+        }, UA = function (e) {
+            if (QA(this, Hg, 'f').length < 4) {
+                QA(this, Hg, 'f').length = 0;
                 for (let e = 0; e < 4; ++e)
-                    GA(this, zg, 'f').push(0);
+                    QA(this, Hg, 'f').push(0);
             }
-            for (let t = 0; t < 4 && t < GA(this, Gg, 'f').length; t++)
-                if (GA(this, zg, 'f')[t] -= e, GA(this, zg, 'f')[t] <= 0) {
-                    const e = Math.abs(GA(this, Yg, 'f').wheelSuspensionVelocity[t]);
-                    if (e > 4 && null != GA(this, Ng, 'f')) {
-                        const n = GA(this, Ng, 'f').getBuffer('suspension');
-                        if (null != n && null != GA(this, Ng, 'f').context) {
-                            const i = GA(this, Ng, 'f').context.createBufferSource();
+            for (let t = 0; t < 4 && t < QA(this, Qg, 'f').length; t++)
+                if (QA(this, Hg, 'f')[t] -= e, QA(this, Hg, 'f')[t] <= 0) {
+                    const e = Math.abs(QA(this, Kg, 'f').wheelSuspensionVelocity[t]);
+                    if (e > 4 && null != QA(this, kg, 'f')) {
+                        const n = QA(this, kg, 'f').getBuffer('suspension');
+                        if (null != n && null != QA(this, kg, 'f').context) {
+                            const i = QA(this, kg, 'f').context.createBufferSource();
                             i.buffer = n, i.playbackRate.value = 0.7 + 0.1 * Math.random();
-                            const r = GA(this, Ng, 'f').context.createGain();
-                            r.gain.value = Math.min(0.285, e / 140), i.connect(r), r.connect(GA(this, Gg, 'f')[t]), i.start(GA(this, Ng, 'f').context.currentTime + 0.02 * Math.random()), GA(this, zg, 'f')[t] = 0.1;
+                            const r = QA(this, kg, 'f').context.createGain();
+                            r.gain.value = Math.min(0.285, e / 140), i.connect(r), r.connect(QA(this, Qg, 'f')[t]), i.start(QA(this, kg, 'f').context.currentTime + 0.02 * Math.random()), QA(this, Hg, 'f')[t] = 0.1;
                         }
                     }
                 }
-        }, UA = function () {
-            if (null == GA(this, Hg, 'f') && null != GA(this, Ng, 'f')) {
-                const e = GA(this, Ng, 'f').getBuffer('tires');
-                if (null != e && null != GA(this, Ng, 'f').context) {
-                    VA(this, Hg, [], 'f');
+        }, NA = function () {
+            if (null == QA(this, Wg, 'f') && null != QA(this, kg, 'f')) {
+                const e = QA(this, kg, 'f').getBuffer('tires');
+                if (null != e && null != QA(this, kg, 'f').context) {
+                    GA(this, Wg, [], 'f');
                     const t = 4;
                     for (let n = 0; n < t; n++) {
-                        const i = GA(this, Ng, 'f').context.createBufferSource();
+                        const i = QA(this, kg, 'f').context.createBufferSource();
                         i.buffer = e, i.loop = !0, i.playbackRate.value = 0.3;
-                        const r = GA(this, Ng, 'f').context.createGain();
-                        r.gain.value = 0, i.connect(r), r.connect(GA(this, Gg, 'f')[n]), i.start(0, n / t * 3.5 + 0.25 * Math.random()), GA(this, Hg, 'f').push({
+                        const r = QA(this, kg, 'f').context.createGain();
+                        r.gain.value = 0, i.connect(r), r.connect(QA(this, Qg, 'f')[n]), i.start(0, n / t * 3.5 + 0.25 * Math.random()), QA(this, Wg, 'f').push({
                             source: i,
                             gain: r
                         });
                     }
                 }
             }
-            if (null != GA(this, Hg, 'f'))
-                for (let e = 0; e < GA(this, Hg, 'f').length; ++e) {
-                    const t = GA(this, Hg, 'f')[e];
-                    if (null != GA(this, Yg, 'f').wheelContact[e]) {
+            if (null != QA(this, Wg, 'f'))
+                for (let e = 0; e < QA(this, Wg, 'f').length; ++e) {
+                    const t = QA(this, Wg, 'f')[e];
+                    if (null != QA(this, Kg, 'f').wheelContact[e]) {
                         const e = Math.min(3, Math.abs(this.getSpeedKmh()) / 110);
                         t.gain.gain.setTargetAtTime(e / 10.5, 0, 0.15);
                     } else
@@ -17576,64 +17584,64 @@
                     const n = 0.3 + Math.min(0.4, Math.abs(this.getSpeedKmh()) / 800);
                     t.source.playbackRate.setTargetAtTime(n, 0, 0.15);
                 }
-        }, NA = function (e) {
-            null != GA(this, Wg, 'f') && (GA(this, Wg, 'f').timeout -= e, GA(this, Wg, 'f').timeout <= 0 && VA(this, Wg, null, 'f'));
-            const t = GA(this, Yg, 'f').collisionImpulses;
-            for (const e of t)
-                GA(this, Lg, 'm', kA).call(this, e);
         }, kA = function (e) {
-            if (e > 25 && null != GA(this, Vg, 'f') && null != GA(this, Ng, 'f') && (null == GA(this, Wg, 'f') || GA(this, Wg, 'f').impulse + 100 < e)) {
-                VA(this, Wg, {
+            null != QA(this, Vg, 'f') && (QA(this, Vg, 'f').timeout -= e, QA(this, Vg, 'f').timeout <= 0 && GA(this, Vg, null, 'f'));
+            const t = QA(this, Kg, 'f').collisionImpulses;
+            for (const e of t)
+                QA(this, Ug, 'm', FA).call(this, e);
+        }, FA = function (e) {
+            if (e > 25 && null != QA(this, Gg, 'f') && null != QA(this, kg, 'f') && (null == QA(this, Vg, 'f') || QA(this, Vg, 'f').impulse + 100 < e)) {
+                GA(this, Vg, {
                     timeout: 0.2,
                     impulse: e
                 }, 'f');
-                const t = GA(this, Ng, 'f').getBuffer('collision');
-                if (null != t && null != GA(this, Ng, 'f').context) {
-                    const n = GA(this, Ng, 'f').context.createBufferSource();
+                const t = QA(this, kg, 'f').getBuffer('collision');
+                if (null != t && null != QA(this, kg, 'f').context) {
+                    const n = QA(this, kg, 'f').context.createBufferSource();
                     n.buffer = t, n.playbackRate.value = 0.1 + 0.15 * Math.min(e / 4000, 1);
-                    const i = GA(this, Ng, 'f').context.createGain();
-                    i.gain.value = Math.max(0.3, Math.min(e / 4000, 1)) / 2.5, n.connect(i), i.connect(GA(this, Vg, 'f')), n.start(0);
+                    const i = QA(this, kg, 'f').context.createGain();
+                    i.gain.value = Math.max(0.3, Math.min(e / 4000, 1)) / 2.5, n.connect(i), i.connect(QA(this, Gg, 'f')), n.start(0);
                 }
             }
-        }, FA = function () {
-            if (null == GA(this, yA, 'f') && null != GA(this, Ng, 'f')) {
-                const e = GA(this, Ng, 'f').getBuffer('skidding');
-                if (null != e && null != GA(this, Ng, 'f').context) {
-                    VA(this, yA, [], 'f');
+        }, OA = function () {
+            if (null == QA(this, xA, 'f') && null != QA(this, kg, 'f')) {
+                const e = QA(this, kg, 'f').getBuffer('skidding');
+                if (null != e && null != QA(this, kg, 'f').context) {
+                    GA(this, xA, [], 'f');
                     const t = 4;
                     for (let n = 0; n < t; ++n) {
-                        const i = GA(this, Ng, 'f').context.createBufferSource();
+                        const i = QA(this, kg, 'f').context.createBufferSource();
                         i.buffer = e, i.loop = !0, i.playbackRate.value = 0.5;
-                        const r = GA(this, Ng, 'f').context.createGain();
-                        r.gain.value = 0, i.connect(r), r.connect(GA(this, Gg, 'f')[n]), i.start(0, n / t * 3.5 + 0.25 * Math.random()), GA(this, yA, 'f').push({
+                        const r = QA(this, kg, 'f').context.createGain();
+                        r.gain.value = 0, i.connect(r), r.connect(QA(this, Qg, 'f')[n]), i.start(0, n / t * 3.5 + 0.25 * Math.random()), QA(this, xA, 'f').push({
                             source: i,
                             gain: r
                         });
                     }
                 }
             }
-            if (null != GA(this, yA, 'f'))
-                for (let e = 0; e < GA(this, yA, 'f').length; ++e) {
-                    const t = GA(this, yA, 'f')[e];
-                    0 == GA(this, xA, 'f')[e] ? t.gain.gain.setTargetAtTime(0.75 / 3.5, 0, 0.1) : t.gain.gain.setTargetAtTime(0, 0, 0.1);
+            if (null != QA(this, xA, 'f'))
+                for (let e = 0; e < QA(this, xA, 'f').length; ++e) {
+                    const t = QA(this, xA, 'f')[e];
+                    0 == QA(this, bA, 'f')[e] ? t.gain.gain.setTargetAtTime(0.75 / 3.5, 0, 0.1) : t.gain.gain.setTargetAtTime(0, 0, 0.1);
                 }
-        }, OA = function (e) {
-            null != GA(this, fA, 'f') && (e ? GA(this, fA, 'f').emissive.setRGB(1, 0.4, 0.3) : GA(this, fA, 'f').emissive.setRGB(0, 0, 0));
         }, zA = function (e) {
+            null != QA(this, pA, 'f') && (e ? QA(this, pA, 'f').emissive.setRGB(1, 0.4, 0.3) : QA(this, pA, 'f').emissive.setRGB(0, 0, 0));
+        }, HA = function (e) {
             const t = e.geometry.toNonIndexed();
             if (!(t.attributes.position instanceof BufferAttribute))
                 throw new Error('Vertices must use BufferAttribute');
             return Array.from(t.attributes.position.array);
-        }, HA = function () {
-            return WA(this, void 0, void 0, function* () {
-                if (null == Ug.models)
+        }, WA = function () {
+            return VA(this, void 0, void 0, function* () {
+                if (null == Ng.models)
                     throw new Error('Car models are not loaded yet');
-                const e = new Float32Array(Ug.models.collisionShapeVertices), t = yield window.crypto.subtle.digest('SHA-256', e.buffer), n = Array.from(new Uint8Array(t)).map(e => e.toString(16).padStart(2, '0')).join(''), i = 'dd663fb6330ed93725bf865d5eac2cd29ba19f74dbb3f67ae7f695ea1f68aed0';
+                const e = new Float32Array(Ng.models.collisionShapeVertices), t = yield window.crypto.subtle.digest('SHA-256', e.buffer), n = Array.from(new Uint8Array(t)).map(e => e.toString(16).padStart(2, '0')).join(''), i = 'dd663fb6330ed93725bf865d5eac2cd29ba19f74dbb3f67ae7f695ea1f68aed0';
                 return n == i || console.error('Car collision model checksum mismatch: ' + n + ' != ' + i), n == i;
             });
-        }, QA.massOffset = 0.6, QA.detectorBoxCenter = new Vector3(0, 0.48, -0.15), QA.detectorBoxSize = new Vector3(0.89, 0.22, 1.8), QA.suspensionResetLengthFront = 0.07809501004219055, QA.suspensionResetLengthRear = 0.0781289680480957, $g = { value: 0.08 }, eA = { value: 3 }, tA = { value: 0.5 }, QA.models = null, QA.images = null;
-        const XA = QA;
-        var jA, qA, YA, KA, ZA, JA, $A, e_, t_, n_, i_, r_, a_, s_, o_, l_, c_, h_, d_, u_, f_, p_, m_, g_, A_, __, v_, w_, y_, x_ = function (e, t, n, i, r) {
+        }, XA.massOffset = 0.6, XA.detectorBoxCenter = new Vector3(0, 0.48, -0.15), XA.detectorBoxSize = new Vector3(0.89, 0.22, 1.8), XA.suspensionResetLengthFront = 0.07809501004219055, XA.suspensionResetLengthRear = 0.0781289680480957, eA = { value: 0.08 }, tA = { value: 3 }, nA = { value: 0.5 }, XA.models = null, XA.images = null;
+        const jA = XA;
+        var qA, YA, KA, ZA, JA, $A, e_, t_, n_, i_, r_, a_, s_, o_, l_, c_, h_, d_, u_, f_, p_, m_, g_, A_, __, v_, w_, y_, x_, b_ = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -17641,110 +17649,110 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, b_ = function (e, t, n, i) {
+            }, S_ = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        qA = new WeakMap(), YA = new WeakMap(), KA = new WeakMap(), ZA = new WeakMap(), JA = new WeakMap(), $A = new WeakMap(), e_ = new WeakMap(), t_ = new WeakMap(), n_ = new WeakMap(), i_ = new WeakMap(), r_ = new WeakMap(), a_ = new WeakMap(), s_ = new WeakMap(), o_ = new WeakMap(), l_ = new WeakMap(), c_ = new WeakMap(), h_ = new WeakMap(), d_ = new WeakMap(), u_ = new WeakMap(), f_ = new WeakMap(), p_ = new WeakMap(), m_ = new WeakMap(), jA = new WeakSet(), g_ = function (e) {
+        YA = new WeakMap(), KA = new WeakMap(), ZA = new WeakMap(), JA = new WeakMap(), $A = new WeakMap(), e_ = new WeakMap(), t_ = new WeakMap(), n_ = new WeakMap(), i_ = new WeakMap(), r_ = new WeakMap(), a_ = new WeakMap(), s_ = new WeakMap(), o_ = new WeakMap(), l_ = new WeakMap(), c_ = new WeakMap(), h_ = new WeakMap(), d_ = new WeakMap(), u_ = new WeakMap(), f_ = new WeakMap(), p_ = new WeakMap(), m_ = new WeakMap(), g_ = new WeakMap(), qA = new WeakSet(), A_ = function (e) {
             if (e.length % 3 != 0)
                 throw new Error('Car collision shape number of vertices is not dividable by 3');
             const t = new Ammo.btConvexHullShape();
             for (let n = 0; n < e.length; n += 3) {
-                const i = e[n + 0], r = e[n + 1], a = e[n + 2], s = new Ammo.btVector3(i, r + b_(this, e_, 'f'), a);
+                const i = e[n + 0], r = e[n + 1], a = e[n + 2], s = new Ammo.btVector3(i, r + S_(this, t_, 'f'), a);
                 t.addPoint(s, !0), Ammo.destroy(s);
             }
             return t.setMargin(0.02), t;
-        }, A_ = function () {
-            return new Vector3(0, 0, 1).applyQuaternion(this.getQuaternion());
         }, __ = function () {
-            return new Vector3(0, -1, 0).applyQuaternion(this.getQuaternion());
+            return new Vector3(0, 0, 1).applyQuaternion(this.getQuaternion());
         }, v_ = function () {
-            const e = b_(this, ZA, 'f').getLinearVelocity();
-            return new Vector3(e.x(), e.y(), e.z());
+            return new Vector3(0, -1, 0).applyQuaternion(this.getQuaternion());
         }, w_ = function () {
-            const e = Math.abs(b_(this, jA, 'm', A_).call(this).dot(b_(this, jA, 'm', v_).call(this))), t = b_(this, jA, 'm', __).call(this), n = 0.05;
-            b_(this, n_, 'f').setValue(t.x * e * n, t.y * e * n, t.z * e * n), b_(this, ZA, 'f').applyCentralImpulse(b_(this, n_, 'f'));
-        }, y_ = function (e, t) {
+            const e = S_(this, JA, 'f').getLinearVelocity();
+            return new Vector3(e.x(), e.y(), e.z());
+        }, y_ = function () {
+            const e = Math.abs(S_(this, qA, 'm', __).call(this).dot(S_(this, qA, 'm', w_).call(this))), t = S_(this, qA, 'm', v_).call(this), n = 0.05;
+            S_(this, i_, 'f').setValue(t.x * e * n, t.y * e * n, t.z * e * n), S_(this, JA, 'f').applyCentralImpulse(S_(this, i_, 'f'));
+        }, x_ = function (e, t) {
             var n;
-            x_(this, p_, !1, 'f');
+            b_(this, m_, !1, 'f');
             let i = !1, r = !1, a = !1, s = !1, o = !1;
-            b_(this, c_, 'f') && (this.hasFinished() || ({
+            S_(this, h_, 'f') && (this.hasFinished() || ({
                 up: i,
                 right: r,
                 down: a,
                 left: s,
                 reset: o
-            } = null !== (n = null == t ? void 0 : t.getControls(b_(this, h_, 'f').numberOfFrames)) && void 0 !== n ? n : {
+            } = null !== (n = null == t ? void 0 : t.getControls(S_(this, d_, 'f').numberOfFrames)) && void 0 !== n ? n : {
                 up: !1,
                 right: !1,
                 down: !1,
                 left: !1,
                 reset: !1
-            }), b_(this, h_, 'f').increment());
+            }), S_(this, d_, 'f').increment());
             const l = this.getWheelInContact(0) || this.getWheelInContact(1) || this.getWheelInContact(2) || this.getWheelInContact(3);
-            if (!l && a && !this.hasFinished() && b_(this, c_, 'f') ? b_(this, ZA, 'f').setDamping(0.1, 0.6) : b_(this, ZA, 'f').setDamping(0.1, 0.1), i && !this.hasFinished() && b_(this, c_, 'f')) {
+            if (!l && a && !this.hasFinished() && S_(this, h_, 'f') ? S_(this, JA, 'f').setDamping(0.1, 0.6) : S_(this, JA, 'f').setDamping(0.1, 0.1), i && !this.hasFinished() && S_(this, h_, 'f')) {
                 const e = 4000;
-                b_(this, KA, 'f').applyEngineForce(e, 2), b_(this, KA, 'f').applyEngineForce(e, 3);
+                S_(this, ZA, 'f').applyEngineForce(e, 2), S_(this, ZA, 'f').applyEngineForce(e, 3);
             } else
-                b_(this, KA, 'f').applyEngineForce(0, 2), b_(this, KA, 'f').applyEngineForce(0, 3);
-            if (a && !this.hasFinished() && b_(this, c_, 'f'))
+                S_(this, ZA, 'f').applyEngineForce(0, 2), S_(this, ZA, 'f').applyEngineForce(0, 3);
+            if (a && !this.hasFinished() && S_(this, h_, 'f'))
                 if (this.getSpeedKmh() > 1 || !l) {
                     const e = 10;
-                    b_(this, KA, 'f').setBrake(e, 0), b_(this, KA, 'f').setBrake(e, 1), b_(this, KA, 'f').setBrake(e, 2), b_(this, KA, 'f').setBrake(e, 3), x_(this, p_, !0, 'f');
+                    S_(this, ZA, 'f').setBrake(e, 0), S_(this, ZA, 'f').setBrake(e, 1), S_(this, ZA, 'f').setBrake(e, 2), S_(this, ZA, 'f').setBrake(e, 3), b_(this, m_, !0, 'f');
                 } else {
                     const e = Math.min(0, Math.max(-2000, -2000 * (1 + this.getSpeedKmh() / 100)));
-                    b_(this, KA, 'f').applyEngineForce(e, 2), b_(this, KA, 'f').applyEngineForce(e, 3), b_(this, KA, 'f').setBrake(0, 0), b_(this, KA, 'f').setBrake(0, 1), b_(this, KA, 'f').setBrake(0, 2), b_(this, KA, 'f').setBrake(0, 3);
+                    S_(this, ZA, 'f').applyEngineForce(e, 2), S_(this, ZA, 'f').applyEngineForce(e, 3), S_(this, ZA, 'f').setBrake(0, 0), S_(this, ZA, 'f').setBrake(0, 1), S_(this, ZA, 'f').setBrake(0, 2), S_(this, ZA, 'f').setBrake(0, 3);
                 }
             else
-                b_(this, KA, 'f').setBrake(0, 0), b_(this, KA, 'f').setBrake(0, 1), b_(this, KA, 'f').setBrake(0, 2), b_(this, KA, 'f').setBrake(0, 3);
-            const c = b_(this, jA, 'm', v_).call(this).applyQuaternion(this.getQuaternion().invert()), h = -new Vector2(c.x, c.z).normalize().angle() + Math.PI / 2;
+                S_(this, ZA, 'f').setBrake(0, 0), S_(this, ZA, 'f').setBrake(0, 1), S_(this, ZA, 'f').setBrake(0, 2), S_(this, ZA, 'f').setBrake(0, 3);
+            const c = S_(this, qA, 'm', w_).call(this).applyQuaternion(this.getQuaternion().invert()), h = -new Vector2(c.x, c.z).normalize().angle() + Math.PI / 2;
             let d = Math.max(0, Math.min(1, this.getSpeedKmh() / 30));
             this.getWheelInContact(0) || this.getWheelInContact(1) || (d = 0);
             const u = 155 / Math.pow(46, 1.55), f = Math.max(-u, Math.min(u, h * d)), p = 155 / Math.pow(Math.max(46, Math.abs(this.getSpeedKmh())), 1.55);
-            b_(this, c_, 'f') && (s && !this.hasFinished() ? x_(this, o_, Math.min(b_(this, o_, 'f') + 10 * e, 1), 'f') : r && !this.hasFinished() ? x_(this, o_, Math.max(b_(this, o_, 'f') - 10 * e, -1), 'f') : b_(this, o_, 'f') > 0 ? x_(this, o_, Math.max(b_(this, o_, 'f') - 10 * e, 0), 'f') : b_(this, o_, 'f') < 0 && x_(this, o_, Math.min(b_(this, o_, 'f') + 10 * e, 0), 'f'));
-            const m = b_(this, o_, 'f') * p;
+            S_(this, h_, 'f') && (s && !this.hasFinished() ? b_(this, l_, Math.min(S_(this, l_, 'f') + 10 * e, 1), 'f') : r && !this.hasFinished() ? b_(this, l_, Math.max(S_(this, l_, 'f') - 10 * e, -1), 'f') : S_(this, l_, 'f') > 0 ? b_(this, l_, Math.max(S_(this, l_, 'f') - 10 * e, 0), 'f') : S_(this, l_, 'f') < 0 && b_(this, l_, Math.min(S_(this, l_, 'f') + 10 * e, 0), 'f'));
+            const m = S_(this, l_, 'f') * p;
             let g;
-            g = f < 0 && m < 0 ? Math.min(f, m) : f > 0 && m > 0 ? Math.max(f, m) : f + m, b_(this, KA, 'f').setSteeringValue(g, 0), b_(this, KA, 'f').setSteeringValue(g, 1);
+            g = f < 0 && m < 0 ? Math.min(f, m) : f > 0 && m > 0 ? Math.max(f, m) : f + m, S_(this, ZA, 'f').setSteeringValue(g, 0), S_(this, ZA, 'f').setSteeringValue(g, 1);
             for (let e = 0; e < 4; e++) {
-                const t = b_(this, KA, 'f').getWheelInfo(e);
+                const t = S_(this, ZA, 'f').getWheelInfo(e);
                 let n;
                 n = t.m_raycastInfo.m_suspensionLength < -0.2 ? 200 : 50, n != t.m_suspensionStiffness && t.set_m_suspensionStiffness(n);
             }
             if (o) {
-                if (!b_(this, f_, 'f') && !this.hasFinished() && b_(this, c_, 'f') && null != b_(this, u_, 'f')) {
+                if (!S_(this, p_, 'f') && !this.hasFinished() && S_(this, h_, 'f') && null != S_(this, f_, 'f')) {
                     const e = new Ammo.btTransform();
-                    e.setIdentity(), x_(this, r_, new Vector3(b_(this, u_, 'f').position.x, b_(this, u_, 'f').position.y, b_(this, u_, 'f').position.z), 'f');
-                    const t = new Ammo.btVector3(b_(this, r_, 'f').x, b_(this, r_, 'f').y, b_(this, r_, 'f').z);
-                    e.setOrigin(t), Ammo.destroy(t), x_(this, a_, new Quaternion(b_(this, u_, 'f').quaternion.x, b_(this, u_, 'f').quaternion.y, b_(this, u_, 'f').quaternion.z, b_(this, u_, 'f').quaternion.w), 'f');
-                    const n = new Ammo.btQuaternion(b_(this, a_, 'f').x, b_(this, a_, 'f').y, b_(this, a_, 'f').z, b_(this, a_, 'f').w);
-                    e.setRotation(n), Ammo.destroy(n), b_(this, ZA, 'f').setWorldTransform(e), b_(this, JA, 'f').setWorldTransform(e), Ammo.destroy(e);
+                    e.setIdentity(), b_(this, a_, new Vector3(S_(this, f_, 'f').position.x, S_(this, f_, 'f').position.y, S_(this, f_, 'f').position.z), 'f');
+                    const t = new Ammo.btVector3(S_(this, a_, 'f').x, S_(this, a_, 'f').y, S_(this, a_, 'f').z);
+                    e.setOrigin(t), Ammo.destroy(t), b_(this, s_, new Quaternion(S_(this, f_, 'f').quaternion.x, S_(this, f_, 'f').quaternion.y, S_(this, f_, 'f').quaternion.z, S_(this, f_, 'f').quaternion.w), 'f');
+                    const n = new Ammo.btQuaternion(S_(this, s_, 'f').x, S_(this, s_, 'f').y, S_(this, s_, 'f').z, S_(this, s_, 'f').w);
+                    e.setRotation(n), Ammo.destroy(n), S_(this, JA, 'f').setWorldTransform(e), S_(this, $A, 'f').setWorldTransform(e), Ammo.destroy(e);
                     const i = new Ammo.btVector3(0, 0, 0);
-                    b_(this, ZA, 'f').setLinearVelocity(i), b_(this, ZA, 'f').setAngularVelocity(i), Ammo.destroy(i), b_(this, KA, 'f').resetSuspension(), b_(this, KA, 'f').getWheelInfo(0).m_raycastInfo.set_m_suspensionLength(XA.suspensionResetLengthFront), b_(this, KA, 'f').getWheelInfo(1).m_raycastInfo.set_m_suspensionLength(XA.suspensionResetLengthFront), b_(this, KA, 'f').getWheelInfo(2).m_raycastInfo.set_m_suspensionLength(XA.suspensionResetLengthRear), b_(this, KA, 'f').getWheelInfo(3).m_raycastInfo.set_m_suspensionLength(XA.suspensionResetLengthRear), b_(this, KA, 'f').setSteeringValue(0, 0), b_(this, KA, 'f').setSteeringValue(0, 1);
-                    const r = b_(this, KA, 'f').getNumWheels();
+                    S_(this, JA, 'f').setLinearVelocity(i), S_(this, JA, 'f').setAngularVelocity(i), Ammo.destroy(i), S_(this, ZA, 'f').resetSuspension(), S_(this, ZA, 'f').getWheelInfo(0).m_raycastInfo.set_m_suspensionLength(jA.suspensionResetLengthFront), S_(this, ZA, 'f').getWheelInfo(1).m_raycastInfo.set_m_suspensionLength(jA.suspensionResetLengthFront), S_(this, ZA, 'f').getWheelInfo(2).m_raycastInfo.set_m_suspensionLength(jA.suspensionResetLengthRear), S_(this, ZA, 'f').getWheelInfo(3).m_raycastInfo.set_m_suspensionLength(jA.suspensionResetLengthRear), S_(this, ZA, 'f').setSteeringValue(0, 0), S_(this, ZA, 'f').setSteeringValue(0, 1);
+                    const r = S_(this, ZA, 'f').getNumWheels();
                     for (let e = 0; e < r; e++)
-                        b_(this, KA, 'f').updateWheelTransform(e, !0);
-                    x_(this, d_, b_(this, u_, 'f').nextCheckpointIndex, 'f');
+                        S_(this, ZA, 'f').updateWheelTransform(e, !0);
+                    b_(this, u_, S_(this, f_, 'f').nextCheckpointIndex, 'f');
                 }
-                x_(this, f_, !0, 'f');
+                b_(this, p_, !0, 'f');
             } else
-                x_(this, f_, !1, 'f');
+                b_(this, p_, !1, 'f');
         };
-        const S_ = class {
+        const E_ = class {
             constructor(e, t, n, i, r, a, s, o) {
-                jA.add(this), qA.set(this, void 0), YA.set(this, void 0), KA.set(this, void 0), ZA.set(this, void 0), JA.set(this, void 0), $A.set(this, void 0), e_.set(this, void 0), t_.set(this, new Ammo.btTransform()), n_.set(this, new Ammo.btVector3()), i_.set(this, new Vs(new Vector3(), XA.detectorBoxSize.clone())), r_.set(this, void 0), a_.set(this, void 0), s_.set(this, void 0), o_.set(this, 0), l_.set(this, null), c_.set(this, !1), h_.set(this, new Xh()), d_.set(this, 0), u_.set(this, null), f_.set(this, !1), p_.set(this, !1), m_.set(this, null), x_(this, s_, s, 'f'), x_(this, e_, a, 'f'), x_(this, YA, new Hh(), 'f'), b_(this, YA, 'f').createGroundPlane(), b_(this, YA, 'f').createMountains(e, t), x_(this, qA, new cd(b_(this, YA, 'f'), n, i), 'f');
+                qA.add(this), YA.set(this, void 0), KA.set(this, void 0), ZA.set(this, void 0), JA.set(this, void 0), $A.set(this, void 0), e_.set(this, void 0), t_.set(this, void 0), n_.set(this, new Ammo.btTransform()), i_.set(this, new Ammo.btVector3()), r_.set(this, new Vs(new Vector3(), jA.detectorBoxSize.clone())), a_.set(this, void 0), s_.set(this, void 0), o_.set(this, void 0), l_.set(this, 0), c_.set(this, null), h_.set(this, !1), d_.set(this, new Xh()), u_.set(this, 0), f_.set(this, null), p_.set(this, !1), m_.set(this, !1), g_.set(this, null), b_(this, o_, s, 'f'), b_(this, t_, a, 'f'), b_(this, KA, new Hh(), 'f'), S_(this, KA, 'f').createGroundPlane(), S_(this, KA, 'f').createMountains(e, t), b_(this, YA, new cd(S_(this, KA, 'f'), n, i), 'f');
                 const l = new Ammo.btTransform();
                 l.setIdentity();
                 const c = new Ammo.btDefaultMotionState(l);
                 Ammo.destroy(l);
                 const h = new Ammo.btVector3(0, 0, 0);
-                x_(this, $A, b_(this, jA, 'm', g_).call(this, r), 'f'), b_(this, $A, 'f').calculateLocalInertia(400, h);
-                const d = new Ammo.btRigidBodyConstructionInfo(400, c, b_(this, $A, 'f'), h), u = new Ammo.btRigidBody(d);
-                u.setFriction(1), u.setContactProcessingThreshold(0), Ammo.destroy(d), Ammo.destroy(h), u.setDamping(0.1, 0.1), u.setActivationState(4), b_(this, YA, 'f').world.addRigidBody(u, 1, 2), x_(this, ZA, u, 'f');
-                const f = new Ammo.btVehicleTuning(), p = new Ammo.btDefaultVehicleRaycaster(b_(this, YA, 'f').world), m = new Ammo.btRaycastVehicle(f, u, p);
-                m.setCoordinateSystem(0, 1, 2), b_(this, YA, 'f').world.addAction(m), x_(this, KA, m, 'f');
+                b_(this, e_, S_(this, qA, 'm', A_).call(this, r), 'f'), S_(this, e_, 'f').calculateLocalInertia(400, h);
+                const d = new Ammo.btRigidBodyConstructionInfo(400, c, S_(this, e_, 'f'), h), u = new Ammo.btRigidBody(d);
+                u.setFriction(1), u.setContactProcessingThreshold(0), Ammo.destroy(d), Ammo.destroy(h), u.setDamping(0.1, 0.1), u.setActivationState(4), S_(this, KA, 'f').world.addRigidBody(u, 1, 2), b_(this, JA, u, 'f');
+                const f = new Ammo.btVehicleTuning(), p = new Ammo.btDefaultVehicleRaycaster(S_(this, KA, 'f').world), m = new Ammo.btRaycastVehicle(f, u, p);
+                m.setCoordinateSystem(0, 1, 2), S_(this, KA, 'f').world.addAction(m), b_(this, ZA, m, 'f');
                 const g = new Ammo.btVector3(0, -1, 0), A = new Ammo.btVector3(-1, 0, 0);
                 for (const e of [
                         'WheelFL',
@@ -17769,99 +17777,99 @@
                 }
                 Ammo.destroy(g), Ammo.destroy(A);
                 const _ = new Ammo.btTransform();
-                _.setIdentity(), x_(this, r_, new Vector3(o.position.x, o.position.y, o.position.z), 'f');
-                const v = new Ammo.btVector3(b_(this, r_, 'f').x, b_(this, r_, 'f').y, b_(this, r_, 'f').z);
-                _.setOrigin(v), Ammo.destroy(v), x_(this, a_, new Quaternion(o.quaternion.x, o.quaternion.y, o.quaternion.z, o.quaternion.w), 'f');
-                const w = new Ammo.btQuaternion(b_(this, a_, 'f').x, b_(this, a_, 'f').y, b_(this, a_, 'f').z, b_(this, a_, 'f').w);
-                _.setRotation(w), Ammo.destroy(w), x_(this, JA, b_(this, ZA, 'f').getMotionState(), 'f'), b_(this, ZA, 'f').setWorldTransform(_), b_(this, JA, 'f').setWorldTransform(_), Ammo.destroy(_), b_(this, KA, 'f').resetSuspension(), b_(this, KA, 'f').getWheelInfo(0).m_raycastInfo.set_m_suspensionLength(XA.suspensionResetLengthFront), b_(this, KA, 'f').getWheelInfo(1).m_raycastInfo.set_m_suspensionLength(XA.suspensionResetLengthFront), b_(this, KA, 'f').getWheelInfo(2).m_raycastInfo.set_m_suspensionLength(XA.suspensionResetLengthRear), b_(this, KA, 'f').getWheelInfo(3).m_raycastInfo.set_m_suspensionLength(XA.suspensionResetLengthRear), b_(this, KA, 'f').setSteeringValue(0, 0), b_(this, KA, 'f').setSteeringValue(0, 1);
-                const y = b_(this, KA, 'f').getNumWheels();
+                _.setIdentity(), b_(this, a_, new Vector3(o.position.x, o.position.y, o.position.z), 'f');
+                const v = new Ammo.btVector3(S_(this, a_, 'f').x, S_(this, a_, 'f').y, S_(this, a_, 'f').z);
+                _.setOrigin(v), Ammo.destroy(v), b_(this, s_, new Quaternion(o.quaternion.x, o.quaternion.y, o.quaternion.z, o.quaternion.w), 'f');
+                const w = new Ammo.btQuaternion(S_(this, s_, 'f').x, S_(this, s_, 'f').y, S_(this, s_, 'f').z, S_(this, s_, 'f').w);
+                _.setRotation(w), Ammo.destroy(w), b_(this, $A, S_(this, JA, 'f').getMotionState(), 'f'), S_(this, JA, 'f').setWorldTransform(_), S_(this, $A, 'f').setWorldTransform(_), Ammo.destroy(_), S_(this, ZA, 'f').resetSuspension(), S_(this, ZA, 'f').getWheelInfo(0).m_raycastInfo.set_m_suspensionLength(jA.suspensionResetLengthFront), S_(this, ZA, 'f').getWheelInfo(1).m_raycastInfo.set_m_suspensionLength(jA.suspensionResetLengthFront), S_(this, ZA, 'f').getWheelInfo(2).m_raycastInfo.set_m_suspensionLength(jA.suspensionResetLengthRear), S_(this, ZA, 'f').getWheelInfo(3).m_raycastInfo.set_m_suspensionLength(jA.suspensionResetLengthRear), S_(this, ZA, 'f').setSteeringValue(0, 0), S_(this, ZA, 'f').setSteeringValue(0, 1);
+                const y = S_(this, ZA, 'f').getNumWheels();
                 for (let e = 0; e < y; e++)
-                    b_(this, KA, 'f').updateWheelTransform(e, !0);
+                    S_(this, ZA, 'f').updateWheelTransform(e, !0);
             }
             dispose() {
-                b_(this, YA, 'f').world.removeRigidBody(b_(this, ZA, 'f')), Ammo.destroy(b_(this, JA, 'f')), Ammo.destroy(b_(this, ZA, 'f')), Ammo.destroy(b_(this, t_, 'f')), Ammo.destroy(b_(this, n_, 'f')), Ammo.destroy(b_(this, $A, 'f')), b_(this, YA, 'f').world.removeAction(b_(this, KA, 'f')), Ammo.destroy(b_(this, KA, 'f')), b_(this, YA, 'f').dispose();
+                S_(this, KA, 'f').world.removeRigidBody(S_(this, JA, 'f')), Ammo.destroy(S_(this, $A, 'f')), Ammo.destroy(S_(this, JA, 'f')), Ammo.destroy(S_(this, n_, 'f')), Ammo.destroy(S_(this, i_, 'f')), Ammo.destroy(S_(this, e_, 'f')), S_(this, KA, 'f').world.removeAction(S_(this, ZA, 'f')), Ammo.destroy(S_(this, ZA, 'f')), S_(this, KA, 'f').dispose();
             }
             get physics() {
-                return b_(this, YA, 'f');
+                return S_(this, KA, 'f');
             }
             get controls() {
-                return b_(this, s_, 'f');
+                return S_(this, o_, 'f');
             }
             getSpeedKmh() {
-                return this.hasStarted() ? b_(this, KA, 'f').getCurrentSpeedKmHour() : 0;
+                return this.hasStarted() ? S_(this, ZA, 'f').getCurrentSpeedKmHour() : 0;
             }
             start() {
-                x_(this, c_, !0, 'f');
+                b_(this, h_, !0, 'f');
             }
             hasStarted() {
-                return b_(this, c_, 'f');
+                return S_(this, h_, 'f');
             }
             hasFinished() {
-                return null != b_(this, l_, 'f');
+                return null != S_(this, c_, 'f');
             }
             getFinishTime() {
-                return b_(this, l_, 'f');
+                return S_(this, c_, 'f');
             }
             getTime() {
-                return b_(this, h_, 'f').clone();
+                return S_(this, d_, 'f').clone();
             }
             getNextCheckpointIndex() {
-                return b_(this, d_, 'f');
+                return S_(this, u_, 'f');
             }
             hasCheckpointToRespawnAt() {
-                return null != b_(this, u_, 'f');
+                return null != S_(this, f_, 'f');
             }
             isBrakeLightEnabled() {
-                return b_(this, p_, 'f');
+                return S_(this, m_, 'f');
             }
             getPosition() {
-                return b_(this, r_, 'f');
+                return S_(this, a_, 'f');
             }
             getQuaternion() {
-                return b_(this, a_, 'f');
+                return S_(this, s_, 'f');
             }
             getMatrix4() {
                 return new Matrix4().compose(this.getPosition(), this.getQuaternion(), new Vector3(1, 1, 1));
             }
             getWheelPosition(e) {
-                const t = b_(this, KA, 'f').getWheelTransformWS(e).getOrigin();
+                const t = S_(this, ZA, 'f').getWheelTransformWS(e).getOrigin();
                 return new Vector3(t.x(), t.y(), t.z());
             }
             getWheelQuaternion(e) {
-                const t = b_(this, KA, 'f').getWheelTransformWS(e).getRotation();
+                const t = S_(this, ZA, 'f').getWheelTransformWS(e).getRotation();
                 return new Quaternion(t.x(), t.y(), t.z(), t.w());
             }
             getWheelInContact(e) {
-                return b_(this, KA, 'f').getWheelInfo(e).m_raycastInfo.m_isInContact;
+                return S_(this, ZA, 'f').getWheelInfo(e).m_raycastInfo.m_isInContact;
             }
             getWheelSuspensionVelocity(e) {
-                return b_(this, KA, 'f').getWheelInfo(e).m_suspensionRelativeVelocity;
+                return S_(this, ZA, 'f').getWheelInfo(e).m_suspensionRelativeVelocity;
             }
             getWheelSuspensionLength(e) {
-                return b_(this, KA, 'f').getWheelInfo(e).m_raycastInfo.m_suspensionLength;
+                return S_(this, ZA, 'f').getWheelInfo(e).m_raycastInfo.m_suspensionLength;
             }
             getWheelRotation(e) {
-                return b_(this, KA, 'f').getWheelInfo(e).m_rotation;
+                return S_(this, ZA, 'f').getWheelInfo(e).m_rotation;
             }
             getWheelDeltaRotation(e) {
-                return b_(this, KA, 'f').getWheelInfo(e).m_deltaRotation;
+                return S_(this, ZA, 'f').getWheelInfo(e).m_deltaRotation;
             }
             getWheelSkidInfo(e) {
-                return b_(this, KA, 'f').getWheelInfo(e).m_skidInfo;
+                return S_(this, ZA, 'f').getWheelInfo(e).m_skidInfo;
             }
             getWheelContactPosition(e) {
-                const t = b_(this, KA, 'f').getWheelInfo(e).m_raycastInfo.m_contactPointWS;
+                const t = S_(this, ZA, 'f').getWheelInfo(e).m_raycastInfo.m_contactPointWS;
                 return new Vector3(t.x(), t.y(), t.z());
             }
             getWheelContactNormal(e) {
-                const t = b_(this, KA, 'f').getWheelInfo(e).m_raycastInfo.m_contactNormalWS;
+                const t = S_(this, ZA, 'f').getWheelInfo(e).m_raycastInfo.m_contactNormalWS;
                 return new Vector3(t.x(), t.y(), t.z());
             }
             getCollisionImpulses() {
-                const e = [], t = b_(this, YA, 'f').dispatcher.getNumManifolds();
+                const e = [], t = S_(this, KA, 'f').dispatcher.getNumManifolds();
                 for (let n = 0; n < t; ++n) {
-                    const t = b_(this, YA, 'f').dispatcher.getManifoldByIndexInternal(n), i = t.getBody0(), r = t.getBody1();
-                    if (i.H == b_(this, ZA, 'f').H || r.H == b_(this, ZA, 'f').H) {
+                    const t = S_(this, KA, 'f').dispatcher.getManifoldByIndexInternal(n), i = t.getBody0(), r = t.getBody1();
+                    if (i.H == S_(this, JA, 'f').H || r.H == S_(this, JA, 'f').H) {
                         const n = t.getNumContacts();
                         for (let i = 0; i < n; ++i) {
                             const n = t.getContactPoint(i);
@@ -17873,15 +17881,15 @@
             }
             step() {
                 var e;
-                if (this.hasStarted() && b_(this, h_, 'f').numberOfFrames < Sh.maxFrames) {
-                    const t = 1 / Hh.stepsPerSecond, n = b_(this, r_, 'f'), i = b_(this, a_, 'f');
-                    (null == b_(this, m_, 'f') || b_(this, m_, 'f').manhattanDistanceTo(n) > 1.5) && (null == b_(this, m_, 'f') ? x_(this, m_, n.clone(), 'f') : b_(this, m_, 'f').copy(n), b_(this, YA, 'f').activePhysicsAt(n)), b_(this, jA, 'm', w_).call(this), b_(this, jA, 'm', y_).call(this, t, b_(this, s_, 'f')), b_(this, YA, 'f').step();
-                    const r = b_(this, t_, 'f');
-                    b_(this, JA, 'f').getWorldTransform(r);
+                if (this.hasStarted() && S_(this, d_, 'f').numberOfFrames < Sh.maxFrames) {
+                    const t = 1 / Hh.stepsPerSecond, n = S_(this, a_, 'f'), i = S_(this, s_, 'f');
+                    (null == S_(this, g_, 'f') || S_(this, g_, 'f').manhattanDistanceTo(n) > 1.5) && (null == S_(this, g_, 'f') ? b_(this, g_, n.clone(), 'f') : S_(this, g_, 'f').copy(n), S_(this, KA, 'f').activePhysicsAt(n)), S_(this, qA, 'm', y_).call(this), S_(this, qA, 'm', x_).call(this, t, S_(this, o_, 'f')), S_(this, KA, 'f').step();
+                    const r = S_(this, n_, 'f');
+                    S_(this, $A, 'f').getWorldTransform(r);
                     const a = r.getOrigin(), s = r.getRotation();
                     if (n.set(a.x(), a.y(), a.z()), i.set(s.x(), s.y(), s.z(), s.w()), !this.hasFinished()) {
-                        const t = b_(this, i_, 'f');
-                        t.center.copy(XA.detectorBoxCenter).applyQuaternion(i).add(n), t.rotation.elements = [
+                        const t = S_(this, r_, 'f');
+                        t.center.copy(jA.detectorBoxCenter).applyQuaternion(i).add(n), t.rotation.elements = [
                             1 - 2 * (i.y * i.y + i.z * i.z),
                             2 * (i.x * i.y + i.z * i.w),
                             2 * (i.x * i.z - i.y * i.w),
@@ -17892,20 +17900,20 @@
                             2 * (i.y * i.z - i.x * i.w),
                             1 - 2 * (i.x * i.x + i.y * i.y)
                         ];
-                        const r = b_(this, qA, 'f').getTotalNumberOfCheckpointIndices();
-                        if (b_(this, d_, 'f') == r)
-                            null != b_(this, qA, 'f').checkFinish(t) && x_(this, l_, b_(this, h_, 'f').clone(), 'f');
+                        const r = S_(this, YA, 'f').getTotalNumberOfCheckpointIndices();
+                        if (S_(this, u_, 'f') == r)
+                            null != S_(this, YA, 'f').checkFinish(t) && b_(this, c_, S_(this, d_, 'f').clone(), 'f');
                         else {
-                            const n = b_(this, qA, 'f').checkCheckpoint(t, b_(this, d_, 'f'));
-                            if (null != n && (x_(this, d_, (e = b_(this, d_, 'f'), ++e), 'f'), n.rotationAxis == fd.YPositive)) {
-                                const e = b_(this, jA, 'm', v_).call(this);
+                            const n = S_(this, YA, 'f').checkCheckpoint(t, S_(this, u_, 'f'));
+                            if (null != n && (b_(this, u_, (e = S_(this, u_, 'f'), ++e), 'f'), n.rotationAxis == fd.YPositive)) {
+                                const e = S_(this, qA, 'm', w_).call(this);
                                 let t = n.rotation * Math.PI / 2;
                                 (0 == n.rotation && e.z < 0 || 1 == n.rotation && e.x < 0 || 2 == n.rotation && e.z > 0 || 3 == n.rotation && e.x > 0) && (t += Math.PI);
                                 const i = new Quaternion().setFromEuler(new Euler(0, t, 0)), r = new Vector3(0, 0.35, -1.35);
-                                r.applyQuaternion(i), n.type != dd.CheckpointWide && n.type != dd.PlaneCheckpointWide || r.sub(new Vector3(-10, 0, 0).applyEuler(new Euler(0, n.rotation * Math.PI / 2, 0))), x_(this, u_, {
+                                r.applyQuaternion(i), n.type != dd.CheckpointWide && n.type != dd.PlaneCheckpointWide || r.sub(new Vector3(-10, 0, 0).applyEuler(new Euler(0, n.rotation * Math.PI / 2, 0))), b_(this, f_, {
                                     position: new Vector3(n.x * cd.partSize + r.x, n.y * cd.partSize + r.y, n.z * cd.partSize + r.z),
                                     quaternion: i,
-                                    nextCheckpointIndex: b_(this, d_, 'f')
+                                    nextCheckpointIndex: S_(this, u_, 'f')
                                 }, 'f');
                             }
                         }
@@ -17913,7 +17921,7 @@
                 }
             }
         };
-        var E_ = function (e, t, n, i) {
+        var M_ = function (e, t, n, i) {
             return new (n || (n = Promise))(function (r, a) {
                 function s(e) {
                     try {
@@ -17938,71 +17946,71 @@
                 l((i = i.apply(e, t || [])).next());
             });
         };
-        const M_ = 2.718281828459045, T_ = 2.302585092994046, C_ = 0.6931471805599453, I_ = 1.4426950408889634, R_ = 0.4342944819032518, P_ = 3.141592653589793, B_ = 0.7071067811865476, D_ = 1.4142135623730951;
-        function L_(e) {
+        const T_ = 2.718281828459045, C_ = 2.302585092994046, I_ = 0.6931471805599453, R_ = 1.4426950408889634, P_ = 0.4342944819032518, B_ = 3.141592653589793, D_ = 0.7071067811865476, L_ = 1.4142135623730951;
+        function U_(e) {
             throw new Error(e + ': Waiting for WASM to compile');
         }
-        function U_(e) {
+        function N_(e) {
             throw new Error(e + ': No deterministic implementation');
         }
-        function N_(e) {
+        function k_(e) {
             if (!Number.isFinite(e))
                 return NaN;
             const t = (e = function (e) {
                     return (e %= 2 * Math.PI) < 0 && (e += 2 * Math.PI), e;
-                }(e)) / (2 * Math.PI) * F_.length, n = Math.floor(t), i = (n + 1) % F_.length, r = t - n;
-            return F_[n] * (1 - r) + F_[i] * r;
+                }(e)) / (2 * Math.PI) * O_.length, n = Math.floor(t), i = (n + 1) % O_.length, r = t - n;
+            return O_[n] * (1 - r) + O_[i] * r;
         }
-        function k_(e) {
+        function F_(e) {
             return Math.sin(e + Math.PI / 2);
         }
         Math = {
-            E: M_,
-            LN10: T_,
-            LN2: C_,
-            LOG2E: I_,
-            LOG10E: R_,
-            PI: P_,
-            SQRT1_2: B_,
-            SQRT2: D_,
+            E: T_,
+            LN10: C_,
+            LN2: I_,
+            LOG2E: R_,
+            LOG10E: P_,
+            PI: B_,
+            SQRT1_2: D_,
+            SQRT2: L_,
             abs: Math.abs,
-            acos: () => L_('acos'),
-            asin: () => L_('asin'),
-            atan: () => L_('atan'),
-            atan2: () => L_('atan2'),
+            acos: () => U_('acos'),
+            asin: () => U_('asin'),
+            atan: () => U_('atan'),
+            atan2: () => U_('atan2'),
             ceil: Math.ceil,
-            cos: k_,
-            exp: () => L_('exp'),
+            cos: F_,
+            exp: () => U_('exp'),
             floor: Math.floor,
-            log: () => L_('log'),
+            log: () => U_('log'),
             max: Math.max,
             min: Math.min,
-            pow: () => L_('pow'),
+            pow: () => U_('pow'),
             random: Math.random,
             round: Math.round,
-            sin: N_,
-            sqrt: () => L_('sqrt'),
-            tan: () => L_('tan'),
-            clz32: () => U_('clz32'),
-            imul: () => U_('imul'),
+            sin: k_,
+            sqrt: () => U_('sqrt'),
+            tan: () => U_('tan'),
+            clz32: () => N_('clz32'),
+            imul: () => N_('imul'),
             sign: Math.sign,
-            log10: () => L_('log10'),
-            log2: () => L_('log2'),
-            log1p: () => U_('log1p'),
-            expm1: () => U_('expm1'),
-            cosh: () => U_('cosh'),
-            sinh: () => U_('sinh'),
-            tanh: () => U_('tanh'),
-            acosh: () => U_('acosh'),
-            asinh: () => U_('asinh'),
-            atanh: () => U_('atanh'),
-            hypot: () => U_('hypot'),
+            log10: () => U_('log10'),
+            log2: () => U_('log2'),
+            log1p: () => N_('log1p'),
+            expm1: () => N_('expm1'),
+            cosh: () => N_('cosh'),
+            sinh: () => N_('sinh'),
+            tanh: () => N_('tanh'),
+            acosh: () => N_('acosh'),
+            asinh: () => N_('asinh'),
+            atanh: () => N_('atanh'),
+            hypot: () => N_('hypot'),
             trunc: Math.trunc,
-            cbrt: () => U_('cbrt'),
+            cbrt: () => N_('cbrt'),
             fround: Math.fround,
             [Symbol.toStringTag]: 'Math'
         };
-        const F_ = [
+        const O_ = [
             0,
             0.01745240643728351,
             0.03489949670250097,
@@ -18364,14 +18372,14 @@
             -0.034899496702500823,
             -0.01745240643728356
         ];
-        var O_, z_, H_, W_ = function (e, t, n, i) {
+        var z_, H_, W_, V_ = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        z_ = new WeakMap(), O_ = new WeakSet(), H_ = function (e) {
+        H_ = new WeakMap(), z_ = new WeakSet(), W_ = function (e) {
             if (e.length % 9 != 0)
                 throw new Error('Physics shape vertices length is not dividable by 9');
             const t = new Box3(), n = new Ammo.btTriangleMesh();
@@ -18386,9 +18394,9 @@
                 triangleMesh: n
             };
         };
-        const V_ = class {
+        const G_ = class {
             constructor(e) {
-                O_.add(this), z_.set(this, new Map());
+                z_.add(this), H_.set(this, new Map());
                 for (const {
                             id: t,
                             vertices: n,
@@ -18399,8 +18407,8 @@
                         boundingBox: e,
                         shape: AddEquation,
                         triangleMesh: SubtractEquation
-                    } = W_(this, O_, 'm', H_).call(this, n);
-                    W_(this, z_, 'f').set(t, {
+                    } = V_(this, z_, 'm', W_).call(this, n);
+                    V_(this, H_, 'f').set(t, {
                         boundingBox: e,
                         shape: AddEquation,
                         triangleMesh: SubtractEquation,
@@ -18417,12 +18425,12 @@
                 for (const {
                             shape: REVISION,
                             triangleMesh: t
-                        } of W_(this, z_, 'f').values())
+                        } of V_(this, H_, 'f').values())
                     Ammo.destroy(REVISION), Ammo.destroy(t);
-                W_(this, z_, 'f').clear();
+                V_(this, H_, 'f').clear();
             }
             getPhysicsShape(e) {
-                const t = W_(this, z_, 'f').get(e);
+                const t = V_(this, H_, 'f').get(e);
                 if (null == t)
                     throw new Error('Track part with the id "' + e.toString() + '" has no physics model');
                 return {
@@ -18432,36 +18440,36 @@
             }
             getPartTypesWithDetector(e) {
                 const t = [];
-                for (const [n, i] of W_(this, z_, 'f').entries())
+                for (const [n, i] of V_(this, H_, 'f').entries())
                     null != i.detector && i.detector.type == e && t.push(n);
                 return t;
             }
             getStartPartTypes() {
                 const e = [];
-                for (const [t, n] of W_(this, z_, 'f').entries())
+                for (const [t, n] of V_(this, H_, 'f').entries())
                     null != n.startOffset && e.push(t);
                 return e;
             }
             getPartStartOffset(e) {
                 var t, n;
-                const i = W_(this, z_, 'f').get(e);
+                const i = V_(this, H_, 'f').get(e);
                 if (null == i)
                     throw new Error('Track part with the id "' + e.toString() + '" does not exist');
                 return null !== (n = null === (t = i.startOffset) || void 0 === t ? void 0 : t.clone()) && void 0 !== n ? n : null;
             }
             getDetector(e) {
-                const t = W_(this, z_, 'f').get(e);
+                const t = V_(this, H_, 'f').get(e);
                 if (null == t)
                     throw new Error('Track part with the id "' + e.toString() + '" does not exist');
                 return t.detector;
             }
         };
-        var G_;
+        var Q_;
         !function (e) {
             e[e.Init = 0] = 'Init', e[e.Verify = 1] = 'Verify', e[e.TestDeterminism = 2] = 'TestDeterminism', e[e.CreateCar = 3] = 'CreateCar', e[e.DeleteCar = 4] = 'DeleteCar', e[e.StartCar = 5] = 'StartCar', e[e.ControlCar = 6] = 'ControlCar', e[e.PauseCar = 7] = 'PauseCar', e[e.VerifyResult = 8] = 'VerifyResult', e[e.DeterminismResult = 9] = 'DeterminismResult', e[e.UpdateResult = 10] = 'UpdateResult';
-        }(G_ || (G_ = {}));
-        const Q_ = G_;
-        var X_, j_ = function (e, t, n, i, r) {
+        }(Q_ || (Q_ = {}));
+        const X_ = Q_;
+        var j_, q_ = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -18469,26 +18477,26 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, q_ = function (e, t, n, i) {
+            }, Y_ = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        X_ = new WeakMap();
-        const Y_ = class {
+        j_ = new WeakMap();
+        const K_ = class {
             constructor(e) {
-                X_.set(this, void 0), j_(this, X_, e, 'f');
+                j_.set(this, void 0), q_(this, j_, e, 'f');
             }
             dispose() {
             }
             getControls(e) {
-                return q_(this, X_, 'f').getFrame(e);
+                return Y_(this, j_, 'f').getFrame(e);
             }
         };
-        var K_ = n(1312);
-        const Z_ = [
+        var Z_ = n(1312);
+        const J_ = [
                 'A',
                 'B',
                 'C',
@@ -18551,7 +18559,7 @@
                 '7',
                 '8',
                 '9'
-            ], J_ = [
+            ], $_ = [
                 -1,
                 -1,
                 -1,
@@ -18676,30 +18684,30 @@
                 50,
                 51
             ];
-        function $_(e) {
+        function ev(e) {
             let t = 0, n = '';
             for (; t < 8 * e.length;) {
-                const i = tv(e, t);
+                const i = nv(e, t);
                 let r;
-                30 & ~i ? (r = i, t += 6) : (r = 31 & i, t += 5), n += Z_[r];
+                30 & ~i ? (r = i, t += 6) : (r = 31 & i, t += 5), n += J_[r];
             }
             return n;
         }
-        function ev(e) {
+        function tv(e) {
             let t = 0;
             const n = [], i = e.length;
             for (let r = 0; r < i; r++) {
                 const a = e.charCodeAt(r);
-                if (a >= J_.length)
+                if (a >= $_.length)
                     return null;
-                const s = J_[a];
+                const s = $_[a];
                 if (-1 == s)
                     return null;
-                30 & ~s ? (nv(n, t, 6, s, r == i - 1), t += 6) : (nv(n, t, 5, s, r == i - 1), t += 5);
+                30 & ~s ? (iv(n, t, 6, s, r == i - 1), t += 6) : (iv(n, t, 5, s, r == i - 1), t += 5);
             }
             return new Uint8Array(n);
         }
-        function tv(e, t) {
+        function nv(e, t) {
             if (t >= 8 * e.length)
                 throw new Error('Out of range');
             const n = Math.floor(t / 8), i = e[n], r = t - 8 * n;
@@ -18707,7 +18715,7 @@
                 return (i & 63 << r) >>> r;
             return (i & 63 << r) >>> r | (e[n + 1] & 63 >>> 8 - r) << 8 - r;
         }
-        function nv(e, t, n, i, r) {
+        function iv(e, t, n, i, r) {
             const a = Math.floor(t / 8);
             for (; a >= e.length;)
                 e.push(0);
@@ -18717,7 +18725,7 @@
                 t >= e.length && e.push(0), e[t] |= i >> 8 - s;
             }
         }
-        var iv, rv = function (e, t, n, i, r) {
+        var rv, av = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -18725,55 +18733,55 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, av = function (e, t, n, i) {
+            }, sv = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        class sv {
+        class ov {
             constructor(e = 28) {
-                if (iv.set(this, void 0), !(Number.isSafeInteger(e) && e >= 0 && e < 180))
+                if (rv.set(this, void 0), !(Number.isSafeInteger(e) && e >= 0 && e < 180))
                     throw new Error('Representation is not a safe integer or is out of range');
-                rv(this, iv, e, 'f');
+                av(this, rv, e, 'f');
             }
             clone() {
-                return new sv(av(this, iv, 'f'));
+                return new ov(sv(this, rv, 'f'));
             }
             toDegrees() {
-                return 2 * av(this, iv, 'f');
+                return 2 * sv(this, rv, 'f');
             }
             static fromDegrees(e) {
                 const t = Math.round(e / 2 % 180);
-                return new sv(t);
+                return new ov(t);
             }
             getSunPosition() {
-                const e = 2 * av(this, iv, 'f') * (Math.PI / 180), t = Math.cos(e), n = Math.sin(e);
+                const e = 2 * sv(this, rv, 'f') * (Math.PI / 180), t = Math.cos(e), n = Math.sin(e);
                 return new Vector3(t, 0.78, n).normalize();
             }
             get representation() {
-                return av(this, iv, 'f');
+                return sv(this, rv, 'f');
             }
         }
-        iv = new WeakMap();
-        const ov = sv;
-        var lv;
+        rv = new WeakMap();
+        const lv = ov;
+        var cv;
         !function (e) {
             e[e.Summer = 0] = 'Summer', e[e.Winter = 1] = 'Winter', e[e.Desert = 2] = 'Desert';
-        }(lv || (lv = {}));
-        const cv = lv;
-        var hv;
+        }(cv || (cv = {}));
+        const hv = cv;
+        var dv;
         !function (e) {
             e[e.Default = 0] = 'Default', e[e.Summer = 1] = 'Summer', e[e.Winter = 2] = 'Winter', e[e.Desert = 3] = 'Desert', e[e.Custom0 = 32] = 'Custom0', e[e.Custom1 = 33] = 'Custom1', e[e.Custom2 = 34] = 'Custom2', e[e.Custom3 = 35] = 'Custom3', e[e.Custom4 = 36] = 'Custom4', e[e.Custom5 = 37] = 'Custom5', e[e.Custom6 = 38] = 'Custom6', e[e.Custom7 = 39] = 'Custom7', e[e.Custom8 = 40] = 'Custom8';
-        }(hv || (hv = {}));
-        const dv = hv;
-        var uv;
+        }(dv || (dv = {}));
+        const uv = dv;
+        var fv;
         !function (e) {
             e[e.Special = 0] = 'Special', e[e.Road = 1] = 'Road', e[e.RoadTurns = 2] = 'RoadTurns', e[e.RoadWide = 3] = 'RoadWide', e[e.Plane = 4] = 'Plane', e[e.Block = 5] = 'Block', e[e.WallTrack = 6] = 'WallTrack', e[e.Pillar = 7] = 'Pillar', e[e.Sign = 8] = 'Sign';
-        }(uv || (uv = {}));
-        const fv = uv;
-        var pv, mv = function (e, t, n, i, r) {
+        }(fv || (fv = {}));
+        const pv = fv;
+        var mv, gv = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -18781,16 +18789,16 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, gv = function (e, t, n, i) {
+            }, Av = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        class Av {
+        class _v {
             constructor(e) {
-                pv.set(this, void 0);
+                mv.set(this, void 0);
                 const t = [];
                 for (const [n, i, r] of e)
                     t.push([
@@ -18798,11 +18806,11 @@
                         i,
                         r
                     ]);
-                mv(this, pv, t, 'f');
+                gv(this, mv, t, 'f');
             }
             rotated(e, t) {
                 const n = t == fd.YNegative || t == fd.XNegative || t == fd.ZNegative;
-                return new Av(gv(this, pv, 'f').map(([i, r, AddEquation]) => {
+                return new _v(Av(this, mv, 'f').map(([i, r, AddEquation]) => {
                     if (n)
                         switch (e) {
                         case 0:
@@ -18876,23 +18884,23 @@
                 }));
             }
             forEach(e) {
-                for (let t = 0; t < gv(this, pv, 'f').length; t++) {
-                    const [n, i, r] = gv(this, pv, 'f')[t];
+                for (let t = 0; t < Av(this, mv, 'f').length; t++) {
+                    const [n, i, r] = Av(this, mv, 'f')[t];
                     e(n, i, r, t);
                 }
             }
             get length() {
-                return gv(this, pv, 'f').length;
+                return Av(this, mv, 'f').length;
             }
         }
-        pv = new WeakMap();
-        const _v = Av, vv = [
+        mv = new WeakMap();
+        const vv = _v, wv = [
                 {
-                    id: dv.Summer,
+                    id: uv.Summer,
                     colors: {}
                 },
                 {
-                    id: dv.Winter,
+                    id: uv.Winter,
                     colors: {
                         Road: '#5077b2',
                         RoadBarrier: '#898989',
@@ -18912,7 +18920,7 @@
                     }
                 },
                 {
-                    id: dv.Desert,
+                    id: uv.Desert,
                     colors: {
                         Road: '#997240',
                         RoadBarrier: '#211001',
@@ -18931,45 +18939,45 @@
                         SignBlack: '#601d1d'
                     }
                 }
-            ], wv = vv.concat([
+            ], yv = wv.concat([
                 {
-                    id: dv.Custom0,
+                    id: uv.Custom0,
                     colors: { BlockSurface: '#131313' }
                 },
                 {
-                    id: dv.Custom1,
+                    id: uv.Custom1,
                     colors: { BlockSurface: '#501b1b' }
                 },
                 {
-                    id: dv.Custom2,
+                    id: uv.Custom2,
                     colors: { BlockSurface: '#7f4d2b' }
                 },
                 {
-                    id: dv.Custom3,
+                    id: uv.Custom3,
                     colors: { BlockSurface: '#93862d' }
                 },
                 {
-                    id: dv.Custom4,
+                    id: uv.Custom4,
                     colors: { BlockSurface: '#2a5e30' }
                 },
                 {
-                    id: dv.Custom5,
+                    id: uv.Custom5,
                     colors: { BlockSurface: '#236363' }
                 },
                 {
-                    id: dv.Custom6,
+                    id: uv.Custom6,
                     colors: { BlockSurface: '#20244b' }
                 },
                 {
-                    id: dv.Custom7,
+                    id: uv.Custom7,
                     colors: { BlockSurface: '#592759' }
                 },
                 {
-                    id: dv.Custom8,
+                    id: uv.Custom8,
                     colors: { BlockSurface: '#302318' }
                 }
             ]);
-        class yv {
+        class xv {
             constructor(e, t, n, i, r, a, s = null, o = null) {
                 const l = [];
                 for (const [e, t] of a)
@@ -18984,14 +18992,14 @@
                                     r
                                 ]);
                             }
-                this.checksum = e, this.category = t, this.id = n, this.models = i, this.colors = r, this.tiles = new _v(l), this.detector = s, this.startOffset = o, Object.freeze(this);
+                this.checksum = e, this.category = t, this.id = n, this.models = i, this.colors = r, this.tiles = new vv(l), this.detector = s, this.startOffset = o, Object.freeze(this);
             }
         }
-        const xv = [
-                new yv('6d94d798abd14dc3bce4e99c180309d993ad43adb5f2c90eef8e350eedafe7cf', fv.Special, dd.Start, [[
+        const bv = [
+                new xv('6d94d798abd14dc3bce4e99c180309d993ad43adb5f2c90eef8e350eedafe7cf', pv.Special, dd.Start, [[
                         'Road',
                         'Start'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19003,10 +19011,10 @@
                             1
                         ]
                     ]], null, new Vector3(0, 0.35, 1.35)),
-                new yv('f29e34b2e05e0a4751109ae564b03fe8878a79cc6b26288f1117ed296d09c5bb', fv.Special, dd.StartWide, [[
+                new xv('f29e34b2e05e0a4751109ae564b03fe8878a79cc6b26288f1117ed296d09c5bb', pv.Special, dd.StartWide, [[
                         'RoadWide',
                         'StartWide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19018,10 +19026,10 @@
                             1
                         ]
                     ]], null, new Vector3(-10, 0.35, 1.35)),
-                new yv('3c304054f415fbede4f73a43517db04302f38b16fa2cd4e587082b37b75e20e5', fv.Special, dd.PlaneStart, [[
+                new xv('3c304054f415fbede4f73a43517db04302f38b16fa2cd4e587082b37b75e20e5', pv.Special, dd.PlaneStart, [[
                         'Planes',
                         'PlaneStart'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19033,10 +19041,10 @@
                             1
                         ]
                     ]], null, new Vector3(0, 0.35, 1.35)),
-                new yv('f08710416bdaa3d91d0d43f014e45d421fdb4587a334993bad0056f3dbbcb6bb', fv.Special, dd.PlaneStartWide, [[
+                new xv('f08710416bdaa3d91d0d43f014e45d421fdb4587a334993bad0056f3dbbcb6bb', pv.Special, dd.PlaneStartWide, [[
                         'Planes',
                         'PlaneStartWide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19048,10 +19056,10 @@
                             1
                         ]
                     ]], null, new Vector3(-10, 0.35, 1.35)),
-                new yv('223fc87c72bb64b58677062ffa08ab7eafd78071bced7c53233606763cd5316b', fv.Special, dd.Checkpoint, [[
+                new xv('223fc87c72bb64b58677062ffa08ab7eafd78071bced7c53233606763cd5316b', pv.Special, dd.Checkpoint, [[
                         'Road',
                         'Checkpoint'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19075,10 +19083,10 @@
                         1
                     ]
                 }),
-                new yv('82d9a9879cee92c04c8d4ba2e16fc31bb1917a31f5802a3bb5177ca9a5cfee01', fv.Special, dd.CheckpointWide, [[
+                new xv('82d9a9879cee92c04c8d4ba2e16fc31bb1917a31f5802a3bb5177ca9a5cfee01', pv.Special, dd.CheckpointWide, [[
                         'RoadWide',
                         'CheckpointWide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19102,10 +19110,10 @@
                         1
                     ]
                 }),
-                new yv('fe8946d7f09724b5e11f493eb5c2a5b5e3d502b15beaad003f8134ac63558948', fv.Special, dd.PlaneCheckpoint, [[
+                new xv('fe8946d7f09724b5e11f493eb5c2a5b5e3d502b15beaad003f8134ac63558948', pv.Special, dd.PlaneCheckpoint, [[
                         'Planes',
                         'PlaneCheckpoint'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19129,10 +19137,10 @@
                         1
                     ]
                 }),
-                new yv('d486d9b851db35dd44c15f9e0bb3bf582118daf7be514598a19307f61cf46678', fv.Special, dd.PlaneCheckpointWide, [[
+                new xv('d486d9b851db35dd44c15f9e0bb3bf582118daf7be514598a19307f61cf46678', pv.Special, dd.PlaneCheckpointWide, [[
                         'Planes',
                         'PlaneCheckpointWide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19156,10 +19164,10 @@
                         1
                     ]
                 }),
-                new yv('c01200d573a3594a6a4cb73ebb600964d653e4a89267d3297f3969220742aa79', fv.Special, dd.Finish, [[
+                new xv('c01200d573a3594a6a4cb73ebb600964d653e4a89267d3297f3969220742aa79', pv.Special, dd.Finish, [[
                         'Road',
                         'Finish'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19183,10 +19191,10 @@
                         2
                     ]
                 }),
-                new yv('a9cefdff816e94a643210c58582c2809de0e3e0e0478b8d5baabd7fe81f13e73', fv.Special, dd.FinishWide, [[
+                new xv('a9cefdff816e94a643210c58582c2809de0e3e0e0478b8d5baabd7fe81f13e73', pv.Special, dd.FinishWide, [[
                         'RoadWide',
                         'FinishWide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19210,10 +19218,10 @@
                         2
                     ]
                 }),
-                new yv('75e5f09fe8a18ecafaf1fb80929173ef0a7dc0b785596bbe0ccd85a934d79578', fv.Special, dd.PlaneFinish, [[
+                new xv('75e5f09fe8a18ecafaf1fb80929173ef0a7dc0b785596bbe0ccd85a934d79578', pv.Special, dd.PlaneFinish, [[
                         'Planes',
                         'PlaneFinish'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19237,10 +19245,10 @@
                         2
                     ]
                 }),
-                new yv('5801b3268c75809728c63450d06000c5f6fcfd5d72691902f99d7d19d25e1d78', fv.Special, dd.PlaneFinishWide, [[
+                new xv('5801b3268c75809728c63450d06000c5f6fcfd5d72691902f99d7d19d25e1d78', pv.Special, dd.PlaneFinishWide, [[
                         'Planes',
                         'PlaneFinishWide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19264,10 +19272,10 @@
                         2
                     ]
                 }),
-                new yv('3421096c1986d008da88b5fac64cd4c475603138c9bf8a98ab6d581dda6befa7', fv.Road, dd.Straight, [[
+                new xv('3421096c1986d008da88b5fac64cd4c475603138c9bf8a98ab6d581dda6befa7', pv.Road, dd.Straight, [[
                         'Road',
                         'Straight'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19279,7 +19287,7 @@
                             1
                         ]
                     ]]),
-                new yv('bdc3bcdafec9bc26835dc76159f7223da7da5babb3a5770129fa11046c748b69', fv.Road, dd.StraightPillarBottom, [
+                new xv('bdc3bcdafec9bc26835dc76159f7223da7da5babb3a5770129fa11046c748b69', pv.Road, dd.StraightPillarBottom, [
                     [
                         'Road',
                         'Straight'
@@ -19288,7 +19296,7 @@
                         'Pillar',
                         'SurfacePillarBottom'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -19300,7 +19308,7 @@
                             1
                         ]
                     ]]),
-                new yv('2758e984d87b3170f6618c9c689554ef169fd5f80ea7f0df292ffd69792d414e', fv.Road, dd.StraightPillarShort, [
+                new xv('2758e984d87b3170f6618c9c689554ef169fd5f80ea7f0df292ffd69792d414e', pv.Road, dd.StraightPillarShort, [
                     [
                         'Road',
                         'Straight'
@@ -19309,7 +19317,7 @@
                         'Pillar',
                         'SurfacePillarShort'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -19321,10 +19329,10 @@
                             1
                         ]
                     ]]),
-                new yv('fb5a81784022cfc2d3d0007a032976c8dfd066e72a3bc92f671c98c5cca36aaa', fv.Road, dd.TurnSharp, [[
+                new xv('fb5a81784022cfc2d3d0007a032976c8dfd066e72a3bc92f671c98c5cca36aaa', pv.Road, dd.TurnSharp, [[
                         'Road',
                         'TurnSharp'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -19336,7 +19344,7 @@
                             1
                         ]
                     ]]),
-                new yv('3da2e9a93da06b1376c33486f30a5f02d8c2f125f5b7d8b41166049ecd95f269', fv.Road, dd.TurnSharpPillarBottom, [
+                new xv('3da2e9a93da06b1376c33486f30a5f02d8c2f125f5b7d8b41166049ecd95f269', pv.Road, dd.TurnSharpPillarBottom, [
                     [
                         'Road',
                         'TurnSharp'
@@ -19345,7 +19353,7 @@
                         'Pillar',
                         'SurfacePillarBottom'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -19357,7 +19365,7 @@
                             1
                         ]
                     ]]),
-                new yv('c642122276547382e37dcb857b130088f4dc0d208dc7fdb6055b2a93080a3ffe', fv.Road, dd.TurnSharpPillarShort, [
+                new xv('c642122276547382e37dcb857b130088f4dc0d208dc7fdb6055b2a93080a3ffe', pv.Road, dd.TurnSharpPillarShort, [
                     [
                         'Road',
                         'TurnSharp'
@@ -19366,7 +19374,7 @@
                         'Pillar',
                         'SurfacePillarShort'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -19378,10 +19386,10 @@
                             1
                         ]
                     ]]),
-                new yv('110efb0facc096e1c875e545b075b0effaa1b78d50b97f906aec44796501544b', fv.RoadTurns, dd.TurnShort, [[
+                new xv('110efb0facc096e1c875e545b075b0effaa1b78d50b97f906aec44796501544b', pv.RoadTurns, dd.TurnShort, [[
                         'Road',
                         'TurnShort'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -19467,10 +19475,10 @@
                         ]
                     ]
                 ]),
-                new yv('20a164840b0e83f3eac96ba9e3650a30e3b3dec4bb635946e3e9e9a1b74820d2', fv.RoadTurns, dd.TurnLong, [[
+                new xv('20a164840b0e83f3eac96ba9e3650a30e3b3dec4bb635946e3e9e9a1b74820d2', pv.RoadTurns, dd.TurnLong, [[
                         'Road',
                         'TurnLong'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -19592,10 +19600,10 @@
                         ]
                     ]
                 ]),
-                new yv('c36dddde35a740c6f01227522bf35e1a450cddbfdd8bde1617873bef0d47c95c', fv.RoadTurns, dd.TurnLong2, [[
+                new xv('c36dddde35a740c6f01227522bf35e1a450cddbfdd8bde1617873bef0d47c95c', pv.RoadTurns, dd.TurnLong2, [[
                         'Road',
                         'TurnLong2'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -19741,10 +19749,10 @@
                         ]
                     ]
                 ]),
-                new yv('0ed20c04a941708c23fe6ced4af3f357c0e435f09278e06f3de2806786d44059', fv.RoadTurns, dd.TurnLong3, [[
+                new xv('0ed20c04a941708c23fe6ced4af3f357c0e435f09278e06f3de2806786d44059', pv.RoadTurns, dd.TurnLong3, [[
                         'Road',
                         'TurnLong3'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -19938,11 +19946,11 @@
                         ]
                     ]
                 ]),
-                new yv('034ef287319877f2fcc32fbd6f32415539a4c287dfcd620360386a781adad22a', fv.RoadTurns, dd.TurnSLeft, [[
+                new xv('034ef287319877f2fcc32fbd6f32415539a4c287dfcd620360386a781adad22a', pv.RoadTurns, dd.TurnSLeft, [[
                         'Road',
                         'TurnS',
                         { flipX: !0 }
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20016,10 +20024,10 @@
                         ]
                     ]
                 ]),
-                new yv('0d49e9feb603d0899927c7e5184f4f4fdd4363d2e1fd296f0b7b3cf4dbbf0e8d', fv.RoadTurns, dd.TurnSRight, [[
+                new xv('0d49e9feb603d0899927c7e5184f4f4fdd4363d2e1fd296f0b7b3cf4dbbf0e8d', pv.RoadTurns, dd.TurnSRight, [[
                         'Road',
                         'TurnS'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20093,10 +20101,10 @@
                         ]
                     ]
                 ]),
-                new yv('26bca19e63867bc0b755ff6fcca65de296c9d1f109f87540103565eb88a0e03d', fv.RoadTurns, dd.TurnShortLeftWide, [[
+                new xv('26bca19e63867bc0b755ff6fcca65de296c9d1f109f87540103565eb88a0e03d', pv.RoadTurns, dd.TurnShortLeftWide, [[
                         'RoadWide',
                         'TurnShortLeftWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20206,10 +20214,10 @@
                         ]
                     ]
                 ]),
-                new yv('e3845854f85dafd8cec193bcbecdac6cb79f625066de29524d5c10c5580611c5', fv.RoadTurns, dd.TurnShortRightWide, [[
+                new xv('e3845854f85dafd8cec193bcbecdac6cb79f625066de29524d5c10c5580611c5', pv.RoadTurns, dd.TurnShortRightWide, [[
                         'RoadWide',
                         'TurnShortRightWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20259,10 +20267,10 @@
                         ]
                     ]
                 ]),
-                new yv('dc6088960a65a55c74353a1e7c8a1ca8ec99e683f6273bf666d6909b288bb84b', fv.RoadTurns, dd.TurnLongLeftWide, [[
+                new xv('dc6088960a65a55c74353a1e7c8a1ca8ec99e683f6273bf666d6909b288bb84b', pv.RoadTurns, dd.TurnLongLeftWide, [[
                         'RoadWide',
                         'TurnLongLeftWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20396,10 +20404,10 @@
                         ]
                     ]
                 ]),
-                new yv('0bbb8d6c1e4a325e10643cf45546da725c1ea18e92a3a95f753339629a06ef6c', fv.RoadTurns, dd.TurnLongRightWide, [[
+                new xv('0bbb8d6c1e4a325e10643cf45546da725c1ea18e92a3a95f753339629a06ef6c', pv.RoadTurns, dd.TurnLongRightWide, [[
                         'RoadWide',
                         'TurnLongRightWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20473,10 +20481,10 @@
                         ]
                     ]
                 ]),
-                new yv('7d8d1eed719515ba7e48b5ef4a53b6b4bb2bef42496b6b40d2551230435ecb66', fv.Road, dd.SlopeUp, [[
+                new xv('7d8d1eed719515ba7e48b5ef4a53b6b4bb2bef42496b6b40d2551230435ecb66', pv.Road, dd.SlopeUp, [[
                         'Road',
                         'SlopeUp'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20502,10 +20510,10 @@
                         ]
                     ]
                 ]),
-                new yv('d6d54dbf283f7209032541fc6b924dc879d914f253e391cf8b34dde8354661be', fv.Road, dd.SlopeUpLong, [[
+                new xv('d6d54dbf283f7209032541fc6b924dc879d914f253e391cf8b34dde8354661be', pv.Road, dd.SlopeUpLong, [[
                         'Road',
                         'SlopeUpLong'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20543,10 +20551,10 @@
                         ]
                     ]
                 ]),
-                new yv('435e8cf33d28e52f75890cba1cb6529991148afd701f9b40e9ab876c11b2c448', fv.Road, dd.SlopeDown, [[
+                new xv('435e8cf33d28e52f75890cba1cb6529991148afd701f9b40e9ab876c11b2c448', pv.Road, dd.SlopeDown, [[
                         'Road',
                         'SlopeDown'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20572,10 +20580,10 @@
                         ]
                     ]
                 ]),
-                new yv('01990158f65e5d499030d8c6d0ce80d34c136189ae1a9430d4260ea7a85e91a9', fv.Road, dd.SlopeDownLong, [[
+                new xv('01990158f65e5d499030d8c6d0ce80d34c136189ae1a9430d4260ea7a85e91a9', pv.Road, dd.SlopeDownLong, [[
                         'Road',
                         'SlopeDownLong'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20613,10 +20621,10 @@
                         ]
                     ]
                 ]),
-                new yv('4afecc8b9bd7a3b074112008831fef6b11f9a55ab8c1e570e3e73c1e92b43c6d', fv.Road, dd.Slope, [[
+                new xv('4afecc8b9bd7a3b074112008831fef6b11f9a55ab8c1e570e3e73c1e92b43c6d', pv.Road, dd.Slope, [[
                         'Road',
                         'Slope'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20654,7 +20662,7 @@
                         ]
                     ]
                 ]),
-                new yv('27f9b25126b1006514941bd148c8f19dc2d82022b0c1aa2358f36cb711d4b59c', fv.Road, dd.SlopePillar, [
+                new xv('27f9b25126b1006514941bd148c8f19dc2d82022b0c1aa2358f36cb711d4b59c', pv.Road, dd.SlopePillar, [
                     [
                         'Road',
                         'Slope'
@@ -20663,7 +20671,7 @@
                         'Pillar',
                         'PillarTopSlope'
                     ]
-                ], vv, [
+                ], wv, [
                     [
                         [
                             -2,
@@ -20713,7 +20721,7 @@
                         ]
                     ]
                 ]),
-                new yv('eb236f0ac4bd895c170db53cb518c8df5167a9db5af4bb4f33f73c02deec5265', fv.Road, dd.SlopePillarShort, [
+                new xv('eb236f0ac4bd895c170db53cb518c8df5167a9db5af4bb4f33f73c02deec5265', pv.Road, dd.SlopePillarShort, [
                     [
                         'Road',
                         'Slope'
@@ -20722,7 +20730,7 @@
                         'Pillar',
                         'PillarShortSlope'
                     ]
-                ], vv, [
+                ], wv, [
                     [
                         [
                             -2,
@@ -20772,10 +20780,10 @@
                         ]
                     ]
                 ]),
-                new yv('99cb9068cb3f97e7cbfdbb3f1edc1085ea37514f3d5dd8936bc32089cc066a5c', fv.Road, dd.SlopeUpVertical, [[
+                new xv('99cb9068cb3f97e7cbfdbb3f1edc1085ea37514f3d5dd8936bc32089cc066a5c', pv.Road, dd.SlopeUpVertical, [[
                         'Road',
                         'SlopeUpVertical'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -20813,10 +20821,10 @@
                         ]
                     ]
                 ]),
-                new yv('63628b23e104a3eb3c2ba8189cd408a10fbb6ebcd6fa4359d981e3c3804c13d8', fv.Road, dd.IntersectionT, [[
+                new xv('63628b23e104a3eb3c2ba8189cd408a10fbb6ebcd6fa4359d981e3c3804c13d8', pv.Road, dd.IntersectionT, [[
                         'Road',
                         'IntersectionT'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -20828,7 +20836,7 @@
                             1
                         ]
                     ]]),
-                new yv('400dc4643653001d283bb13f740593fc2300c547bb4d2a962054ba6aabf3721c', fv.Road, dd.IntersectionTPillarBottom, [
+                new xv('400dc4643653001d283bb13f740593fc2300c547bb4d2a962054ba6aabf3721c', pv.Road, dd.IntersectionTPillarBottom, [
                     [
                         'Road',
                         'IntersectionT'
@@ -20837,7 +20845,7 @@
                         'Pillar',
                         'SurfacePillarBottom'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -20849,7 +20857,7 @@
                             1
                         ]
                     ]]),
-                new yv('60355388650d35fcbddaaac29e0d03bc2ae46db1a05cd23ddd3f2722ec2d409e', fv.Road, dd.IntersectionTPillarShort, [
+                new xv('60355388650d35fcbddaaac29e0d03bc2ae46db1a05cd23ddd3f2722ec2d409e', pv.Road, dd.IntersectionTPillarShort, [
                     [
                         'Road',
                         'IntersectionT'
@@ -20858,7 +20866,7 @@
                         'Pillar',
                         'SurfacePillarShort'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -20870,10 +20878,10 @@
                             1
                         ]
                     ]]),
-                new yv('74197b3731c2befd03498bf5172859f0b3652f1972c19e43a99bb938769573df', fv.Road, dd.IntersectionCross, [[
+                new xv('74197b3731c2befd03498bf5172859f0b3652f1972c19e43a99bb938769573df', pv.Road, dd.IntersectionCross, [[
                         'Road',
                         'IntersectionCross'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -20885,7 +20893,7 @@
                             1
                         ]
                     ]]),
-                new yv('464e69b5c4f2667c246ade9ed33fd3e50b49438ed0ab787a086dfe74c217ff6c', fv.Road, dd.IntersectionCrossPillarBottom, [
+                new xv('464e69b5c4f2667c246ade9ed33fd3e50b49438ed0ab787a086dfe74c217ff6c', pv.Road, dd.IntersectionCrossPillarBottom, [
                     [
                         'Road',
                         'IntersectionCross'
@@ -20894,7 +20902,7 @@
                         'Pillar',
                         'SurfacePillarBottom'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -20906,7 +20914,7 @@
                             1
                         ]
                     ]]),
-                new yv('90004caf354627289265314966f11b5656e6879ca7de10507e6c50cd95254b75', fv.Road, dd.IntersectionCrossPillarShort, [
+                new xv('90004caf354627289265314966f11b5656e6879ca7de10507e6c50cd95254b75', pv.Road, dd.IntersectionCrossPillarShort, [
                     [
                         'Road',
                         'IntersectionCross'
@@ -20915,7 +20923,7 @@
                         'Pillar',
                         'SurfacePillarShort'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -20927,10 +20935,10 @@
                             1
                         ]
                     ]]),
-                new yv('2af8aa6050028dd6ee69b7150e83a6d8819e1848a7b1c782848d3f6448c5091a', fv.RoadWide, dd.ToWideMiddle, [[
+                new xv('2af8aa6050028dd6ee69b7150e83a6d8819e1848a7b1c782848d3f6448c5091a', pv.RoadWide, dd.ToWideMiddle, [[
                         'RoadWide',
                         'ToWideMiddle'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -20942,11 +20950,11 @@
                             1
                         ]
                     ]]),
-                new yv('26341cfe6bec34f46b10ffcd9a7706a8156b9ac41ed2cdfd166f9f8d3e9bc8f3', fv.RoadWide, dd.ToWideLeft, [[
+                new xv('26341cfe6bec34f46b10ffcd9a7706a8156b9ac41ed2cdfd166f9f8d3e9bc8f3', pv.RoadWide, dd.ToWideLeft, [[
                         'RoadWide',
                         'ToWideSide',
                         { flipX: !0 }
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -20958,10 +20966,10 @@
                             1
                         ]
                     ]]),
-                new yv('3f82ebd6c72110b532a20673f8b54c7b25ae5988a51d3793bf383fea8ffcffc3', fv.RoadWide, dd.ToWideRight, [[
+                new xv('3f82ebd6c72110b532a20673f8b54c7b25ae5988a51d3793bf383fea8ffcffc3', pv.RoadWide, dd.ToWideRight, [[
                         'RoadWide',
                         'ToWideSide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -20973,10 +20981,10 @@
                             1
                         ]
                     ]]),
-                new yv('f5cecce9870f41f8cba7a9fbe631c315370a7a82824d04977ec857dbb1dfed29', fv.RoadWide, dd.ToWideDouble, [[
+                new xv('f5cecce9870f41f8cba7a9fbe631c315370a7a82824d04977ec857dbb1dfed29', pv.RoadWide, dd.ToWideDouble, [[
                         'RoadWide',
                         'ToWideDouble'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -20988,10 +20996,10 @@
                             1
                         ]
                     ]]),
-                new yv('99dc726611397f81b47459d32c7bfb8232322d1ca976ba9a3e71cc15451d8cfb', fv.RoadWide, dd.ToWideDiagonal, [[
+                new xv('99dc726611397f81b47459d32c7bfb8232322d1ca976ba9a3e71cc15451d8cfb', pv.RoadWide, dd.ToWideDiagonal, [[
                         'RoadWide',
                         'ToWideDiagonal'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -21003,10 +21011,10 @@
                             1
                         ]
                     ]]),
-                new yv('47d7e3fb334681911e122babef127881a36a763fb22176854114495802d5ce84', fv.RoadWide, dd.StraightWide, [[
+                new xv('47d7e3fb334681911e122babef127881a36a763fb22176854114495802d5ce84', pv.RoadWide, dd.StraightWide, [[
                         'RoadWide',
                         'StraightWide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -21018,10 +21026,10 @@
                             1
                         ]
                     ]]),
-                new yv('521adc95ed5a4809eeff7eec872c3d6449e4d6a7e4941d672f1e06a50a6615de', fv.RoadWide, dd.InnerCornerWide, [[
+                new xv('521adc95ed5a4809eeff7eec872c3d6449e4d6a7e4941d672f1e06a50a6615de', pv.RoadWide, dd.InnerCornerWide, [[
                         'RoadWide',
                         'InnerCornerWide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -21033,10 +21041,10 @@
                             1
                         ]
                     ]]),
-                new yv('d82274b362794e3c1772510002d5015dde345f1e72dd675c8bac41cf2331398b', fv.RoadWide, dd.OuterCornerWide, [[
+                new xv('d82274b362794e3c1772510002d5015dde345f1e72dd675c8bac41cf2331398b', pv.RoadWide, dd.OuterCornerWide, [[
                         'RoadWide',
                         'OuterCornerWide'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -21048,11 +21056,11 @@
                             1
                         ]
                     ]]),
-                new yv('9b1df4dd4687404adb5789f3b90af39ea6fa65ef741a07b116dc436dc14a2aa1', fv.RoadWide, dd.SlopeUpLeftWide, [[
+                new xv('9b1df4dd4687404adb5789f3b90af39ea6fa65ef741a07b116dc436dc14a2aa1', pv.RoadWide, dd.SlopeUpLeftWide, [[
                         'RoadWide',
                         'SlopeUpWide',
                         { flipX: !0 }
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21078,10 +21086,10 @@
                         ]
                     ]
                 ]),
-                new yv('651d4e988913b84359ad10e0c4745965b6a388eaa8c9bfbba4b6a50ae6d4f592', fv.RoadWide, dd.SlopeUpRightWide, [[
+                new xv('651d4e988913b84359ad10e0c4745965b6a388eaa8c9bfbba4b6a50ae6d4f592', pv.RoadWide, dd.SlopeUpRightWide, [[
                         'RoadWide',
                         'SlopeUpWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21107,11 +21115,11 @@
                         ]
                     ]
                 ]),
-                new yv('848d9930c58e66152090d7853af87c8bb7971e1771d3c337ac1a50aaa4975a78', fv.RoadWide, dd.SlopeUpLongLeftWide, [[
+                new xv('848d9930c58e66152090d7853af87c8bb7971e1771d3c337ac1a50aaa4975a78', pv.RoadWide, dd.SlopeUpLongLeftWide, [[
                         'RoadWide',
                         'SlopeUpLongWide',
                         { flipX: !0 }
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21149,10 +21157,10 @@
                         ]
                     ]
                 ]),
-                new yv('e4d54c6c3b6011a1acfb6766b6b3e7ea0de6f9c6569a5ec88c47968ad4105b2a', fv.RoadWide, dd.SlopeUpLongRightWide, [[
+                new xv('e4d54c6c3b6011a1acfb6766b6b3e7ea0de6f9c6569a5ec88c47968ad4105b2a', pv.RoadWide, dd.SlopeUpLongRightWide, [[
                         'RoadWide',
                         'SlopeUpLongWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21190,11 +21198,11 @@
                         ]
                     ]
                 ]),
-                new yv('106ad1d4c5aded30cc3ef4cd1bdc40babab84464ce7dbce3b81cc20d55fd615f', fv.RoadWide, dd.SlopeDownLeftWide, [[
+                new xv('106ad1d4c5aded30cc3ef4cd1bdc40babab84464ce7dbce3b81cc20d55fd615f', pv.RoadWide, dd.SlopeDownLeftWide, [[
                         'RoadWide',
                         'SlopeDownWide',
                         { flipX: !0 }
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21220,10 +21228,10 @@
                         ]
                     ]
                 ]),
-                new yv('23a693633b8453c7a531de9723e6ca14d0676b1d7a4df7f78278914467b90a27', fv.RoadWide, dd.SlopeDownRightWide, [[
+                new xv('23a693633b8453c7a531de9723e6ca14d0676b1d7a4df7f78278914467b90a27', pv.RoadWide, dd.SlopeDownRightWide, [[
                         'RoadWide',
                         'SlopeDownWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21249,11 +21257,11 @@
                         ]
                     ]
                 ]),
-                new yv('0f2e33a8b68667e30e80ceaefdb890a77643799d63c7f20672ca3185bbc04270', fv.RoadWide, dd.SlopeDownLongLeftWide, [[
+                new xv('0f2e33a8b68667e30e80ceaefdb890a77643799d63c7f20672ca3185bbc04270', pv.RoadWide, dd.SlopeDownLongLeftWide, [[
                         'RoadWide',
                         'SlopeDownLongWide',
                         { flipX: !0 }
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21291,10 +21299,10 @@
                         ]
                     ]
                 ]),
-                new yv('164903518c7efa4890a792017ea2b8125a2c3dae76bba4c6f1f56fb0f7e40ebc', fv.RoadWide, dd.SlopeDownLongRightWide, [[
+                new xv('164903518c7efa4890a792017ea2b8125a2c3dae76bba4c6f1f56fb0f7e40ebc', pv.RoadWide, dd.SlopeDownLongRightWide, [[
                         'RoadWide',
                         'SlopeDownLongWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21332,11 +21340,11 @@
                         ]
                     ]
                 ]),
-                new yv('c20560fd35288c5cc74af61834b9a56efaeacdde55eb793d400b7c5b97904993', fv.RoadWide, dd.SlopeLeftWide, [[
+                new xv('c20560fd35288c5cc74af61834b9a56efaeacdde55eb793d400b7c5b97904993', pv.RoadWide, dd.SlopeLeftWide, [[
                         'RoadWide',
                         'SlopeWide',
                         { flipX: !0 }
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21374,10 +21382,10 @@
                         ]
                     ]
                 ]),
-                new yv('b6a26eb3cefee53d4deef24544e5b5c1ecd25e8e8bd7c3070c7947ada55c57c2', fv.RoadWide, dd.SlopeRightWide, [[
+                new xv('b6a26eb3cefee53d4deef24544e5b5c1ecd25e8e8bd7c3070c7947ada55c57c2', pv.RoadWide, dd.SlopeRightWide, [[
                         'RoadWide',
                         'SlopeWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21415,10 +21423,10 @@
                         ]
                     ]
                 ]),
-                new yv('b598ff14bda99600434b24a619132fec4bffcc535483b9b57b0c8c09c1be1f1b', fv.RoadWide, dd.SlopeUpVerticalLeftWide, [[
+                new xv('b598ff14bda99600434b24a619132fec4bffcc535483b9b57b0c8c09c1be1f1b', pv.RoadWide, dd.SlopeUpVerticalLeftWide, [[
                         'RoadWide',
                         'SlopeUpVerticalWide'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21456,11 +21464,11 @@
                         ]
                     ]
                 ]),
-                new yv('4e0275d3a01eaca6ec5118b8b816ed292cb7172710cf9b7801068424ab684b22', fv.RoadWide, dd.SlopeUpVerticalRightWide, [[
+                new xv('4e0275d3a01eaca6ec5118b8b816ed292cb7172710cf9b7801068424ab684b22', pv.RoadWide, dd.SlopeUpVerticalRightWide, [[
                         'RoadWide',
                         'SlopeUpVerticalWide',
                         { flipX: !0 }
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21498,10 +21506,10 @@
                         ]
                     ]
                 ]),
-                new yv('896b47675cc2ff58494979168f6fd36c27c43da29aed6a52fdf80f054630166a', fv.Plane, dd.Plane, [[
+                new xv('896b47675cc2ff58494979168f6fd36c27c43da29aed6a52fdf80f054630166a', pv.Plane, dd.Plane, [[
                         'Planes',
                         'Plane'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -21513,7 +21521,7 @@
                             1
                         ]
                     ]]),
-                new yv('dc9afb98a8bb998d3b76c3563385e58c1749e56ff43fbc7577b1f57ba8360702', fv.Plane, dd.PlanePillarBottom, [
+                new xv('dc9afb98a8bb998d3b76c3563385e58c1749e56ff43fbc7577b1f57ba8360702', pv.Plane, dd.PlanePillarBottom, [
                     [
                         'Planes',
                         'Plane'
@@ -21522,7 +21530,7 @@
                         'Pillar',
                         'SurfacePillarBottom'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -21534,7 +21542,7 @@
                             1
                         ]
                     ]]),
-                new yv('f59ad95edd26814236ab30b73f6f4f68003885ef150201a4ace14b832abcf438', fv.Plane, dd.PlanePillarShort, [
+                new xv('f59ad95edd26814236ab30b73f6f4f68003885ef150201a4ace14b832abcf438', pv.Plane, dd.PlanePillarShort, [
                     [
                         'Planes',
                         'Plane'
@@ -21543,7 +21551,7 @@
                         'Pillar',
                         'SurfacePillarShort'
                     ]
-                ], vv, [[
+                ], wv, [[
                         [
                             -2,
                             0,
@@ -21555,10 +21563,10 @@
                             1
                         ]
                     ]]),
-                new yv('48247a66b232461083fa2aa36644e7e8779f5b426d474efd375ee7d21d009c9a', fv.Plane, dd.HalfPlane, [[
+                new xv('48247a66b232461083fa2aa36644e7e8779f5b426d474efd375ee7d21d009c9a', pv.Plane, dd.HalfPlane, [[
                         'Planes',
                         'HalfPlane'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21608,10 +21616,10 @@
                         ]
                     ]
                 ]),
-                new yv('eac8530d1a025291674bf34b206f75700dc8626012d8d33ed398f7aed746dac8', fv.Plane, dd.QuarterPlane, [[
+                new xv('eac8530d1a025291674bf34b206f75700dc8626012d8d33ed398f7aed746dac8', pv.Plane, dd.QuarterPlane, [[
                         'Planes',
                         'QuarterPlane'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21649,10 +21657,10 @@
                         ]
                     ]
                 ]),
-                new yv('1da4dcad366aa90a5977e1b20c5d79297106ed3b4f664be04b6b3f6370c105b4', fv.Plane, dd.PlaneSlopeUp, [[
+                new xv('1da4dcad366aa90a5977e1b20c5d79297106ed3b4f664be04b6b3f6370c105b4', pv.Plane, dd.PlaneSlopeUp, [[
                         'Planes',
                         'PlaneSlopeUp'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21678,10 +21686,10 @@
                         ]
                     ]
                 ]),
-                new yv('3e203219ec0ea114da510b37a4c392b90417af796e2b089da6d996e628c0a323', fv.Plane, dd.PlaneSlopeUpLong, [[
+                new xv('3e203219ec0ea114da510b37a4c392b90417af796e2b089da6d996e628c0a323', pv.Plane, dd.PlaneSlopeUpLong, [[
                         'Planes',
                         'PlaneSlopeUpLong'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21719,10 +21727,10 @@
                         ]
                     ]
                 ]),
-                new yv('053dbf6c03eea5102b67168ccb479d8364233b36c4210aff093928bbb83d859d', fv.Plane, dd.PlaneSlopeDown, [[
+                new xv('053dbf6c03eea5102b67168ccb479d8364233b36c4210aff093928bbb83d859d', pv.Plane, dd.PlaneSlopeDown, [[
                         'Planes',
                         'PlaneSlopeDown'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21748,10 +21756,10 @@
                         ]
                     ]
                 ]),
-                new yv('d68121a3cb0ee19cab45adb136e0df6145f43ca9ecbde8a417c02a6d4a75a757', fv.Plane, dd.PlaneSlopeDownLong, [[
+                new xv('d68121a3cb0ee19cab45adb136e0df6145f43ca9ecbde8a417c02a6d4a75a757', pv.Plane, dd.PlaneSlopeDownLong, [[
                         'Planes',
                         'PlaneSlopeDownLong'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21789,10 +21797,10 @@
                         ]
                     ]
                 ]),
-                new yv('67ec222e8fe770a8d728bb76ff571377c261d2f232134d4cb328c9ab772cf3ca', fv.Plane, dd.PlaneSlope, [[
+                new xv('67ec222e8fe770a8d728bb76ff571377c261d2f232134d4cb328c9ab772cf3ca', pv.Plane, dd.PlaneSlope, [[
                         'Planes',
                         'PlaneSlope'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21830,7 +21838,7 @@
                         ]
                     ]
                 ]),
-                new yv('a52c09d87d37088b68420db07626f274c74f792cb223764624d887a5ed145a2e', fv.Plane, dd.PlaneSlopePillar, [
+                new xv('a52c09d87d37088b68420db07626f274c74f792cb223764624d887a5ed145a2e', pv.Plane, dd.PlaneSlopePillar, [
                     [
                         'Planes',
                         'PlaneSlope'
@@ -21839,7 +21847,7 @@
                         'Pillar',
                         'PillarTopSlope'
                     ]
-                ], vv, [
+                ], wv, [
                     [
                         [
                             -2,
@@ -21889,7 +21897,7 @@
                         ]
                     ]
                 ]),
-                new yv('57df805433e706ec946d767d7ff0881f163c2e36bb1db00b0e3259954a787dec', fv.Plane, dd.PlaneSlopePillarShort, [
+                new xv('57df805433e706ec946d767d7ff0881f163c2e36bb1db00b0e3259954a787dec', pv.Plane, dd.PlaneSlopePillarShort, [
                     [
                         'Planes',
                         'PlaneSlope'
@@ -21898,7 +21906,7 @@
                         'Pillar',
                         'PillarShortSlope'
                     ]
-                ], vv, [
+                ], wv, [
                     [
                         [
                             -2,
@@ -21948,10 +21956,10 @@
                         ]
                     ]
                 ]),
-                new yv('ba0d6ec33647740bf4c60e542d1758095afa3ef451bdaec76c783dd32116e4cb', fv.Plane, dd.PlaneSlopeVerticalBottom, [[
+                new xv('ba0d6ec33647740bf4c60e542d1758095afa3ef451bdaec76c783dd32116e4cb', pv.Plane, dd.PlaneSlopeVerticalBottom, [[
                         'Planes',
                         'PlaneSlopeVertical'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -21989,10 +21997,10 @@
                         ]
                     ]
                 ]),
-                new yv('78a372de15f3151f901cf7fa7a3983ee6513cf19fa8568f10946e195c5a62515', fv.Plane, dd.PlaneSlopeToVertical, [[
+                new xv('78a372de15f3151f901cf7fa7a3983ee6513cf19fa8568f10946e195c5a62515', pv.Plane, dd.PlaneSlopeToVertical, [[
                         'Planes',
                         'PlaneSlopeToVertical'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -22030,10 +22038,10 @@
                         ]
                     ]
                 ]),
-                new yv('5f6d1ece085d450643f1399af53673dcc6bbbf413094d8dd5ee6816d80e1c8ae', fv.Plane, dd.PlaneBridge, [[
+                new xv('5f6d1ece085d450643f1399af53673dcc6bbbf413094d8dd5ee6816d80e1c8ae', pv.Plane, dd.PlaneBridge, [[
                         'Planes',
                         'PlaneBridge'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -1,
                             0,
@@ -22045,10 +22053,10 @@
                             1
                         ]
                     ]]),
-                new yv('32b91fc4cdf95f5b7a490d81058522bae14741601dd44c73cc110121aa1dd6e6', fv.Plane, dd.PlaneBridgeCorner, [[
+                new xv('32b91fc4cdf95f5b7a490d81058522bae14741601dd44c73cc110121aa1dd6e6', pv.Plane, dd.PlaneBridgeCorner, [[
                         'Planes',
                         'PlaneBridgeCorner'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -22074,10 +22082,10 @@
                         ]
                     ]
                 ]),
-                new yv('2db870b1821fb655437bd0527569d5a6843718fa0775682701437432265a1a88', fv.Plane, dd.PlaneBridgeIntersectionT, [[
+                new xv('2db870b1821fb655437bd0527569d5a6843718fa0775682701437432265a1a88', pv.Plane, dd.PlaneBridgeIntersectionT, [[
                         'Planes',
                         'PlaneBridgeIntersectionT'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -22115,10 +22123,10 @@
                         ]
                     ]
                 ]),
-                new yv('33aa0e7524b74dcdae4aed89856c09d25248c4cab8f70dcc31b347f0a00fcb52', fv.Plane, dd.PlaneBridgeIntersectionCross, [[
+                new xv('33aa0e7524b74dcdae4aed89856c09d25248c4cab8f70dcc31b347f0a00fcb52', pv.Plane, dd.PlaneBridgeIntersectionCross, [[
                         'Planes',
                         'PlaneBridgeIntersectionCross'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -22168,10 +22176,10 @@
                         ]
                     ]
                 ]),
-                new yv('bd7cc4ab180fc0a6936fef828ae3a91566b3dd621b888fbcc57c9ac11dcb713b', fv.Plane, dd.PlaneWall, [[
+                new xv('bd7cc4ab180fc0a6936fef828ae3a91566b3dd621b888fbcc57c9ac11dcb713b', pv.Plane, dd.PlaneWall, [[
                         'Planes',
                         'PlaneWall'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -22183,10 +22191,10 @@
                             1
                         ]
                     ]]),
-                new yv('d92568164028bb2e65799abd9dc6ba66cfe8a28515c09fbe5ac175f5966af66a', fv.Plane, dd.PlaneWallCorner, [[
+                new xv('d92568164028bb2e65799abd9dc6ba66cfe8a28515c09fbe5ac175f5966af66a', pv.Plane, dd.PlaneWallCorner, [[
                         'Planes',
                         'PlaneWallCorner'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -2,
@@ -22212,10 +22220,10 @@
                         ]
                     ]
                 ]),
-                new yv('792ab5a6f0e2bf8e556575ef12731ec30755855d4394f98eb4ca7ec8b713933c', fv.Plane, dd.PlaneWallInnerCorner, [[
+                new xv('792ab5a6f0e2bf8e556575ef12731ec30755855d4394f98eb4ca7ec8b713933c', pv.Plane, dd.PlaneWallInnerCorner, [[
                         'Planes',
                         'PlaneWallInnerCorner'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             1,
                             0,
@@ -22227,10 +22235,10 @@
                             1
                         ]
                     ]]),
-                new yv('de0d588c4b2fe6b32d72a7e0e2984285955f805ccb86d3c269f7155401cd6b20', fv.Block, dd.Block, [[
+                new xv('de0d588c4b2fe6b32d72a7e0e2984285955f805ccb86d3c269f7155401cd6b20', pv.Block, dd.Block, [[
                         'Blocks',
                         'Block'
-                    ]], wv, [[
+                    ]], yv, [[
                         [
                             -2,
                             0,
@@ -22242,10 +22250,10 @@
                             1
                         ]
                     ]]),
-                new yv('1ce6b585c0e99d71877fefe015ff16336ae62eb0caebeca62dd09d836092d7b6', fv.Block, dd.HalfBlock, [[
+                new xv('1ce6b585c0e99d71877fefe015ff16336ae62eb0caebeca62dd09d836092d7b6', pv.Block, dd.HalfBlock, [[
                         'Blocks',
                         'HalfBlock'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22295,10 +22303,10 @@
                         ]
                     ]
                 ]),
-                new yv('0d5f0609c3c98f687d55d3a73313225c1642f6285ddaca3ed536db742c85958d', fv.Block, dd.QuarterBlock, [[
+                new xv('0d5f0609c3c98f687d55d3a73313225c1642f6285ddaca3ed536db742c85958d', pv.Block, dd.QuarterBlock, [[
                         'Blocks',
                         'QuarterBlock'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22336,10 +22344,10 @@
                         ]
                     ]
                 ]),
-                new yv('18fc1c569c6fc04f95f10174143d19e7a9ea4e387302363f4ae60883c1acd3f0', fv.Block, dd.BlockSlopedDown, [[
+                new xv('18fc1c569c6fc04f95f10174143d19e7a9ea4e387302363f4ae60883c1acd3f0', pv.Block, dd.BlockSlopedDown, [[
                         'Blocks',
                         'BlockSlopedDown'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22365,10 +22373,10 @@
                         ]
                     ]
                 ]),
-                new yv('22dd5b2804c88994a4d283cb822f47de3c72f82376e4c9332d39feae85206c0f', fv.Block, dd.BlockSlopedDownInnerCorner, [[
+                new xv('22dd5b2804c88994a4d283cb822f47de3c72f82376e4c9332d39feae85206c0f', pv.Block, dd.BlockSlopedDownInnerCorner, [[
                         'Blocks',
                         'BlockSlopedDownInnerCorner'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22406,10 +22414,10 @@
                         ]
                     ]
                 ]),
-                new yv('81a71b4cc6ef8520f20fd738457abc31b04258c97f9862f70190fd2a0ba91382', fv.Block, dd.BlockSlopedDownOuterCorner, [[
+                new xv('81a71b4cc6ef8520f20fd738457abc31b04258c97f9862f70190fd2a0ba91382', pv.Block, dd.BlockSlopedDownOuterCorner, [[
                         'Blocks',
                         'BlockSlopedDownOuterCorner'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22435,10 +22443,10 @@
                         ]
                     ]
                 ]),
-                new yv('f4e19d3bc49994a85fecd187b76c21d258e7f30f0506d90bc6f173336e11627d', fv.Block, dd.BlockSlopedUp, [[
+                new xv('f4e19d3bc49994a85fecd187b76c21d258e7f30f0506d90bc6f173336e11627d', pv.Block, dd.BlockSlopedUp, [[
                         'Blocks',
                         'BlockSlopedUp'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22464,10 +22472,10 @@
                         ]
                     ]
                 ]),
-                new yv('fd9309468e97131bbbd1404fac34a7137cb176327789b955c1aea30267e1cded', fv.Block, dd.BlockSlopedUpInnerCorner, [[
+                new xv('fd9309468e97131bbbd1404fac34a7137cb176327789b955c1aea30267e1cded', pv.Block, dd.BlockSlopedUpInnerCorner, [[
                         'Blocks',
                         'BlockSlopedUpInnerCorner'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22505,10 +22513,10 @@
                         ]
                     ]
                 ]),
-                new yv('1321fb07ece1b80b99dc4671b52673ac028fbf43322e9e652ad633ff6afac21b', fv.Block, dd.BlockSlopedUpOuterCorner, [[
+                new xv('1321fb07ece1b80b99dc4671b52673ac028fbf43322e9e652ad633ff6afac21b', pv.Block, dd.BlockSlopedUpOuterCorner, [[
                         'Blocks',
                         'BlockSlopedUpOuterCorner'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22534,10 +22542,10 @@
                         ]
                     ]
                 ]),
-                new yv('b97c17388fc38139f2f5a98a36d94831095f79db709dd97748ad2904bc54d689', fv.Block, dd.BlockSlopeDown, [[
+                new xv('b97c17388fc38139f2f5a98a36d94831095f79db709dd97748ad2904bc54d689', pv.Block, dd.BlockSlopeDown, [[
                         'Blocks',
                         'BlockSlopeDown'
-                    ]], wv, [[
+                    ]], yv, [[
                         [
                             -2,
                             0,
@@ -22549,10 +22557,10 @@
                             1
                         ]
                     ]]),
-                new yv('50276826bbfb9fcb11a8519b8dae8a2b1cf82817d5431418d9a376664261be82', fv.Block, dd.BlockSlopeUp, [[
+                new xv('50276826bbfb9fcb11a8519b8dae8a2b1cf82817d5431418d9a376664261be82', pv.Block, dd.BlockSlopeUp, [[
                         'Blocks',
                         'BlockSlopeUp'
-                    ]], wv, [[
+                    ]], yv, [[
                         [
                             -2,
                             0,
@@ -22564,10 +22572,10 @@
                             1
                         ]
                     ]]),
-                new yv('63fd3032796397f8e25669c1c1d3fc97b8ec0e5fc88bfcb5c00a2a2c2b517888', fv.Block, dd.BlockSlopeDownLong, [[
+                new xv('63fd3032796397f8e25669c1c1d3fc97b8ec0e5fc88bfcb5c00a2a2c2b517888', pv.Block, dd.BlockSlopeDownLong, [[
                         'Blocks',
                         'BlockSlopeDownLong'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22593,10 +22601,10 @@
                         ]
                     ]
                 ]),
-                new yv('2d29131222a8d891b4350e6a2f335b114e001cf22e4e2f170dc9b86c4b2fd325', fv.Block, dd.BlockSlopeUpLong, [[
+                new xv('2d29131222a8d891b4350e6a2f335b114e001cf22e4e2f170dc9b86c4b2fd325', pv.Block, dd.BlockSlopeUpLong, [[
                         'Blocks',
                         'BlockSlopeUpLong'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22622,11 +22630,11 @@
                         ]
                     ]
                 ]),
-                new yv('0bbcd96c91b69e6e8005bfae5b64455b0d6510cb1595f3fca7f77c86ddda4560', fv.Block, dd.BlockSlopeVerticalTop, [[
+                new xv('0bbcd96c91b69e6e8005bfae5b64455b0d6510cb1595f3fca7f77c86ddda4560', pv.Block, dd.BlockSlopeVerticalTop, [[
                         'Blocks',
                         'BlockSlopeVertical',
                         { flipY: !0 }
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22664,10 +22672,10 @@
                         ]
                     ]
                 ]),
-                new yv('e81a123c0be3f8f168fb584d53e8aa038785569bbf2cd1c1cead2272889591e0', fv.Block, dd.BlockSlopeVerticalBottom, [[
+                new xv('e81a123c0be3f8f168fb584d53e8aa038785569bbf2cd1c1cead2272889591e0', pv.Block, dd.BlockSlopeVerticalBottom, [[
                         'Blocks',
                         'BlockSlopeVertical'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22705,10 +22713,10 @@
                         ]
                     ]
                 ]),
-                new yv('94e14468f31af7f39b9d7ba188a364089ae81da2bd6a9db2b8f5b1b8cedce741', fv.Block, dd.BlockSlopeToVertical, [[
+                new xv('94e14468f31af7f39b9d7ba188a364089ae81da2bd6a9db2b8f5b1b8cedce741', pv.Block, dd.BlockSlopeToVertical, [[
                         'Blocks',
                         'BlockSlopeToVertical'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22746,11 +22754,11 @@
                         ]
                     ]
                 ]),
-                new yv('3a2f05b1c2c2fd976997fa473f1adb3ba14495701dc5a998f8697798384c6946', fv.Block, dd.BlockSlopeVerticalCornerTop, [[
+                new xv('3a2f05b1c2c2fd976997fa473f1adb3ba14495701dc5a998f8697798384c6946', pv.Block, dd.BlockSlopeVerticalCornerTop, [[
                         'Blocks',
                         'BlockSlopeVerticalCornerBottom',
                         { flipY: !0 }
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22896,10 +22904,10 @@
                         ]
                     ]
                 ]),
-                new yv('3e4fa43e69aa1dbee584e16451a95a16229bba8d638df2bf6f6c9ffb3a9629c9', fv.Block, dd.BlockInnerCorner, [[
+                new xv('3e4fa43e69aa1dbee584e16451a95a16229bba8d638df2bf6f6c9ffb3a9629c9', pv.Block, dd.BlockInnerCorner, [[
                         'Blocks',
                         'BlockInnerCorner'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -22937,10 +22945,10 @@
                         ]
                     ]
                 ]),
-                new yv('cc9c95eef56def4cf013e4ac85b8013a2b4f4b4346f1f5dd41fa017de763ef17', fv.Block, dd.BlockSlopeVerticalCornerBottom, [[
+                new xv('cc9c95eef56def4cf013e4ac85b8013a2b4f4b4346f1f5dd41fa017de763ef17', pv.Block, dd.BlockSlopeVerticalCornerBottom, [[
                         'Blocks',
                         'BlockSlopeVerticalCornerBottom'
-                    ]], wv, [
+                    ]], yv, [
                     [
                         [
                             -2,
@@ -23086,57 +23094,302 @@
                         ]
                     ]
                 ]),
-                new yv('e4c82c8e512d52269cb6588fa34b06c179340ea40e71f74cbadadc7e8353f5a2', fv.Block, dd.BlockSlopeVerticalInnerCornerTop, [[
+                new xv('e4c82c8e512d52269cb6588fa34b06c179340ea40e71f74cbadadc7e8353f5a2', pv.Block, dd.BlockSlopeVerticalInnerCornerTop, [[
                         'Blocks',
                         'BlockSlopeVerticalInnerCorner',
+                        { flipY: !0 }
+                    ]], yv, [
+                    [
+                        [
+                            -2,
+                            3,
+                            -2
+                        ],
+                        [
+                            0,
+                            3,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            3,
+                            -2
+                        ],
+                        [
+                            1,
+                            3,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            2,
+                            -2
+                        ],
+                        [
+                            -2,
+                            2,
+                            -1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            2,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2,
+                            -2
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            0,
+                            -2
+                        ],
+                        [
+                            -2,
+                            1,
+                            -2
+                        ]
+                    ]
+                ]),
+                new xv('926fdc6e82ecd709cc535faea6bb8778c6e2e91edb39eb6ae6308076dca2ed18', pv.Block, dd.BlockSlopeVerticalInnerCornerBottom, [[
+                        'Blocks',
+                        'BlockSlopeVerticalInnerCorner'
+                    ]], yv, [
+                    [
+                        [
+                            -2,
+                            0,
+                            -2
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            1,
+                            -2
+                        ],
+                        [
+                            -2,
+                            1,
+                            -1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            1,
+                            -2
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            2,
+                            -2
+                        ],
+                        [
+                            -2,
+                            3,
+                            -2
+                        ]
+                    ]
+                ]),
+                new xv('1086515ba3c1d8e5ec76b378f0bdbc77fc5a57fc8eba8972f0d5e611be945235', pv.Block, dd.BlockBridge, [[
+                        'Blocks',
+                        'BlockBridge'
+                    ]], yv, [[
+                        [
+                            -1,
+                            0,
+                            -2
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ]
+                    ]]),
+                new xv('5426ad4ff64af3f1a0f0794ad30cfc20434dfffdf44d93010f5f98671c246ff3', pv.Block, dd.BlockBridgeCorner, [[
+                        'Blocks',
+                        'BlockBridgeCorner'
+                    ]], yv, [
+                    [
+                        [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            -1
+                        ],
+                        [
+                            1,
+                            0,
+                            0
+                        ]
+                    ]
+                ]),
+                new xv('784b9b4459e838e5b8f74f6250769ffa52ec5cc3608abc24c380a2e792c3d338', pv.Block, dd.BlockBridgeIntersectionT, [[
+                        'Blocks',
+                        'BlockBridgeIntersectionT'
+                    ]], yv, [
+                    [
+                        [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            -1
+                        ],
+                        [
+                            1,
+                            0,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            0,
+                            -1
+                        ],
+                        [
+                            -2,
+                            0,
+                            0
+                        ]
+                    ]
+                ]),
+                new xv('dfbcbc107a3c12217bfa3b224a5757d08e995705d1c122bb2c2665bbb8447b1c', pv.Block, dd.BlockBridgeIntersectionCross, [[
+                        'Blocks',
+                        'BlockBridgeIntersectionCross'
+                    ]], yv, [
+                    [
+                        [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        [
+                            0,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            -1
+                        ],
+                        [
+                            1,
+                            0,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            0,
+                            -1
+                        ],
+                        [
+                            -2,
+                            0,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            0,
+                            -2
+                        ],
+                        [
+                            0,
+                            0,
+                            -2
+                        ]
+                    ]
+                ]),
+                new xv('5fe53442e559418b7cc9483315b0ac45b8797f9630d5ecc4c7604dab4be25584', pv.WallTrack, dd.WallTrackTop, [[
+                        'WallTrack',
+                        'WallTrackBottom',
                         { flipY: !0 }
                     ]], wv, [
                     [
                         [
                             -2,
                             3,
-                            -2
+                            -1
                         ],
                         [
-                            0,
+                            1,
                             3,
                             1
                         ]
                     ],
                     [
                         [
-                            1,
-                            3,
-                            -2
-                        ],
-                        [
-                            1,
-                            3,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            2,
-                            -2
-                        ],
-                        [
                             -2,
                             2,
                             -1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            2,
-                            -2
                         ],
                         [
-                            -1,
+                            1,
                             2,
-                            -2
+                            -1
                         ]
                     ],
                     [
@@ -23146,38 +23399,53 @@
                             -2
                         ],
                         [
-                            -2,
                             1,
+                            2,
                             -2
                         ]
                     ]
                 ]),
-                new yv('926fdc6e82ecd709cc535faea6bb8778c6e2e91edb39eb6ae6308076dca2ed18', fv.Block, dd.BlockSlopeVerticalInnerCornerBottom, [[
-                        'Blocks',
-                        'BlockSlopeVerticalInnerCorner'
+                new xv('010d187fbfbd399bfe880bbea1b548678c239eba0be2913e5cb8a69fbd17adf7', pv.WallTrack, dd.WallTrackMiddle, [[
+                        'WallTrack',
+                        'WallTrackMiddle'
+                    ]], wv, [[
+                        [
+                            -2,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            -2
+                        ]
+                    ]]),
+                new xv('33216a4dcb734511a80c5bf70ca6f66de555800426686eae5a2519d4c837090e', pv.WallTrack, dd.WallTrackBottom, [[
+                        'WallTrack',
+                        'WallTrackBottom'
                     ]], wv, [
                     [
                         [
                             -2,
                             0,
-                            -2
+                            -1
                         ],
                         [
-                            0,
+                            1,
                             0,
                             1
                         ]
                     ],
                     [
                         [
+                            -2,
                             1,
-                            0,
-                            -2
+                            -1
                         ],
                         [
                             1,
-                            0,
-                            0
+                            1,
+                            -1
                         ]
                     ],
                     [
@@ -23187,7 +23455,126 @@
                             -2
                         ],
                         [
+                            1,
+                            3,
+                            -2
+                        ]
+                    ]
+                ]),
+                new xv('1e306d2a6347b68d6e275bf4ccc9c8942e0a633bf625a3bba95fa9f98ecd50ff', pv.WallTrack, dd.WallTrackSlopeToVertical, [[
+                        'WallTrack',
+                        'WallTrackSlopeToVertical'
+                    ]], wv, [
+                    [
+                        [
                             -2,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            1,
+                            -2
+                        ],
+                        [
+                            1,
+                            1,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            2,
+                            -2
+                        ],
+                        [
+                            1,
+                            3,
+                            -2
+                        ]
+                    ]
+                ]),
+                new xv('3ed21ddbc756a6644e05f5e1ca78ff8df6d51affc472c2d86e7f23d85911e273', pv.WallTrack, dd.WallTrackTopCorner, [[
+                        'WallTrack',
+                        'WallTrackBottomCorner',
+                        { flipY: !0 }
+                    ]], wv, [
+                    [
+                        [
+                            -2,
+                            0,
+                            -1
+                        ],
+                        [
+                            -2,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        [
+                            -1,
+                            0,
+                            -1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            -2
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            1,
+                            -1
+                        ],
+                        [
+                            -2,
+                            1,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            1,
+                            -1
+                        ],
+                        [
+                            -1,
+                            1,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            1,
+                            -1
+                        ],
+                        [
+                            0,
                             1,
                             -1
                         ]
@@ -23199,9 +23586,417 @@
                             -2
                         ],
                         [
-                            -1,
+                            1,
                             1,
                             -2
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            2,
+                            0
+                        ],
+                        [
+                            -2,
+                            2,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            2,
+                            1
+                        ],
+                        [
+                            -1,
+                            2,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            2,
+                            -1
+                        ],
+                        [
+                            0,
+                            2,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            2,
+                            -1
+                        ],
+                        [
+                            1,
+                            2,
+                            -1
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            2,
+                            -2
+                        ],
+                        [
+                            1,
+                            2,
+                            -2
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            3,
+                            -1
+                        ],
+                        [
+                            1,
+                            3,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            3,
+                            0
+                        ],
+                        [
+                            -1,
+                            3,
+                            1
+                        ]
+                    ]
+                ]),
+                new xv('4027a2439cc3e42ceda50ff3d427a31e127b25a6457b55edc2d498b474a296a7', pv.WallTrack, dd.WallTrackMiddleCorner, [[
+                        'WallTrack',
+                        'WallTrackMiddleCorner'
+                    ]], wv, [
+                    [
+                        [
+                            -2,
+                            0,
+                            -1
+                        ],
+                        [
+                            -2,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        [
+                            -1,
+                            0,
+                            -1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            -2
+                        ]
+                    ]
+                ]),
+                new xv('498286e062056a537a482ed3385fe0ac0343b399f29d470641df8f74c0532672', pv.WallTrack, dd.WallTrackBottomCorner, [[
+                        'WallTrack',
+                        'WallTrackBottomCorner'
+                    ]], wv, [
+                    [
+                        [
+                            -2,
+                            3,
+                            -1
+                        ],
+                        [
+                            -2,
+                            3,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            3,
+                            -1
+                        ],
+                        [
+                            -1,
+                            3,
+                            -1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            3,
+                            -2
+                        ],
+                        [
+                            1,
+                            3,
+                            -2
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            2,
+                            -1
+                        ],
+                        [
+                            -2,
+                            2,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            2,
+                            -1
+                        ],
+                        [
+                            -1,
+                            2,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            2,
+                            -1
+                        ],
+                        [
+                            0,
+                            2,
+                            -1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            2,
+                            -2
+                        ],
+                        [
+                            1,
+                            2,
+                            -2
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            1,
+                            0
+                        ],
+                        [
+                            -2,
+                            1,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            1,
+                            1
+                        ],
+                        [
+                            -1,
+                            1,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            1,
+                            -1
+                        ],
+                        [
+                            0,
+                            1,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            1,
+                            -1
+                        ],
+                        [
+                            1,
+                            1,
+                            -1
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            1,
+                            -2
+                        ],
+                        [
+                            1,
+                            1,
+                            -2
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            0,
+                            -1
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            0,
+                            0
+                        ],
+                        [
+                            -1,
+                            0,
+                            1
+                        ]
+                    ]
+                ]),
+                new xv('ac09cd62c83af376f23d37dd88273614a2a11cc04a04bff6075fd749bb1ff421', pv.WallTrack, dd.WallTrackTopInnerCorner, [[
+                        'WallTrack',
+                        'WallTrackBottomInnerCorner',
+                        { flipY: !0 }
+                    ]], wv, [
+                    [
+                        [
+                            -2,
+                            3,
+                            -1
+                        ],
+                        [
+                            1,
+                            3,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            3,
+                            -2
+                        ],
+                        [
+                            1,
+                            3,
+                            -2
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            2,
+                            -2
+                        ],
+                        [
+                            -1,
+                            2,
+                            -1
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            0,
+                            -2
+                        ],
+                        [
+                            -2,
+                            1,
+                            -2
+                        ]
+                    ]
+                ]),
+                new xv('16c9c8ece47c097f60cfc7f8a2daa2f0e7ad0befb0ebfd185402013fd1ec8e0f', pv.WallTrack, dd.WallTrackInnerCorner, [[
+                        'WallTrack',
+                        'WallTrackInnerCorner'
+                    ]], wv, [[
+                        [
+                            -2,
+                            0,
+                            -2
+                        ],
+                        [
+                            -2,
+                            0,
+                            -2
+                        ]
+                    ]]),
+                new xv('404e7506c2f7e9302acac39c31a659e7e09e7852786e5f0244f9827727a0bf1e', pv.WallTrack, dd.WallTrackBottomInnerCorner, [[
+                        'WallTrack',
+                        'WallTrackBottomInnerCorner'
+                    ]], wv, [
+                    [
+                        [
+                            -2,
+                            0,
+                            -1
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            -1,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            -2
+                        ]
+                    ],
+                    [
+                        [
+                            -2,
+                            1,
+                            -2
+                        ],
+                        [
+                            -1,
+                            1,
+                            -1
                         ]
                     ],
                     [
@@ -23217,9 +24012,263 @@
                         ]
                     ]
                 ]),
-                new yv('1086515ba3c1d8e5ec76b378f0bdbc77fc5a57fc8eba8972f0d5e611be945235', fv.Block, dd.BlockBridge, [[
-                        'Blocks',
-                        'BlockBridge'
+                new xv('8b7023471502607ef19109760bee3b954ea3b3883c32f3960f75c6651c912ffd', pv.WallTrack, dd.WallTrackFloor, [[
+                        'WallTrack',
+                        'WallTrackFloor'
+                    ]], wv, [[
+                        [
+                            -2,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ]
+                    ]]),
+                new xv('59e7f31827236c71db8b16f3f1f259c4c82c87a37e4d57a5a097c0d527d128f3', pv.WallTrack, dd.WallTrackFloorCorner, [[
+                        'WallTrack',
+                        'WallTrackFloorCorner'
+                    ]], wv, [
+                    [
+                        [
+                            -2,
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            0,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            -1
+                        ]
+                    ]
+                ]),
+                new xv('d58e3805b550b70940c845a807086865b21a4c36da74ffddedcfe5ce2d08e093', pv.WallTrack, dd.WallTrackFloorPlaneCorner, [[
+                        'WallTrack',
+                        'WallTrackFloorPlaneCorner'
+                    ]], wv, [
+                    [
+                        [
+                            -2,
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            0,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            -1
+                        ]
+                    ]
+                ]),
+                new xv('a56b0c1cf964b213a38167cbbac6f33acd403978ad75746eb51bcfd8c6a36148', pv.WallTrack, dd.WallTrackCeiling, [[
+                        'WallTrack',
+                        'WallTrackCeiling'
+                    ]], wv, [[
+                        [
+                            -2,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ]
+                    ]]),
+                new xv('f87b592d02120312e8e93d8a27c02dcda1095ac2f09879c6efafb2ca2b49d127', pv.WallTrack, dd.WallTrackCeilingCorner, [[
+                        'WallTrack',
+                        'WallTrackCeilingCorner'
+                    ]], wv, [
+                    [
+                        [
+                            -2,
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            0,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            -1
+                        ]
+                    ]
+                ]),
+                new xv('cfce1fe50f8cd26393eadd475783830e02f0b39bad4c0e00f7aa69614b22decc', pv.WallTrack, dd.WallTrackCeilingPlaneCorner, [[
+                        'WallTrack',
+                        'WallTrackCeilingPlaneCorner'
+                    ]], wv, [
+                    [
+                        [
+                            -2,
+                            0,
+                            1
+                        ],
+                        [
+                            1,
+                            0,
+                            1
+                        ]
+                    ],
+                    [
+                        [
+                            0,
+                            0,
+                            0
+                        ],
+                        [
+                            1,
+                            0,
+                            0
+                        ]
+                    ],
+                    [
+                        [
+                            1,
+                            0,
+                            -2
+                        ],
+                        [
+                            1,
+                            0,
+                            -1
+                        ]
+                    ]
+                ]),
+                new xv('19656d02145f1a4ba07dbf2f236f865d34c86f823741b247b5d444a36d61c316', pv.Pillar, dd.PillarTop, [[
+                        'Pillar',
+                        'PillarTop'
+                    ]], wv, [[
+                        [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        [
+                            0,
+                            0,
+                            0
+                        ]
+                    ]]),
+                new xv('dde596d55ffc00f0f00d361667239d9f71c414f03304fecb6a7d11f6f5e702f1', pv.Pillar, dd.PillarMiddle, [[
+                        'Pillar',
+                        'PillarMiddle'
+                    ]], wv, [[
+                        [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        [
+                            0,
+                            0,
+                            0
+                        ]
+                    ]]),
+                new xv('dced5202d9373f9dd81a39530a87a1a7036c93ae71604a4e26c3a191abf3c197', pv.Pillar, dd.PillarBottom, [[
+                        'Pillar',
+                        'PillarBottom'
+                    ]], wv, [[
+                        [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        [
+                            0,
+                            0,
+                            0
+                        ]
+                    ]]),
+                new xv('af83eebf50c302880377e4f8c1fb3b2ef96ae193e8d03c17e1fd77c73a847e63', pv.Pillar, dd.PillarShort, [[
+                        'Pillar',
+                        'PillarShort'
+                    ]], wv, [[
+                        [
+                            -1,
+                            0,
+                            -1
+                        ],
+                        [
+                            0,
+                            0,
+                            0
+                        ]
+                    ]]),
+                new xv('25b41116fb04b1f3cdd3119f57e0000a6ea8cb12d435718ffd6bb765866c272f', pv.Pillar, dd.PillarBranch1, [[
+                        'Pillar',
+                        'PillarBranch1'
                     ]], wv, [[
                         [
                             -1,
@@ -23229,1054 +24278,13 @@
                         [
                             0,
                             0,
-                            1
-                        ]
-                    ]]),
-                new yv('5426ad4ff64af3f1a0f0794ad30cfc20434dfffdf44d93010f5f98671c246ff3', fv.Block, dd.BlockBridgeCorner, [[
-                        'Blocks',
-                        'BlockBridgeCorner'
-                    ]], wv, [
-                    [
-                        [
-                            -1,
-                            0,
-                            -1
-                        ],
-                        [
-                            0,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            1,
-                            0,
-                            -1
-                        ],
-                        [
-                            1,
-                            0,
-                            0
-                        ]
-                    ]
-                ]),
-                new yv('784b9b4459e838e5b8f74f6250769ffa52ec5cc3608abc24c380a2e792c3d338', fv.Block, dd.BlockBridgeIntersectionT, [[
-                        'Blocks',
-                        'BlockBridgeIntersectionT'
-                    ]], wv, [
-                    [
-                        [
-                            -1,
-                            0,
-                            -1
-                        ],
-                        [
-                            0,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            1,
-                            0,
-                            -1
-                        ],
-                        [
-                            1,
-                            0,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            0,
-                            -1
-                        ],
-                        [
-                            -2,
-                            0,
-                            0
-                        ]
-                    ]
-                ]),
-                new yv('dfbcbc107a3c12217bfa3b224a5757d08e995705d1c122bb2c2665bbb8447b1c', fv.Block, dd.BlockBridgeIntersectionCross, [[
-                        'Blocks',
-                        'BlockBridgeIntersectionCross'
-                    ]], wv, [
-                    [
-                        [
-                            -1,
-                            0,
-                            -1
-                        ],
-                        [
-                            0,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            1,
-                            0,
-                            -1
-                        ],
-                        [
-                            1,
-                            0,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            0,
-                            -1
-                        ],
-                        [
-                            -2,
-                            0,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            0,
-                            -2
-                        ],
-                        [
-                            0,
-                            0,
-                            -2
-                        ]
-                    ]
-                ]),
-                new yv('5fe53442e559418b7cc9483315b0ac45b8797f9630d5ecc4c7604dab4be25584', fv.WallTrack, dd.WallTrackTop, [[
-                        'WallTrack',
-                        'WallTrackBottom',
-                        { flipY: !0 }
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            3,
-                            -1
-                        ],
-                        [
-                            1,
-                            3,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            2,
-                            -1
-                        ],
-                        [
-                            1,
-                            2,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            2,
-                            -2
-                        ]
-                    ]
-                ]),
-                new yv('010d187fbfbd399bfe880bbea1b548678c239eba0be2913e5cb8a69fbd17adf7', fv.WallTrack, dd.WallTrackMiddle, [[
-                        'WallTrack',
-                        'WallTrackMiddle'
-                    ]], vv, [[
-                        [
-                            -2,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            -2
-                        ]
-                    ]]),
-                new yv('33216a4dcb734511a80c5bf70ca6f66de555800426686eae5a2519d4c837090e', fv.WallTrack, dd.WallTrackBottom, [[
-                        'WallTrack',
-                        'WallTrackBottom'
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            0,
-                            -1
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            1,
-                            -1
-                        ],
-                        [
-                            1,
-                            1,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            1,
-                            -2
-                        ],
-                        [
-                            1,
-                            3,
-                            -2
-                        ]
-                    ]
-                ]),
-                new yv('1e306d2a6347b68d6e275bf4ccc9c8942e0a633bf625a3bba95fa9f98ecd50ff', fv.WallTrack, dd.WallTrackSlopeToVertical, [[
-                        'WallTrack',
-                        'WallTrackSlopeToVertical'
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            0,
-                            0
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            1,
-                            -2
-                        ],
-                        [
-                            1,
-                            1,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            2,
-                            -2
-                        ],
-                        [
-                            1,
-                            3,
-                            -2
-                        ]
-                    ]
-                ]),
-                new yv('3ed21ddbc756a6644e05f5e1ca78ff8df6d51affc472c2d86e7f23d85911e273', fv.WallTrack, dd.WallTrackTopCorner, [[
-                        'WallTrack',
-                        'WallTrackBottomCorner',
-                        { flipY: !0 }
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            0,
-                            -1
-                        ],
-                        [
-                            -2,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            0,
-                            -1
-                        ],
-                        [
-                            -1,
-                            0,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            -2
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            1,
-                            -1
-                        ],
-                        [
-                            -2,
-                            1,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            1,
-                            -1
-                        ],
-                        [
-                            -1,
-                            1,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            1,
-                            -1
-                        ],
-                        [
-                            0,
-                            1,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            1,
-                            -2
-                        ],
-                        [
-                            1,
-                            1,
-                            -2
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            2,
-                            0
-                        ],
-                        [
-                            -2,
-                            2,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            2,
-                            1
-                        ],
-                        [
-                            -1,
-                            2,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            2,
-                            -1
-                        ],
-                        [
-                            0,
-                            2,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            1,
-                            2,
-                            -1
-                        ],
-                        [
-                            1,
-                            2,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            2,
-                            -2
-                        ],
-                        [
-                            1,
-                            2,
-                            -2
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            3,
-                            -1
-                        ],
-                        [
-                            1,
-                            3,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            3,
-                            0
-                        ],
-                        [
-                            -1,
-                            3,
-                            1
-                        ]
-                    ]
-                ]),
-                new yv('4027a2439cc3e42ceda50ff3d427a31e127b25a6457b55edc2d498b474a296a7', fv.WallTrack, dd.WallTrackMiddleCorner, [[
-                        'WallTrack',
-                        'WallTrackMiddleCorner'
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            0,
-                            -1
-                        ],
-                        [
-                            -2,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            0,
-                            -1
-                        ],
-                        [
-                            -1,
-                            0,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            -2
-                        ]
-                    ]
-                ]),
-                new yv('498286e062056a537a482ed3385fe0ac0343b399f29d470641df8f74c0532672', fv.WallTrack, dd.WallTrackBottomCorner, [[
-                        'WallTrack',
-                        'WallTrackBottomCorner'
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            3,
-                            -1
-                        ],
-                        [
-                            -2,
-                            3,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            3,
-                            -1
-                        ],
-                        [
-                            -1,
-                            3,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            3,
-                            -2
-                        ],
-                        [
-                            1,
-                            3,
-                            -2
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            2,
-                            -1
-                        ],
-                        [
-                            -2,
-                            2,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            2,
-                            -1
-                        ],
-                        [
-                            -1,
-                            2,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            2,
-                            -1
-                        ],
-                        [
-                            0,
-                            2,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            2,
-                            -2
-                        ],
-                        [
-                            1,
-                            2,
-                            -2
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            1,
-                            0
-                        ],
-                        [
-                            -2,
-                            1,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            1,
-                            1
-                        ],
-                        [
-                            -1,
-                            1,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            1,
-                            -1
-                        ],
-                        [
-                            0,
-                            1,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            1,
-                            1,
-                            -1
-                        ],
-                        [
-                            1,
-                            1,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            1,
-                            -2
-                        ],
-                        [
-                            1,
-                            1,
-                            -2
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            0,
-                            -1
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            0,
-                            0
-                        ],
-                        [
-                            -1,
-                            0,
-                            1
-                        ]
-                    ]
-                ]),
-                new yv('ac09cd62c83af376f23d37dd88273614a2a11cc04a04bff6075fd749bb1ff421', fv.WallTrack, dd.WallTrackTopInnerCorner, [[
-                        'WallTrack',
-                        'WallTrackBottomInnerCorner',
-                        { flipY: !0 }
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            3,
-                            -1
-                        ],
-                        [
-                            1,
-                            3,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            3,
-                            -2
-                        ],
-                        [
-                            1,
-                            3,
-                            -2
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            2,
-                            -2
-                        ],
-                        [
-                            -1,
-                            2,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            0,
-                            -2
-                        ],
-                        [
-                            -2,
-                            1,
-                            -2
-                        ]
-                    ]
-                ]),
-                new yv('16c9c8ece47c097f60cfc7f8a2daa2f0e7ad0befb0ebfd185402013fd1ec8e0f', fv.WallTrack, dd.WallTrackInnerCorner, [[
-                        'WallTrack',
-                        'WallTrackInnerCorner'
-                    ]], vv, [[
-                        [
-                            -2,
-                            0,
-                            -2
-                        ],
-                        [
-                            -2,
-                            0,
-                            -2
-                        ]
-                    ]]),
-                new yv('404e7506c2f7e9302acac39c31a659e7e09e7852786e5f0244f9827727a0bf1e', fv.WallTrack, dd.WallTrackBottomInnerCorner, [[
-                        'WallTrack',
-                        'WallTrackBottomInnerCorner'
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            0,
-                            -1
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            -1,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            -2
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            1,
-                            -2
-                        ],
-                        [
-                            -1,
-                            1,
-                            -1
-                        ]
-                    ],
-                    [
-                        [
-                            -2,
-                            2,
-                            -2
-                        ],
-                        [
-                            -2,
-                            3,
-                            -2
-                        ]
-                    ]
-                ]),
-                new yv('8b7023471502607ef19109760bee3b954ea3b3883c32f3960f75c6651c912ffd', fv.WallTrack, dd.WallTrackFloor, [[
-                        'WallTrack',
-                        'WallTrackFloor'
-                    ]], vv, [[
-                        [
-                            -2,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ]]),
-                new yv('59e7f31827236c71db8b16f3f1f259c4c82c87a37e4d57a5a097c0d527d128f3', fv.WallTrack, dd.WallTrackFloorCorner, [[
-                        'WallTrack',
-                        'WallTrackFloorCorner'
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            0,
-                            1
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            0,
-                            0
-                        ],
-                        [
-                            1,
-                            0,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            1,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            -1
-                        ]
-                    ]
-                ]),
-                new yv('d58e3805b550b70940c845a807086865b21a4c36da74ffddedcfe5ce2d08e093', fv.WallTrack, dd.WallTrackFloorPlaneCorner, [[
-                        'WallTrack',
-                        'WallTrackFloorPlaneCorner'
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            0,
-                            1
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            0,
-                            0
-                        ],
-                        [
-                            1,
-                            0,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            1,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            -1
-                        ]
-                    ]
-                ]),
-                new yv('a56b0c1cf964b213a38167cbbac6f33acd403978ad75746eb51bcfd8c6a36148', fv.WallTrack, dd.WallTrackCeiling, [[
-                        'WallTrack',
-                        'WallTrackCeiling'
-                    ]], vv, [[
-                        [
-                            -2,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ]]),
-                new yv('f87b592d02120312e8e93d8a27c02dcda1095ac2f09879c6efafb2ca2b49d127', fv.WallTrack, dd.WallTrackCeilingCorner, [[
-                        'WallTrack',
-                        'WallTrackCeilingCorner'
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            0,
-                            1
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            0,
-                            0
-                        ],
-                        [
-                            1,
-                            0,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            1,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            -1
-                        ]
-                    ]
-                ]),
-                new yv('cfce1fe50f8cd26393eadd475783830e02f0b39bad4c0e00f7aa69614b22decc', fv.WallTrack, dd.WallTrackCeilingPlaneCorner, [[
-                        'WallTrack',
-                        'WallTrackCeilingPlaneCorner'
-                    ]], vv, [
-                    [
-                        [
-                            -2,
-                            0,
-                            1
-                        ],
-                        [
-                            1,
-                            0,
-                            1
-                        ]
-                    ],
-                    [
-                        [
-                            0,
-                            0,
-                            0
-                        ],
-                        [
-                            1,
-                            0,
-                            0
-                        ]
-                    ],
-                    [
-                        [
-                            1,
-                            0,
-                            -2
-                        ],
-                        [
-                            1,
-                            0,
-                            -1
-                        ]
-                    ]
-                ]),
-                new yv('19656d02145f1a4ba07dbf2f236f865d34c86f823741b247b5d444a36d61c316', fv.Pillar, dd.PillarTop, [[
-                        'Pillar',
-                        'PillarTop'
-                    ]], vv, [[
-                        [
-                            -1,
-                            0,
-                            -1
-                        ],
-                        [
-                            0,
-                            0,
                             0
                         ]
                     ]]),
-                new yv('dde596d55ffc00f0f00d361667239d9f71c414f03304fecb6a7d11f6f5e702f1', fv.Pillar, dd.PillarMiddle, [[
-                        'Pillar',
-                        'PillarMiddle'
-                    ]], vv, [[
-                        [
-                            -1,
-                            0,
-                            -1
-                        ],
-                        [
-                            0,
-                            0,
-                            0
-                        ]
-                    ]]),
-                new yv('dced5202d9373f9dd81a39530a87a1a7036c93ae71604a4e26c3a191abf3c197', fv.Pillar, dd.PillarBottom, [[
-                        'Pillar',
-                        'PillarBottom'
-                    ]], vv, [[
-                        [
-                            -1,
-                            0,
-                            -1
-                        ],
-                        [
-                            0,
-                            0,
-                            0
-                        ]
-                    ]]),
-                new yv('af83eebf50c302880377e4f8c1fb3b2ef96ae193e8d03c17e1fd77c73a847e63', fv.Pillar, dd.PillarShort, [[
-                        'Pillar',
-                        'PillarShort'
-                    ]], vv, [[
-                        [
-                            -1,
-                            0,
-                            -1
-                        ],
-                        [
-                            0,
-                            0,
-                            0
-                        ]
-                    ]]),
-                new yv('25b41116fb04b1f3cdd3119f57e0000a6ea8cb12d435718ffd6bb765866c272f', fv.Pillar, dd.PillarBranch1, [[
-                        'Pillar',
-                        'PillarBranch1'
-                    ]], vv, [[
-                        [
-                            -1,
-                            0,
-                            -2
-                        ],
-                        [
-                            0,
-                            0,
-                            0
-                        ]
-                    ]]),
-                new yv('05ae39aea4f1ddd818fa57860e688c9cb875544f9b82eafe58a2eb9c19d8d91d', fv.Pillar, dd.PillarBranch1Top, [[
+                new xv('05ae39aea4f1ddd818fa57860e688c9cb875544f9b82eafe58a2eb9c19d8d91d', pv.Pillar, dd.PillarBranch1Top, [[
                         'Pillar',
                         'PillarBranch1Top'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -1,
                             0,
@@ -24288,10 +24296,10 @@
                             0
                         ]
                     ]]),
-                new yv('06c29d92e42e0c32050af98d69eecc94ce15adf8ac81dbe53dfb577a83265f4e', fv.Pillar, dd.PillarBranch1Middle, [[
+                new xv('06c29d92e42e0c32050af98d69eecc94ce15adf8ac81dbe53dfb577a83265f4e', pv.Pillar, dd.PillarBranch1Middle, [[
                         'Pillar',
                         'PillarBranch1Middle'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -1,
                             0,
@@ -24303,10 +24311,10 @@
                             0
                         ]
                     ]]),
-                new yv('4a989027e0bd6db264f092bac729d9d450e012a710ea28d199f7ff52efd70fbd', fv.Pillar, dd.PillarBranch1Bottom, [[
+                new xv('4a989027e0bd6db264f092bac729d9d450e012a710ea28d199f7ff52efd70fbd', pv.Pillar, dd.PillarBranch1Bottom, [[
                         'Pillar',
                         'PillarBranch1Bottom'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -1,
                             0,
@@ -24318,10 +24326,10 @@
                             0
                         ]
                     ]]),
-                new yv('78b2ff83ad71e7f3d692abc35923fa20c2ae14c01e37d44ec430746ca1bac992', fv.Pillar, dd.PillarBranch2, [[
+                new xv('78b2ff83ad71e7f3d692abc35923fa20c2ae14c01e37d44ec430746ca1bac992', pv.Pillar, dd.PillarBranch2, [[
                         'Pillar',
                         'PillarBranch2'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24347,10 +24355,10 @@
                         ]
                     ]
                 ]),
-                new yv('b22c93bc73ec2da9dbff218da1676d7436527ed284e264f37294e48ef1307301', fv.Pillar, dd.PillarBranch2Top, [[
+                new xv('b22c93bc73ec2da9dbff218da1676d7436527ed284e264f37294e48ef1307301', pv.Pillar, dd.PillarBranch2Top, [[
                         'Pillar',
                         'PillarBranch2Top'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24376,10 +24384,10 @@
                         ]
                     ]
                 ]),
-                new yv('79a456a8fa3da24bec6c033f6c736fa1c728745f9624ae78ca20b6a4a76afae8', fv.Pillar, dd.PillarBranch2Middle, [[
+                new xv('79a456a8fa3da24bec6c033f6c736fa1c728745f9624ae78ca20b6a4a76afae8', pv.Pillar, dd.PillarBranch2Middle, [[
                         'Pillar',
                         'PillarBranch2Middle'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24405,10 +24413,10 @@
                         ]
                     ]
                 ]),
-                new yv('3b81b3f965cbc9fda4fe09e830ba25f1b96ce512d87b0146a1192a6cd0d07335', fv.Pillar, dd.PillarBranch2Bottom, [[
+                new xv('3b81b3f965cbc9fda4fe09e830ba25f1b96ce512d87b0146a1192a6cd0d07335', pv.Pillar, dd.PillarBranch2Bottom, [[
                         'Pillar',
                         'PillarBranch2Bottom'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24434,10 +24442,10 @@
                         ]
                     ]
                 ]),
-                new yv('27727678bbcac9d3b0172b165ca5c92b10f4b4584a3a18fef4c542f3e791f26f', fv.Pillar, dd.PillarBranch3, [[
+                new xv('27727678bbcac9d3b0172b165ca5c92b10f4b4584a3a18fef4c542f3e791f26f', pv.Pillar, dd.PillarBranch3, [[
                         'Pillar',
                         'PillarBranch3'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24475,10 +24483,10 @@
                         ]
                     ]
                 ]),
-                new yv('50c7ac511d30ab9e065c928b776652f038be7683d948082bbefc419ee049e505', fv.Pillar, dd.PillarBranch3Top, [[
+                new xv('50c7ac511d30ab9e065c928b776652f038be7683d948082bbefc419ee049e505', pv.Pillar, dd.PillarBranch3Top, [[
                         'Pillar',
                         'PillarBranch3Top'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24516,10 +24524,10 @@
                         ]
                     ]
                 ]),
-                new yv('98b3bfe99e7132825f5aa93122e4e5fdec46eb2877c8eb91fa2648f709527b60', fv.Pillar, dd.PillarBranch3Middle, [[
+                new xv('98b3bfe99e7132825f5aa93122e4e5fdec46eb2877c8eb91fa2648f709527b60', pv.Pillar, dd.PillarBranch3Middle, [[
                         'Pillar',
                         'PillarBranch3Middle'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24557,10 +24565,10 @@
                         ]
                     ]
                 ]),
-                new yv('7326bbb558f8bcc28d5875c43b1b8e3646caadb873a14fde3ab517f779aea345', fv.Pillar, dd.PillarBranch3Bottom, [[
+                new xv('7326bbb558f8bcc28d5875c43b1b8e3646caadb873a14fde3ab517f779aea345', pv.Pillar, dd.PillarBranch3Bottom, [[
                         'Pillar',
                         'PillarBranch3Bottom'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24598,10 +24606,10 @@
                         ]
                     ]
                 ]),
-                new yv('0e23c2615cfdb350bb3a700b6169589265a1d1079f61294fb497b8f80191d523', fv.Pillar, dd.PillarBranch4, [[
+                new xv('0e23c2615cfdb350bb3a700b6169589265a1d1079f61294fb497b8f80191d523', pv.Pillar, dd.PillarBranch4, [[
                         'Pillar',
                         'PillarBranch4'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24651,10 +24659,10 @@
                         ]
                     ]
                 ]),
-                new yv('e62b55e111dbcb3faefed0a203eac5b55051a2b11911946660310e3df3588da3', fv.Pillar, dd.PillarBranch4Top, [[
+                new xv('e62b55e111dbcb3faefed0a203eac5b55051a2b11911946660310e3df3588da3', pv.Pillar, dd.PillarBranch4Top, [[
                         'Pillar',
                         'PillarBranch4Top'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24704,10 +24712,10 @@
                         ]
                     ]
                 ]),
-                new yv('4e2cfb89c1c591803a1440532a74c3ace37ec7fe78a526c1b57f6679c620df2e', fv.Pillar, dd.PillarBranch4Middle, [[
+                new xv('4e2cfb89c1c591803a1440532a74c3ace37ec7fe78a526c1b57f6679c620df2e', pv.Pillar, dd.PillarBranch4Middle, [[
                         'Pillar',
                         'PillarBranch4Middle'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24757,10 +24765,10 @@
                         ]
                     ]
                 ]),
-                new yv('e7807350788e4570c8bb74d4a635639ef731d83e52922fac5bc10f415f73f794', fv.Pillar, dd.PillarBranch4Bottom, [[
+                new xv('e7807350788e4570c8bb74d4a635639ef731d83e52922fac5bc10f415f73f794', pv.Pillar, dd.PillarBranch4Bottom, [[
                         'Pillar',
                         'PillarBranch4Bottom'
-                    ]], vv, [
+                    ]], wv, [
                     [
                         [
                             -1,
@@ -24810,10 +24818,10 @@
                         ]
                     ]
                 ]),
-                new yv('836bfd12791bfebd99aba70531da4c9bd6e332d16c1e120a8888ea54f59456f9', fv.Pillar, dd.PillarBranch5, [[
+                new xv('836bfd12791bfebd99aba70531da4c9bd6e332d16c1e120a8888ea54f59456f9', pv.Pillar, dd.PillarBranch5, [[
                         'Pillar',
                         'PillarBranch5'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24825,10 +24833,10 @@
                             0
                         ]
                     ]]),
-                new yv('ab85228116faf9ae7b1e6cb4a03530cbec808df3d3c1d7883eb41eb7cfe231d7', fv.Pillar, dd.PillarBranch5Top, [[
+                new xv('ab85228116faf9ae7b1e6cb4a03530cbec808df3d3c1d7883eb41eb7cfe231d7', pv.Pillar, dd.PillarBranch5Top, [[
                         'Pillar',
                         'PillarBranch5Top'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24840,10 +24848,10 @@
                             0
                         ]
                     ]]),
-                new yv('db93d5cea4e523fd67a56f8d928084ab6355331a8e5d1899115c1841866006bb', fv.Pillar, dd.PillarBranch5Middle, [[
+                new xv('db93d5cea4e523fd67a56f8d928084ab6355331a8e5d1899115c1841866006bb', pv.Pillar, dd.PillarBranch5Middle, [[
                         'Pillar',
                         'PillarBranch5Middle'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24855,10 +24863,10 @@
                             0
                         ]
                     ]]),
-                new yv('dd793efa234159e3a0ff28b064ecb715e6c8bb76e06acfe4bd0d9a2f2b9bba88', fv.Pillar, dd.PillarBranch5Bottom, [[
+                new xv('dd793efa234159e3a0ff28b064ecb715e6c8bb76e06acfe4bd0d9a2f2b9bba88', pv.Pillar, dd.PillarBranch5Bottom, [[
                         'Pillar',
                         'PillarBranch5Bottom'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24870,11 +24878,11 @@
                             0
                         ]
                     ]]),
-                new yv('350f7d3591ffd0b2cfb8204d1c6cd0022fd3bda81ea7e950fce3abea7ec89e1a', fv.Sign, dd.SignArrowLeft, [[
+                new xv('350f7d3591ffd0b2cfb8204d1c6cd0022fd3bda81ea7e950fce3abea7ec89e1a', pv.Sign, dd.SignArrowLeft, [[
                         'Signs',
                         'SignArrowRight',
                         { flipX: !0 }
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24886,10 +24894,10 @@
                             -2
                         ]
                     ]]),
-                new yv('22e104e58bba0a609d379578e391ce50ca523c9eee1c3fddebb6d1bb2246a0b9', fv.Sign, dd.SignArrowRight, [[
+                new xv('22e104e58bba0a609d379578e391ce50ca523c9eee1c3fddebb6d1bb2246a0b9', pv.Sign, dd.SignArrowRight, [[
                         'Signs',
                         'SignArrowRight'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24901,10 +24909,10 @@
                             -2
                         ]
                     ]]),
-                new yv('acba0cfe380e625285b973e09344e61740e77d6f8cac8691ef3e0a0b0878040e', fv.Sign, dd.SignArrowUp, [[
+                new xv('acba0cfe380e625285b973e09344e61740e77d6f8cac8691ef3e0a0b0878040e', pv.Sign, dd.SignArrowUp, [[
                         'Signs',
                         'SignArrowUp'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24916,11 +24924,11 @@
                             -2
                         ]
                     ]]),
-                new yv('8d0dbea0a26bdf3addd372f5d9a2fdecfd776a48f31218acdeb036129b248ca5', fv.Sign, dd.SignArrowDown, [[
+                new xv('8d0dbea0a26bdf3addd372f5d9a2fdecfd776a48f31218acdeb036129b248ca5', pv.Sign, dd.SignArrowDown, [[
                         'Signs',
                         'SignArrowUp',
                         { flipY: !0 }
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24932,10 +24940,10 @@
                             -2
                         ]
                     ]]),
-                new yv('e5e1b1ca69d7b230331171be07876c4b1bdebba557c19b18ab17d91eee2771d5', fv.Sign, dd.SignWarning, [[
+                new xv('e5e1b1ca69d7b230331171be07876c4b1bdebba557c19b18ab17d91eee2771d5', pv.Sign, dd.SignWarning, [[
                         'Signs',
                         'SignWarning'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24947,10 +24955,10 @@
                             -2
                         ]
                     ]]),
-                new yv('64ed1fba4990a25bc774575ff8835117638d2c3e7c8f41bf0032d219e1083e4c', fv.Sign, dd.SignWrongWay, [[
+                new xv('64ed1fba4990a25bc774575ff8835117638d2c3e7c8f41bf0032d219e1083e4c', pv.Sign, dd.SignWrongWay, [[
                         'Signs',
                         'SignWrongWay'
-                    ]], vv, [[
+                    ]], wv, [[
                         [
                             -2,
                             0,
@@ -24963,26 +24971,26 @@
                         ]
                     ]])
             ], _box = new Map();
-        for (const REVISION of xv) {
+        for (const REVISION of bv) {
             if (_box.has(REVISION.id))
                 throw new Error('Duplicate track part id ' + REVISION.id.toString());
             _box.set(REVISION.id, REVISION);
         }
-        function Sv(e) {
+        function Ev(e) {
             const t = _box.get(e);
             if (null == t)
                 throw new Error('Unknown track part id ' + e.toString());
             return t;
         }
-        const Ev = xv.filter(e => {
+        const Mv = bv.filter(e => {
                 var t;
                 return (null === (t = e.detector) || void 0 === t ? void 0 : t.type) == qh.Checkpoint;
-            }).map(e => e.id), Mv = xv.filter(e => null != e.startOffset).map(e => e.id);
-        function Tv(e) {
+            }).map(e => e.id), Tv = bv.filter(e => null != e.startOffset).map(e => e.id);
+        function Cv(e) {
             const t = e.parts;
             if ('object' != typeof t && null !== t && !Array.isArray(t))
                 return null;
-            const n = new aw(cv.Summer, new ov()), i = Object.keys(t);
+            const n = new sw(hv.Summer, new lv()), i = Object.keys(t);
             for (const e of i) {
                 const i = parseInt(e, 10);
                 if (!(i in dd))
@@ -25000,21 +25008,21 @@
                         if (!(o >= 0 && o <= 3 && Math.abs(r) <= 1000000000 && a >= 0 && a <= 1000000000 && Math.abs(s) <= 1000000000))
                             return null;
                         {
-                            if (Ev.includes(i))
+                            if (Mv.includes(i))
                                 return null;
                             let e = null;
-                            Mv.includes(i) && (e = 0), n.addPart(4 * r, a, 4 * s, i, o, fd.YPositive, dv.Default, null, e);
+                            Tv.includes(i) && (e = 0), n.addPart(4 * r, a, 4 * s, i, o, fd.YPositive, uv.Default, null, e);
                         }
                     }
                 }
             }
             return n;
         }
-        function Cv(e) {
+        function Iv(e) {
             const t = ch(e);
             if (null == t)
                 return null;
-            const n = new aw(cv.Summer, new ov());
+            const n = new sw(hv.Summer, new lv());
             let i = 0;
             for (; i < t.length;) {
                 if (t.length - i < 2)
@@ -25041,16 +25049,16 @@
                     const o = 3 & t[i + 0];
                     if (i += 1, o < 0 || o > 3)
                         return null;
-                    if (Ev.includes(e))
+                    if (Mv.includes(e))
                         return null;
                     let l = null;
-                    Mv.includes(e) && (l = 0), n.addPart(4 * r, a, 4 * s, e, o, fd.YPositive, dv.Default, null, l);
+                    Tv.includes(e) && (l = 0), n.addPart(4 * r, a, 4 * s, e, o, fd.YPositive, uv.Default, null, l);
                 }
             }
             return n;
         }
-        function Iv(e) {
-            const t = ev(e);
+        function Rv(e) {
+            const t = tv(e);
             if (null == t)
                 return null;
             const n = new TYPED_ARRAYS.Inflate();
@@ -25059,7 +25067,7 @@
             const i = n.result;
             if (!(i instanceof Uint8Array))
                 return null;
-            const r = new aw(cv.Summer, new ov());
+            const r = new sw(hv.Summer, new lv());
             let a = 0;
             for (; a < i.length;) {
                 if (i.length - a < 2)
@@ -25087,19 +25095,19 @@
                     if (a += 1, o < 0 || o > 3)
                         return null;
                     let l = null;
-                    if (Ev.includes(e)) {
+                    if (Mv.includes(e)) {
                         if (i.length - a < 2)
                             return null;
                         l = i[a + 0] | i[a + 1] << 8, a += 2;
                     }
                     let c = null;
-                    Mv.includes(e) && (c = 0), r.addPart(4 * t, n, 4 * s, e, o, fd.YPositive, dv.Default, l, c);
+                    Tv.includes(e) && (c = 0), r.addPart(4 * t, n, 4 * s, e, o, fd.YPositive, uv.Default, l, c);
                 }
             }
             return r;
         }
-        function Rv(e) {
-            const t = ev(e);
+        function Pv(e) {
+            const t = tv(e);
             if (null == t)
                 return null;
             const n = new TYPED_ARRAYS.Inflate();
@@ -25108,150 +25116,150 @@
             const i = n.result;
             if (!(i instanceof Uint8Array))
                 return null;
-            const r = new aw(cv.Summer, new ov());
+            const r = new sw(hv.Summer, new lv());
             let a = 0;
             for (; a < i.length;) {
                 if (i.length - a < 2)
                     return null;
                 let e = i[a + 0] | i[a + 1] << 8;
                 a += 2;
-                let t = dv.Default;
+                let t = uv.Default;
                 if (e >= 134 && e <= 178)
                     switch (e) {
                     case 134:
-                        e = dd.Block, t = dv.Custom1;
+                        e = dd.Block, t = uv.Custom1;
                         break;
                     case 135:
-                        e = dd.HalfBlock, t = dv.Custom1;
+                        e = dd.HalfBlock, t = uv.Custom1;
                         break;
                     case 136:
-                        e = dd.QuarterBlock, t = dv.Custom1;
+                        e = dd.QuarterBlock, t = uv.Custom1;
                         break;
                     case 137:
-                        e = dd.BlockSlopedDown, t = dv.Custom1;
+                        e = dd.BlockSlopedDown, t = uv.Custom1;
                         break;
                     case 138:
-                        e = dd.BlockSlopedDownInnerCorner, t = dv.Custom1;
+                        e = dd.BlockSlopedDownInnerCorner, t = uv.Custom1;
                         break;
                     case 139:
-                        e = dd.BlockSlopedDownOuterCorner, t = dv.Custom1;
+                        e = dd.BlockSlopedDownOuterCorner, t = uv.Custom1;
                         break;
                     case 140:
-                        e = dd.BlockSlopedUp, t = dv.Custom1;
+                        e = dd.BlockSlopedUp, t = uv.Custom1;
                         break;
                     case 141:
-                        e = dd.BlockSlopedUpInnerCorner, t = dv.Custom1;
+                        e = dd.BlockSlopedUpInnerCorner, t = uv.Custom1;
                         break;
                     case 142:
-                        e = dd.BlockSlopedUpOuterCorner, t = dv.Custom1;
+                        e = dd.BlockSlopedUpOuterCorner, t = uv.Custom1;
                         break;
                     case 143:
-                        e = dd.BlockSlopeDown, t = dv.Custom1;
+                        e = dd.BlockSlopeDown, t = uv.Custom1;
                         break;
                     case 144:
-                        e = dd.BlockSlopeUp, t = dv.Custom1;
+                        e = dd.BlockSlopeUp, t = uv.Custom1;
                         break;
                     case 145:
-                        e = dd.BlockBridge, t = dv.Custom1;
+                        e = dd.BlockBridge, t = uv.Custom1;
                         break;
                     case 146:
-                        e = dd.BlockBridgeCorner, t = dv.Custom1;
+                        e = dd.BlockBridgeCorner, t = uv.Custom1;
                         break;
                     case 147:
-                        e = dd.BlockBridgeIntersectionT, t = dv.Custom1;
+                        e = dd.BlockBridgeIntersectionT, t = uv.Custom1;
                         break;
                     case 148:
-                        e = dd.BlockBridgeIntersectionCross, t = dv.Custom1;
+                        e = dd.BlockBridgeIntersectionCross, t = uv.Custom1;
                         break;
                     case 149:
-                        e = dd.Block, t = dv.Custom6;
+                        e = dd.Block, t = uv.Custom6;
                         break;
                     case 150:
-                        e = dd.HalfBlock, t = dv.Custom6;
+                        e = dd.HalfBlock, t = uv.Custom6;
                         break;
                     case 151:
-                        e = dd.QuarterBlock, t = dv.Custom6;
+                        e = dd.QuarterBlock, t = uv.Custom6;
                         break;
                     case 152:
-                        e = dd.BlockSlopedDown, t = dv.Custom6;
+                        e = dd.BlockSlopedDown, t = uv.Custom6;
                         break;
                     case 153:
-                        e = dd.BlockSlopedDownInnerCorner, t = dv.Custom6;
+                        e = dd.BlockSlopedDownInnerCorner, t = uv.Custom6;
                         break;
                     case 154:
-                        e = dd.BlockSlopedDownOuterCorner, t = dv.Custom6;
+                        e = dd.BlockSlopedDownOuterCorner, t = uv.Custom6;
                         break;
                     case 155:
-                        e = dd.BlockSlopedUp, t = dv.Custom6;
+                        e = dd.BlockSlopedUp, t = uv.Custom6;
                         break;
                     case 156:
-                        e = dd.BlockSlopedUpInnerCorner, t = dv.Custom6;
+                        e = dd.BlockSlopedUpInnerCorner, t = uv.Custom6;
                         break;
                     case 157:
-                        e = dd.BlockSlopedUpOuterCorner, t = dv.Custom6;
+                        e = dd.BlockSlopedUpOuterCorner, t = uv.Custom6;
                         break;
                     case 158:
-                        e = dd.BlockSlopeDown, t = dv.Custom6;
+                        e = dd.BlockSlopeDown, t = uv.Custom6;
                         break;
                     case 159:
-                        e = dd.BlockSlopeUp, t = dv.Custom6;
+                        e = dd.BlockSlopeUp, t = uv.Custom6;
                         break;
                     case 160:
-                        e = dd.BlockBridge, t = dv.Custom6;
+                        e = dd.BlockBridge, t = uv.Custom6;
                         break;
                     case 161:
-                        e = dd.BlockBridgeCorner, t = dv.Custom6;
+                        e = dd.BlockBridgeCorner, t = uv.Custom6;
                         break;
                     case 162:
-                        e = dd.BlockBridgeIntersectionT, t = dv.Custom6;
+                        e = dd.BlockBridgeIntersectionT, t = uv.Custom6;
                         break;
                     case 163:
-                        e = dd.BlockBridgeIntersectionCross, t = dv.Custom6;
+                        e = dd.BlockBridgeIntersectionCross, t = uv.Custom6;
                         break;
                     case 164:
-                        e = dd.Block, t = dv.Custom0;
+                        e = dd.Block, t = uv.Custom0;
                         break;
                     case 165:
-                        e = dd.HalfBlock, t = dv.Custom0;
+                        e = dd.HalfBlock, t = uv.Custom0;
                         break;
                     case 166:
-                        e = dd.QuarterBlock, t = dv.Custom0;
+                        e = dd.QuarterBlock, t = uv.Custom0;
                         break;
                     case 167:
-                        e = dd.BlockSlopedDown, t = dv.Custom0;
+                        e = dd.BlockSlopedDown, t = uv.Custom0;
                         break;
                     case 168:
-                        e = dd.BlockSlopedDownInnerCorner, t = dv.Custom0;
+                        e = dd.BlockSlopedDownInnerCorner, t = uv.Custom0;
                         break;
                     case 169:
-                        e = dd.BlockSlopedDownOuterCorner, t = dv.Custom0;
+                        e = dd.BlockSlopedDownOuterCorner, t = uv.Custom0;
                         break;
                     case 170:
-                        e = dd.BlockSlopedUp, t = dv.Custom0;
+                        e = dd.BlockSlopedUp, t = uv.Custom0;
                         break;
                     case 171:
-                        e = dd.BlockSlopedUpInnerCorner, t = dv.Custom0;
+                        e = dd.BlockSlopedUpInnerCorner, t = uv.Custom0;
                         break;
                     case 172:
-                        e = dd.BlockSlopedUpOuterCorner, t = dv.Custom0;
+                        e = dd.BlockSlopedUpOuterCorner, t = uv.Custom0;
                         break;
                     case 173:
-                        e = dd.BlockSlopeDown, t = dv.Custom0;
+                        e = dd.BlockSlopeDown, t = uv.Custom0;
                         break;
                     case 174:
-                        e = dd.BlockSlopeUp, t = dv.Custom0;
+                        e = dd.BlockSlopeUp, t = uv.Custom0;
                         break;
                     case 175:
-                        e = dd.BlockBridge, t = dv.Custom0;
+                        e = dd.BlockBridge, t = uv.Custom0;
                         break;
                     case 176:
-                        e = dd.BlockBridgeCorner, t = dv.Custom0;
+                        e = dd.BlockBridgeCorner, t = uv.Custom0;
                         break;
                     case 177:
-                        e = dd.BlockBridgeIntersectionT, t = dv.Custom0;
+                        e = dd.BlockBridgeIntersectionT, t = uv.Custom0;
                         break;
                     case 178:
-                        e = dd.BlockBridgeIntersectionCross, t = dv.Custom0;
+                        e = dd.BlockBridgeIntersectionCross, t = uv.Custom0;
                     }
                 let n = null, s = {
                         x: 0,
@@ -25329,30 +25337,30 @@
                     if (a += 1, h < 0 || h > 3)
                         return null;
                     let d = null;
-                    if (Ev.includes(e)) {
+                    if (Mv.includes(e)) {
                         if (i.length - a < 2)
                             return null;
                         d = i[a + 0] | i[a + 1] << 8, a += 2;
                     }
                     let u = null;
-                    Mv.includes(e) && (u = 0), null != n && r.addPart(4 * o + s.x, l + s.y, 4 * c + s.z, n, h, fd.YPositive, dv.Default, null, u), r.addPart(4 * o, l, 4 * c, e, h, fd.YPositive, t, d, u);
+                    Tv.includes(e) && (u = 0), null != n && r.addPart(4 * o + s.x, l + s.y, 4 * c + s.z, n, h, fd.YPositive, uv.Default, null, u), r.addPart(4 * o, l, 4 * c, e, h, fd.YPositive, t, d, u);
                 }
             }
             return r;
         }
-        function Pv(e, t) {
+        function Bv(e, t) {
             let n = e;
             if (t.length - n < 1)
                 return null;
             const i = t[n];
-            if (n += 1, !(i in cv))
+            if (n += 1, !(i in hv))
                 return null;
             if (t.length - n < 1)
                 return null;
             const r = t[n];
             if (n += 1, !Number.isSafeInteger(r) || r < 0 || r >= 180)
                 return null;
-            const a = new aw(i, new ov(r));
+            const a = new sw(i, new lv(r));
             if (t.length - n < 9)
                 return null;
             const s = t[n] | t[n + 1] << 8 | t[n + 2] << 16 | t[n + 3] << 24;
@@ -25403,16 +25411,16 @@
                     if (t.length - n < 1)
                         return null;
                     const m = t[n + 0];
-                    if (n += 1, !(m in dv))
+                    if (n += 1, !(m in uv))
                         return null;
                     let g = null;
-                    if (Ev.includes(e)) {
+                    if (Mv.includes(e)) {
                         if (t.length - n < 2)
                             return null;
                         g = t[n + 0] | t[n + 1] << 8, n += 2;
                     }
                     let A = null;
-                    if (Mv.includes(e)) {
+                    if (Tv.includes(e)) {
                         if (t.length - n < 4)
                             return null;
                         A = t[n + 0] | t[n + 1] << 8 | t[n + 2] << 16 | t[n + 3] << 24, n += 4;
@@ -25440,7 +25448,7 @@
                 r[0] = i - t.x * e.normal.x, r[4] = -t.x * e.normal.y, r[8] = -t.x * e.normal.z, r[12] = -t.x * -e.constant, r[1] = -t.y * e.normal.x, r[5] = i - t.y * e.normal.y, r[9] = -t.y * e.normal.z, r[13] = -t.y * -e.constant, r[2] = -t.z * e.normal.x, r[6] = -t.z * e.normal.y, r[10] = i - t.z * e.normal.z, r[14] = -t.z * -e.constant, r[3] = -t.w * e.normal.x, r[7] = -t.w * e.normal.y, r[11] = -t.w * e.normal.z, r[15] = i - t.w * -e.constant, this.matrix.multiplyMatrices(n, this.meshMatrix);
             }
         }
-        var Dv, Lv, Uv, Nv, kv, Fv, Ov, zv, Hv, Wv, Vv, Gv, Qv, Xv, jv = function (e, t, n, i, r) {
+        var Lv, Uv, Nv, kv, Fv, Ov, zv, Hv, Wv, Vv, Gv, Qv, Xv, jv, qv = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -25448,14 +25456,14 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, qv = function (e, t, n, i) {
+            }, Yv = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        class Yv {
+        class Kv {
             constructor(e, t, n, i, r, a, s, o, l, c) {
                 if (this.checkpointOrder = null, this.startOrder = null, this.x = e, this.y = t, this.z = n, this.rotation = i, this.rotationAxis = r, this.color = a, this.type = s, this.matrix = o, this.checkpointOrder = l, this.startOrder = c, null != s.configuration.detector && s.configuration.detector.type == qh.Checkpoint) {
                     if (null == l)
@@ -25468,27 +25476,27 @@
                     throw new Error('Non-start part has start order');
             }
         }
-        class Kv {
+        class Zv {
             constructor(e, t, n) {
-                Dv.add(this), Lv.set(this, void 0), Uv.set(this, void 0), Nv.set(this, void 0), this.environment = cv.Summer, kv.set(this, new ov()), Fv.set(this, []), Ov.set(this, new Map()), zv.set(this, new Map()), Hv.set(this, {
+                Lv.add(this), Uv.set(this, void 0), Nv.set(this, void 0), kv.set(this, void 0), this.environment = hv.Summer, Fv.set(this, new lv()), Ov.set(this, []), zv.set(this, new Map()), Hv.set(this, new Map()), Wv.set(this, {
                     min: new Vector2(0, 0),
                     max: new Vector2(0, 0)
-                }), Wv.set(this, null), Vv.set(this, []), jv(this, Lv, e, 'f'), jv(this, Uv, t, 'f'), jv(this, Nv, n, 'f');
+                }), Vv.set(this, null), Gv.set(this, []), qv(this, Uv, e, 'f'), qv(this, Nv, t, 'f'), qv(this, kv, n, 'f');
             }
             get sunDirection() {
-                return qv(this, kv, 'f');
+                return Yv(this, Fv, 'f');
             }
             set sunDirection(e) {
-                jv(this, kv, e.clone(), 'f');
+                qv(this, Fv, e.clone(), 'f');
             }
             getID() {
-                return qv(this, Wv, 'f');
+                return Yv(this, Vv, 'f');
             }
             clear() {
-                jv(this, Wv, null, 'f'), qv(this, Fv, 'f').length = 0, qv(this, Ov, 'f').clear(), qv(this, zv, 'f').clear(), qv(this, Dv, 'm', Gv).call(this);
+                qv(this, Vv, null, 'f'), Yv(this, Ov, 'f').length = 0, Yv(this, zv, 'f').clear(), Yv(this, Hv, 'f').clear(), Yv(this, Lv, 'm', Qv).call(this);
             }
             getPartsAt(e, t, n) {
-                const i = qv(this, Ov, 'f').get(e.toString() + '|' + t.toString() + '|' + n.toString());
+                const i = Yv(this, zv, 'f').get(e.toString() + '|' + t.toString() + '|' + n.toString());
                 return null == i ? [] : i.map(e => ({
                     id: e.type.configuration.id,
                     x: e.x,
@@ -25502,64 +25510,64 @@
                 }));
             }
             setPart(e, t, n, i, r, a, s, o, l) {
-                const c = qv(this, Nv, 'f').getPart(i);
-                if (s != dv.Default && !c.colors.has(s))
+                const c = Yv(this, kv, 'f').getPart(i);
+                if (s != uv.Default && !c.colors.has(s))
                     throw new Error('Track part color does not exist');
-                const h = Kh(r, a), d = new Vector3(e * Kv.partSize, t * Kv.partSize, n * Kv.partSize), u = new Matrix4().compose(d, h, new Vector3(1, 1, 1)), f = new Yv(e, t, n, r, a, s, c, u, o, l);
-                qv(this, Fv, 'f').push(f);
+                const h = Kh(r, a), d = new Vector3(e * Zv.partSize, t * Zv.partSize, n * Zv.partSize), u = new Matrix4().compose(d, h, new Vector3(1, 1, 1)), f = new Kv(e, t, n, r, a, s, c, u, o, l);
+                Yv(this, Ov, 'f').push(f);
                 c.configuration.tiles.rotated(r, a).forEach((i, r, a) => {
                     const s = (e + i).toString() + '|' + (t + r).toString() + '|' + (n + a).toString();
                     if (t + r < 0)
                         throw new Error('Track part below ground');
                     {
-                        const e = qv(this, Ov, 'f').get(s);
-                        null == e ? qv(this, Ov, 'f').set(s, [f]) : e.push(f);
+                        const e = Yv(this, zv, 'f').get(s);
+                        null == e ? Yv(this, zv, 'f').set(s, [f]) : e.push(f);
                     }
                 });
-                const p = qv(this, zv, 'f').get(i);
-                null == p ? qv(this, zv, 'f').set(i, [f]) : p.push(f);
+                const p = Yv(this, Hv, 'f').get(i);
+                null == p ? Yv(this, Hv, 'f').set(i, [f]) : p.push(f);
             }
             deleteSpecificPart(e, t, n, i, r, a) {
-                for (const SubtractEquation of qv(this, Fv, 'f'))
+                for (const SubtractEquation of Yv(this, Ov, 'f'))
                     if (SubtractEquation.type.configuration.id == e && SubtractEquation.x == t && SubtractEquation.y == n && SubtractEquation.z == i && SubtractEquation.rotation == r && SubtractEquation.rotationAxis == a)
-                        return qv(this, Dv, 'm', Qv).call(this, SubtractEquation), !0;
+                        return Yv(this, Lv, 'm', Xv).call(this, SubtractEquation), !0;
                 return !1;
             }
             getBounds() {
-                return qv(this, Hv, 'f');
+                return Yv(this, Wv, 'f');
             }
             generateMeshes() {
-                qv(this, Dv, 'm', Gv).call(this);
-                const e = qv(this, kv, 'f').getSunPosition(), t = new Vector4(e.x, e.y, e.z, 0);
+                Yv(this, Lv, 'm', Qv).call(this);
+                const e = Yv(this, Fv, 'f').getSunPosition(), t = new Vector4(e.x, e.y, e.z, 0);
                 let n, i = null;
-                if (2 == qv(this, Uv, 'f').getSettingInteger(dm.ShadowQuality))
+                if (2 == Yv(this, Nv, 'f').getSettingInteger(dm.ShadowQuality))
                     switch (this.environment) {
-                    case cv.Summer:
+                    case hv.Summer:
                         i = new Color(2511171);
                         break;
-                    case cv.Winter:
+                    case hv.Winter:
                         i = new Color(7904713);
                         break;
-                    case cv.Desert:
+                    case hv.Desert:
                         i = new Color(7958351);
                     }
                 switch (this.environment) {
-                case cv.Summer:
-                    n = dv.Summer;
+                case hv.Summer:
+                    n = uv.Summer;
                     break;
-                case cv.Winter:
-                    n = dv.Winter;
+                case hv.Winter:
+                    n = uv.Winter;
                     break;
-                case cv.Desert:
-                    n = dv.Desert;
+                case hv.Desert:
+                    n = uv.Desert;
                 }
-                const r = qv(this, Lv, 'f').isTrackShadowsEnabled();
-                for (const e of qv(this, Nv, 'f').getAllParts())
+                const r = Yv(this, Uv, 'f').isTrackShadowsEnabled();
+                for (const e of Yv(this, kv, 'f').getAllParts())
                     for (const [AddEquation, SubtractEquation] of e.colors) {
                         const o = [];
-                        for (const t of qv(this, Fv, 'f')) {
+                        for (const t of Yv(this, Ov, 'f')) {
                             let i = t.color;
-                            i == dv.Default && (i = n), t.type == e && i == AddEquation && o.push(t);
+                            i == uv.Default && (i = n), t.type == e && i == AddEquation && o.push(t);
                         }
                         if (o.length > 0) {
                             if (null == SubtractEquation)
@@ -25568,19 +25576,19 @@
                             e.frustumCulled = !1, e.castShadow = r, e.receiveShadow = !0;
                             for (let t = 0; t < o.length; ++t)
                                 e.setMatrixAt(t, o[t].matrix);
-                            if (qv(this, Lv, 'f').scene.add(e), qv(this, Vv, 'f').push(e), null != i) {
+                            if (Yv(this, Uv, 'f').scene.add(e), Yv(this, Gv, 'f').push(e), null != i) {
                                 const n = new StereoCamera(e, i);
-                                n.update(new Plane(new Vector3(0, 1, 0), 0), t), qv(this, Lv, 'f').scene.add(n), qv(this, Vv, 'f').push(n);
+                                n.update(new Plane(new Vector3(0, 1, 0), 0), t), Yv(this, Uv, 'f').scene.add(n), Yv(this, Gv, 'f').push(n);
                             }
                         }
                     }
-                qv(this, Dv, 'm', Xv).call(this);
+                Yv(this, Lv, 'm', jv).call(this);
             }
             getCheckpoints() {
                 let e = [];
-                const t = qv(this, Nv, 'f').getPartTypesWithDetector(qh.Checkpoint);
+                const t = Yv(this, kv, 'f').getPartTypesWithDetector(qh.Checkpoint);
                 for (const n of t) {
-                    const t = qv(this, zv, 'f').get(n);
+                    const t = Yv(this, Hv, 'f').get(n);
                     null != t && (e = e.concat(t));
                 }
                 return e.map(e => {
@@ -25602,9 +25610,9 @@
             }
             getCheckpointOrders() {
                 let e = [];
-                const t = qv(this, Nv, 'f').getPartTypesWithDetector(qh.Checkpoint);
+                const t = Yv(this, kv, 'f').getPartTypesWithDetector(qh.Checkpoint);
                 for (const n of t) {
-                    const t = qv(this, zv, 'f').get(n);
+                    const t = Yv(this, Hv, 'f').get(n);
                     null != t && (e = e.concat(t));
                 }
                 return e.map(e => {
@@ -25617,17 +25625,17 @@
             }
             getTotalNumberOfCheckpointIndices() {
                 let e = [];
-                const t = qv(this, Nv, 'f').getPartTypesWithDetector(qh.Checkpoint);
+                const t = Yv(this, kv, 'f').getPartTypesWithDetector(qh.Checkpoint);
                 for (const n of t) {
-                    const t = qv(this, zv, 'f').get(n);
+                    const t = Yv(this, Hv, 'f').get(n);
                     null != t && (e = e.concat(t));
                 }
                 return e.map(e => e.checkpointOrder).filter((e, t, n) => n.indexOf(e) == t).length;
             }
             getStart() {
                 let e = -1 / 0, t = null;
-                for (const [n, i] of qv(this, zv, 'f')) {
-                    const r = qv(this, Nv, 'f').getPartStartOffset(n);
+                for (const [n, i] of Yv(this, Hv, 'f')) {
+                    const r = Yv(this, kv, 'f').getPartStartOffset(n);
                     if (i.length > 0 && null != r)
                         for (const n of i) {
                             if (null == n.startOrder)
@@ -25652,7 +25660,7 @@
                 if (null != e) {
                     const t = Kh(e.rotation, e.rotationAxis).multiply(new Quaternion().setFromEuler(new Euler(0, Math.PI, 0))), n = e.startOffset;
                     return n.applyQuaternion(t), {
-                        position: new Vector3(e.x * Kv.partSize + n.x, e.y * Kv.partSize + n.y, e.z * Kv.partSize + n.z),
+                        position: new Vector3(e.x * Zv.partSize + n.x, e.y * Zv.partSize + n.y, e.z * Zv.partSize + n.z),
                         quaternion: t
                     };
                 }
@@ -25660,8 +25668,8 @@
             }
             getNextStartOrder() {
                 let e = 0;
-                for (const [t, n] of qv(this, zv, 'f')) {
-                    const i = qv(this, Nv, 'f').getPartStartOffset(t);
+                for (const [t, n] of Yv(this, Hv, 'f')) {
+                    const i = Yv(this, kv, 'f').getPartStartOffset(t);
                     if (n.length > 0 && null != i)
                         for (const t of n) {
                             if (null == t.startOrder)
@@ -25672,38 +25680,38 @@
                 return e;
             }
             getTrackData() {
-                const e = new aw(this.environment, qv(this, kv, 'f'));
-                for (const t of qv(this, Fv, 'f'))
+                const e = new sw(this.environment, Yv(this, Fv, 'f'));
+                for (const t of Yv(this, Ov, 'f'))
                     e.addPart(t.x, t.y, t.z, t.type.configuration.id, t.rotation, t.rotationAxis, t.color, t.checkpointOrder, t.startOrder);
                 return e;
             }
             loadTrackData(e, t = !0) {
-                return this.clear(), jv(this, Wv, t ? e.getId() : null, 'f'), this.environment = e.environment, this.sunDirection = e.sunDirection.clone(), e.forEachPart((e, t, n, i, r, a, s, o, l) => {
+                return this.clear(), qv(this, Vv, t ? e.getId() : null, 'f'), this.environment = e.environment, this.sunDirection = e.sunDirection.clone(), e.forEachPart((e, t, n, i, r, a, s, o, l) => {
                     this.setPart(e, t, n, i, r, a, s, o, l);
                 }), !0;
             }
         }
-        Lv = new WeakMap(), Uv = new WeakMap(), Nv = new WeakMap(), kv = new WeakMap(), Fv = new WeakMap(), Ov = new WeakMap(), zv = new WeakMap(), Hv = new WeakMap(), Wv = new WeakMap(), Vv = new WeakMap(), Dv = new WeakSet(), Gv = function () {
-            for (const REVISION of qv(this, Vv, 'f'))
-                qv(this, Lv, 'f').scene.remove(REVISION);
-            qv(this, Vv, 'f').length = 0;
-        }, Qv = function (e) {
-            const t = qv(this, Fv, 'f').indexOf(e);
+        Uv = new WeakMap(), Nv = new WeakMap(), kv = new WeakMap(), Fv = new WeakMap(), Ov = new WeakMap(), zv = new WeakMap(), Hv = new WeakMap(), Wv = new WeakMap(), Vv = new WeakMap(), Gv = new WeakMap(), Lv = new WeakSet(), Qv = function () {
+            for (const REVISION of Yv(this, Gv, 'f'))
+                Yv(this, Uv, 'f').scene.remove(REVISION);
+            Yv(this, Gv, 'f').length = 0;
+        }, Xv = function (e) {
+            const t = Yv(this, Ov, 'f').indexOf(e);
             if (!(t >= 0))
                 throw new Error('Track part missing from parts list');
-            qv(this, Fv, 'f').splice(t, 1);
+            Yv(this, Ov, 'f').splice(t, 1);
             e.type.configuration.tiles.rotated(e.rotation, e.rotationAxis).forEach((t, n, i) => {
-                const r = (e.x + t).toString() + '|' + (e.y + n).toString() + '|' + (e.z + i).toString(), a = qv(this, Ov, 'f').get(r);
+                const r = (e.x + t).toString() + '|' + (e.y + n).toString() + '|' + (e.z + i).toString(), a = Yv(this, zv, 'f').get(r);
                 if (null == a)
                     throw new Error('Track part section missing');
                 {
                     const t = a.indexOf(e);
                     if (!(t >= 0))
                         throw new Error('Track part missing from parts by position map');
-                    a.splice(t, 1), 0 == a.length && qv(this, Ov, 'f').delete(r);
+                    a.splice(t, 1), 0 == a.length && Yv(this, zv, 'f').delete(r);
                 }
             });
-            const n = qv(this, zv, 'f').get(e.type.configuration.id);
+            const n = Yv(this, Hv, 'f').get(e.type.configuration.id);
             if (null == n)
                 throw new Error('Track part type is missing from parts by type map');
             for (let t = 0; t < n.length; ++t) {
@@ -25714,20 +25722,20 @@
                 if (t == n.length - 1)
                     throw new Error('Track part is missing from parts by type map');
             }
-        }, Xv = function () {
+        }, jv = function () {
             let e = 1 / 0, t = 1 / 0, n = -1 / 0, i = -1 / 0;
-            for (const r of qv(this, Fv, 'f'))
+            for (const r of Yv(this, Ov, 'f'))
                 e = Math.min(r.x, e), t = Math.min(r.z, t), n = Math.max(r.x, n), i = Math.max(r.z, i);
-            Number.isFinite(e) && Number.isFinite(t) && Number.isFinite(n) && Number.isFinite(i) ? jv(this, Hv, {
+            Number.isFinite(e) && Number.isFinite(t) && Number.isFinite(n) && Number.isFinite(i) ? qv(this, Wv, {
                 min: new Vector2(e, t),
                 max: new Vector2(n, i)
-            }, 'f') : jv(this, Hv, {
+            }, 'f') : qv(this, Wv, {
                 min: new Vector2(),
                 max: new Vector2()
             }, 'f');
-        }, Kv.partSize = 5;
-        const Zv = Kv;
-        var Jv, $v, ew, tw, nw, iw = function (e, t, n, i, r) {
+        }, Zv.partSize = 5;
+        const Jv = Zv;
+        var $v, ew, tw, nw, iw, rw = function (e, t, n, i, r) {
                 if ('m' === i)
                     throw new TypeError('Private method is not writable');
                 if ('a' === i && !r)
@@ -25735,17 +25743,17 @@
                 if ('function' == typeof t ? e !== t || !r : !t.has(e))
                     throw new TypeError('Cannot write private member to an object whose class did not declare it');
                 return 'a' === i ? r.call(e, n) : r ? r.value = n : t.set(e, n), n;
-            }, rw = function (e, t, n, i) {
+            }, aw = function (e, t, n, i) {
                 if ('a' === n && !i)
                     throw new TypeError('Private accessor was defined without a getter');
                 if ('function' == typeof t ? e !== t || !i : !t.has(e))
                     throw new TypeError('Cannot read private member from an object whose class did not declare it');
                 return 'm' === n ? i : 'a' === n ? i.call(e) : i ? i.value : t.get(e);
             };
-        $v = new WeakMap(), ew = new WeakMap(), Jv = new WeakSet(), tw = function () {
+        ew = new WeakMap(), tw = new WeakMap(), $v = new WeakSet(), nw = function () {
             let e = -1 / 0, t = null;
-            for (const [n, i] of rw(this, ew, 'f')) {
-                const r = Sv(n).startOffset;
+            for (const [n, i] of aw(this, tw, 'f')) {
+                const r = Ev(n).startOffset;
                 if (i.length > 0 && null != r)
                     for (const n of i) {
                         if (null == n.startOrder)
@@ -25764,29 +25772,29 @@
                 rotationAxis: t.part.rotationAxis,
                 startOffset: t.startOffset.clone()
             } : null;
-        }, nw = function () {
+        }, iw = function () {
             const e = [];
-            e.push(this.environment), e.push(rw(this, $v, 'f').representation);
+            e.push(this.environment), e.push(aw(this, ew, 'f').representation);
             let t = 1 / 0, n = 1 / 0, i = 1 / 0, r = -1 / 0, a = -1 / 0, s = -1 / 0;
-            for (const [, e] of rw(this, ew, 'f'))
+            for (const [, e] of aw(this, tw, 'f'))
                 for (const o of e)
                     t = Math.min(o.x, t), n = Math.min(o.y, n), i = Math.min(o.z, i), r = Math.max(o.x, r), a = Math.max(o.y, a), s = Math.max(o.z, s);
             Number.isFinite(t) && Number.isFinite(n) && Number.isFinite(i) && Number.isFinite(r) && Number.isFinite(a) && Number.isFinite(s) || (t = 0, n = 0, i = 0, r = 0, a = 0, s = 0);
             const o = r - t + 1, l = a - n + 1, c = s - i + 1, h = Math.max(1, Math.min(4, Math.ceil(Math.log2(o + 1) / 8))), d = Math.max(1, Math.min(4, Math.ceil(Math.log2(l + 1) / 8))), u = Math.max(1, Math.min(4, Math.ceil(Math.log2(c + 1) / 8)));
             e.push(255 & t, t >>> 8 & 255, t >>> 16 & 255, t >>> 24 & 255, 255 & n, n >>> 8 & 255, n >>> 16 & 255, n >>> 24 & 255, 255 & i, i >>> 8 & 255, i >>> 16 & 255, i >>> 24 & 255, 255 & (h | d << 2 | u << 4));
-            for (const [r, a] of rw(this, ew, 'f')) {
+            for (const [r, a] of aw(this, tw, 'f')) {
                 if (r < 0 || r > 255)
                     throw new Error('Type id is out of range');
                 const s = a.length;
                 e.push(255 & r, 255 & s, s >>> 8 & 255, s >>> 16 & 255, s >>> 24 & 255);
                 for (const s of a) {
                     const a = s.x - t, o = s.y - n, l = s.z - i;
-                    if (1 == h ? e.push(255 & a) : 2 == h ? e.push(255 & a, a >>> 8 & 255) : 3 == h ? e.push(255 & a, a >>> 8 & 255, a >>> 16 & 255) : 4 == h && e.push(255 & a, a >>> 8 & 255, a >>> 16 & 255, a >>> 24 & 255), 1 == d ? e.push(255 & o) : 2 == d ? e.push(255 & o, o >>> 8 & 255) : 3 == d ? e.push(255 & o, o >>> 8 & 255, o >>> 16 & 255) : 4 == d && e.push(255 & o, o >>> 8 & 255, o >>> 16 & 255, o >>> 24 & 255), 1 == u ? e.push(255 & l) : 2 == u ? e.push(255 & l, l >>> 8 & 255) : 3 == u ? e.push(255 & l, l >>> 8 & 255, l >>> 16 & 255) : 4 == u && e.push(255 & l, l >>> 8 & 255, l >>> 16 & 255, l >>> 24 & 255), e.push(3 & s.rotation, 7 & s.rotationAxis, 255 & s.color), Ev.includes(r)) {
+                    if (1 == h ? e.push(255 & a) : 2 == h ? e.push(255 & a, a >>> 8 & 255) : 3 == h ? e.push(255 & a, a >>> 8 & 255, a >>> 16 & 255) : 4 == h && e.push(255 & a, a >>> 8 & 255, a >>> 16 & 255, a >>> 24 & 255), 1 == d ? e.push(255 & o) : 2 == d ? e.push(255 & o, o >>> 8 & 255) : 3 == d ? e.push(255 & o, o >>> 8 & 255, o >>> 16 & 255) : 4 == d && e.push(255 & o, o >>> 8 & 255, o >>> 16 & 255, o >>> 24 & 255), 1 == u ? e.push(255 & l) : 2 == u ? e.push(255 & l, l >>> 8 & 255) : 3 == u ? e.push(255 & l, l >>> 8 & 255, l >>> 16 & 255) : 4 == u && e.push(255 & l, l >>> 8 & 255, l >>> 16 & 255, l >>> 24 & 255), e.push(3 & s.rotation, 7 & s.rotationAxis, 255 & s.color), Mv.includes(r)) {
                         if (null == s.checkpointOrder)
                             throw new Error('Checkpoint has no checkpoint order');
                         e.push(255 & s.checkpointOrder, s.checkpointOrder >>> 8 & 255);
                     }
-                    if (Mv.includes(r)) {
+                    if (Tv.includes(r)) {
                         if (null == s.startOrder)
                             throw new Error('Start has no start order');
                         e.push(255 & s.startOrder, s.startOrder >>> 8 & 255, s.startOrder >>> 16 & 255, s.startOrder >>> 24 & 255);
@@ -25795,15 +25803,15 @@
             }
             return new Uint8Array(e);
         };
-        const aw = class {
+        const sw = class {
             constructor(e, t) {
-                Jv.add(this), $v.set(this, void 0), ew.set(this, new Map()), this.environment = e, iw(this, $v, t.clone(), 'f');
+                $v.add(this), ew.set(this, void 0), tw.set(this, new Map()), this.environment = e, rw(this, ew, t.clone(), 'f');
             }
             get sunDirection() {
-                return rw(this, $v, 'f').clone();
+                return aw(this, ew, 'f').clone();
             }
             set sunDirection(e) {
-                iw(this, $v, e.clone(), 'f');
+                rw(this, ew, e.clone(), 'f');
             }
             addPart(e, t, n, i, r, a, s, o, l) {
                 const c = {
@@ -25815,16 +25823,16 @@
                         color: s,
                         checkpointOrder: o,
                         startOrder: l
-                    }, h = rw(this, ew, 'f').get(i);
-                null != h ? h.push(c) : rw(this, ew, 'f').set(i, [c]);
+                    }, h = aw(this, tw, 'f').get(i);
+                null != h ? h.push(c) : aw(this, tw, 'f').set(i, [c]);
             }
             forEachPart(e) {
-                for (const [t, n] of rw(this, ew, 'f'))
+                for (const [t, n] of aw(this, tw, 'f'))
                     for (const i of n)
                         e(i.x, i.y, i.z, t, i.rotation, i.rotationAxis, i.color, i.checkpointOrder, i.startOrder);
             }
             getId() {
-                return (0, K_.sha256)(rw(this, Jv, 'm', nw).call(this));
+                return (0, Z_.sha256)(aw(this, $v, 'm', iw).call(this));
             }
             getBounds() {
                 let e = 1 / 0, t = 1 / 0, n = -1 / 0, i = -1 / 0;
@@ -25839,32 +25847,32 @@
                 };
             }
             hasStartingPoint() {
-                return null != rw(this, Jv, 'm', tw).call(this);
+                return null != aw(this, $v, 'm', nw).call(this);
             }
             getStartTransform() {
-                const e = rw(this, Jv, 'm', tw).call(this);
+                const e = aw(this, $v, 'm', nw).call(this);
                 if (null != e) {
                     const t = Kh(e.rotation, e.rotationAxis).multiply(new Quaternion().setFromEuler(new Euler(0, Math.PI, 0))), n = e.startOffset;
                     return n.applyQuaternion(t), {
-                        position: new Vector3(e.x * Zv.partSize + n.x, e.y * Zv.partSize + n.y, e.z * Zv.partSize + n.z),
+                        position: new Vector3(e.x * Jv.partSize + n.x, e.y * Jv.partSize + n.y, e.z * Jv.partSize + n.z),
                         quaternion: t
                     };
                 }
                 return null;
             }
             toSaveString() {
-                const e = rw(this, Jv, 'm', nw).call(this), t = new TYPED_ARRAYS.Deflate({
+                const e = aw(this, $v, 'm', iw).call(this), t = new TYPED_ARRAYS.Deflate({
                         level: 9,
                         windowBits: 9,
                         memLevel: 9
                     });
                 t.push(e, !0);
-                const n = $_(t.result), i = new TYPED_ARRAYS.Deflate({
+                const n = ev(t.result), i = new TYPED_ARRAYS.Deflate({
                         level: 9,
                         windowBits: 15,
                         memLevel: 9
                     });
-                return i.push(n, !0), $_(i.result);
+                return i.push(n, !0), ev(i.result);
             }
             toExportString(e) {
                 const t = new TextEncoder().encode(e.name);
@@ -25872,22 +25880,22 @@
                 null != e.author ? (i = new TextEncoder().encode(e.author), n = i.length) : (i = null, n = 0);
                 const r = new Uint8Array(1 + t.length + 1 + n);
                 r[0] = t.length, r.set(t, 1), r[1 + t.length] = n, null != i && r.set(i, 1 + t.length + 1);
-                const a = rw(this, Jv, 'm', nw).call(this), s = new TYPED_ARRAYS.Deflate({
+                const a = aw(this, $v, 'm', iw).call(this), s = new TYPED_ARRAYS.Deflate({
                         level: 9,
                         windowBits: 9,
                         memLevel: 9
                     });
                 s.push(r, !1), s.push(a, !0);
-                const o = $_(s.result), l = new TYPED_ARRAYS.Deflate({
+                const o = ev(s.result), l = new TYPED_ARRAYS.Deflate({
                         level: 9,
                         windowBits: 15,
                         memLevel: 9
                     });
-                return l.push(o, !0), 'PolyTrack1' + $_(l.result);
+                return l.push(o, !0), 'PolyTrack1' + ev(l.result);
             }
             static fromSaveString(e) {
                 const t = function (e) {
-                    const t = ev(e);
+                    const t = tv(e);
                     if (null == t)
                         return null;
                     const n = new TYPED_ARRAYS.Inflate({ to: 'string' });
@@ -25896,27 +25904,27 @@
                     const i = n.result;
                     if ('string' != typeof i)
                         return null;
-                    const r = ev(i);
+                    const r = tv(i);
                     if (null == r)
                         return null;
                     const a = new TYPED_ARRAYS.Inflate();
                     if (a.push(r, !0), a.err)
                         return null;
                     const s = a.result;
-                    return s instanceof Uint8Array ? Pv(0, s) : null;
+                    return s instanceof Uint8Array ? Bv(0, s) : null;
                 }(e);
                 if (null != t)
                     return t;
-                const n = Rv(e);
+                const n = Pv(e);
                 if (null != n)
                     return n;
-                const i = Iv(e);
+                const i = Rv(e);
                 if (null != i)
                     return i;
-                const r = Cv(e);
+                const r = Iv(e);
                 if (null != r)
                     return r;
-                const a = Tv(e);
+                const a = Cv(e);
                 return null != a ? a : null;
             }
             static fromExportString(e) {
@@ -25924,7 +25932,7 @@
                         const t = 'PolyTrack1';
                         if (!e.startsWith(t))
                             return null;
-                        const n = ev(e.substring(10));
+                        const n = tv(e.substring(10));
                         if (null == n)
                             return null;
                         const i = new TYPED_ARRAYS.Inflate({ to: 'string' });
@@ -25933,7 +25941,7 @@
                         const r = i.result;
                         if ('string' != typeof r)
                             return null;
-                        const a = ev(r);
+                        const a = tv(r);
                         if (null == a)
                             return null;
                         const s = new TYPED_ARRAYS.Inflate();
@@ -25950,7 +25958,7 @@
                             return null;
                         let d;
                         d = h > 0 ? new TextDecoder('utf-8').decode(o.subarray(1 + l + 1, 1 + l + 1 + h)) : null;
-                        const u = Pv(1 + l + 1 + h, o);
+                        const u = Bv(1 + l + 1 + h, o);
                         return null == u ? null : {
                             trackMetadata: {
                                 name: c,
@@ -25964,12 +25972,12 @@
                 const i = function (e) {
                     if (!e.startsWith('v3'))
                         return null;
-                    const t = ev(e.substring(2, 4));
+                    const t = tv(e.substring(2, 4));
                     if (null == t)
                         return null;
                     if (1 != t.length)
                         return null;
-                    const n = t[0], i = ev(e.substring(4, 4 + n));
+                    const n = t[0], i = tv(e.substring(4, 4 + n));
                     if (null == i)
                         return null;
                     let r;
@@ -25978,7 +25986,7 @@
                     } catch (e) {
                         return null;
                     }
-                    const a = Rv(e.substring(4 + n));
+                    const a = Pv(e.substring(4 + n));
                     return null == a ? null : {
                         trackMetadata: {
                             name: r,
@@ -25992,12 +26000,12 @@
                 const r = function (e) {
                     if (!e.startsWith('v2'))
                         return null;
-                    const t = ev(e.substring(2, 4));
+                    const t = tv(e.substring(2, 4));
                     if (null == t)
                         return null;
                     if (1 != t.length)
                         return null;
-                    const n = t[0], i = Math.ceil(n / 3 * 4), r = ev(e.substring(4, 4 + i));
+                    const n = t[0], i = Math.ceil(n / 3 * 4), r = tv(e.substring(4, 4 + i));
                     if (null == r)
                         return null;
                     let a;
@@ -26006,7 +26014,7 @@
                     } catch (e) {
                         return null;
                     }
-                    const s = Iv(e.substring(4 + i));
+                    const s = Rv(e.substring(4 + i));
                     return null == s ? null : {
                         trackMetadata: {
                             name: a,
@@ -26032,7 +26040,7 @@
                     } catch (e) {
                         return console.warn(e), null;
                     }
-                    const a = Cv(e.substring(5 + n));
+                    const a = Iv(e.substring(5 + n));
                     return null == a ? null : {
                         trackMetadata: {
                             name: r,
@@ -26059,7 +26067,7 @@
                     } catch (e) {
                         return console.warn(e), null;
                     }
-                    const i = Tv(n);
+                    const i = Cv(n);
                     return null == i ? null : {
                         trackMetadata: {
                             name: t.name,
@@ -26073,7 +26081,7 @@
             createThumbnail() {
                 let e = 1 / 0, t = 1 / 0, n = -1 / 0, i = -1 / 0;
                 this.forEachPart((r, a, s, o, l, c) => {
-                    Sv(o).tiles.rotated(l, c).forEach((a, o, l) => {
+                    Ev(o).tiles.rotated(l, c).forEach((a, o, l) => {
                         e = Math.min(e, Math.floor((r + a - 2) / 4)), t = Math.min(t, Math.floor((s + l - 2) / 4)), n = Math.max(n, Math.floor((r + a - 2) / 4)), i = Math.max(i, Math.floor((s + l - 2) / 4));
                     });
                 }), Number.isFinite(e) && Number.isFinite(t) && Number.isFinite(n) && Number.isFinite(i) || (e = 0, t = 0, n = 0, i = 0);
@@ -26089,17 +26097,17 @@
                 const c = l.createImageData(o.width, o.height), h = [], d = [], u = [];
                 let f, p, m;
                 switch (this.environment) {
-                case cv.Summer:
+                case hv.Summer:
                     f = 255, p = 255, m = 255;
                     break;
-                case cv.Winter:
+                case hv.Winter:
                     f = 190, p = 216, m = 247;
                     break;
-                case cv.Desert:
+                case hv.Desert:
                     f = 237, p = 226, m = 175;
                 }
                 this.forEachPart((n, i, r, a, s, l) => {
-                    const g = Sv(a);
+                    const g = Ev(a);
                     g.tiles.rotated(s, l).forEach((i, a, s) => {
                         const l = Math.floor((n + i - 2) / 4) - e, A = Math.floor((r + s - 2) / 4) - t, _ = 4 * (l + A * o.width);
                         c.data[_ + 0] = f, c.data[_ + 1] = p, c.data[_ + 2] = m, c.data[_ + 3] = 255, null != g.startOffset ? d.push([
@@ -26123,7 +26131,7 @@
                 return l.putImageData(c, 0, 0), o;
             }
         };
-        const sw = class {
+        const ow = class {
             constructor() {
                 this.up = !1, this.right = !1, this.down = !1, this.left = !1, this.reset = !1;
             }
@@ -26139,7 +26147,7 @@
                 };
             }
         };
-        var ow = function (e, t, n, i) {
+        var lw = function (e, t, n, i) {
             return new (n || (n = Promise))(function (r, a) {
                 function s(e) {
                     try {
@@ -26165,30 +26173,30 @@
             });
         };
         importScripts('lib/ammo.wasm.js');
-        const lw = [];
+        const cw = [];
         onmessage = e => {
-            lw.push(e);
+            cw.push(e);
         }, Ammo().then(function (e) {
-            return ow(this, void 0, void 0, function* () {
+            return lw(this, void 0, void 0, function* () {
                 yield function () {
-                    return E_(this, void 0, void 0, function* () {
+                    return M_(this, void 0, void 0, function* () {
                         const e = Uint8Array.from(atob('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'), e => e.charCodeAt(0)), t = yield WebAssembly.compile(e), n = (yield WebAssembly.instantiate(t)).exports;
                         Math = {
-                            E: M_,
-                            LN10: T_,
-                            LN2: C_,
-                            LOG2E: I_,
-                            LOG10E: R_,
-                            PI: P_,
-                            SQRT1_2: B_,
-                            SQRT2: D_,
+                            E: T_,
+                            LN10: C_,
+                            LN2: I_,
+                            LOG2E: R_,
+                            LOG10E: P_,
+                            PI: B_,
+                            SQRT1_2: D_,
+                            SQRT2: L_,
                             abs: Math.abs,
                             acos: n.acos,
                             asin: n.asin,
                             atan: n.atan,
                             atan2: n.atan2,
                             ceil: Math.ceil,
-                            cos: k_,
+                            cos: F_,
                             exp: n.exp,
                             floor: Math.floor,
                             log: n.log,
@@ -26197,37 +26205,37 @@
                             pow: n.pow,
                             random: Math.random,
                             round: Math.round,
-                            sin: N_,
+                            sin: k_,
                             sqrt: n.sqrt,
                             tan: n.tan,
-                            clz32: () => U_('clz32'),
-                            imul: () => U_('imul'),
+                            clz32: () => N_('clz32'),
+                            imul: () => N_('imul'),
                             sign: Math.sign,
                             log10: n.log10,
                             log2: n.log2,
-                            log1p: () => U_('log1p'),
-                            expm1: () => U_('expm1'),
-                            cosh: () => U_('cosh'),
-                            sinh: () => U_('sinh'),
-                            tanh: () => U_('tanh'),
-                            acosh: () => U_('acosh'),
-                            asinh: () => U_('asinh'),
-                            atanh: () => U_('atanh'),
-                            hypot: () => U_('hypot'),
+                            log1p: () => N_('log1p'),
+                            expm1: () => N_('expm1'),
+                            cosh: () => N_('cosh'),
+                            sinh: () => N_('sinh'),
+                            tanh: () => N_('tanh'),
+                            acosh: () => N_('acosh'),
+                            asinh: () => N_('asinh'),
+                            atanh: () => N_('atanh'),
+                            hypot: () => N_('hypot'),
                             trunc: Math.trunc,
-                            cbrt: () => U_('cbrt'),
+                            cbrt: () => N_('cbrt'),
                             fround: Math.fround,
                             [Symbol.toStringTag]: 'Math'
                         };
                     });
                 }();
-                let t = new V_([]);
+                let t = new G_([]);
                 const n = [];
                 function i(e) {
                     switch (e.data.messageType) {
-                    case Q_.Init: {
+                    case X_.Init: {
                             const n = e.data.isRealtime;
-                            t = new V_(e.data.trackParts), function (e) {
+                            t = new G_(e.data.trackParts), function (e) {
                                 if (e)
                                     if (self.requestAnimationFrame) {
                                         function t() {
@@ -26241,9 +26249,9 @@
                             }(n);
                             break;
                         }
-                    case Q_.Verify:
+                    case X_.Verify:
                         !function (e) {
-                            const n = aw.fromSaveString(e.data.trackData);
+                            const n = sw.fromSaveString(e.data.trackData);
                             if (null == n)
                                 throw new Error('Failed to load track');
                             const i = Sh.deserialize(e.data.carRecording);
@@ -26252,44 +26260,44 @@
                             const r = n.getStartTransform();
                             if (null == r)
                                 throw new Error('Track has no starting point');
-                            const a = e.data.carId, s = new S_(e.data.mountainVertices, new Vector3(e.data.mountainOffset.x, e.data.mountainOffset.y, e.data.mountainOffset.z), t, n, e.data.carCollisionShapeVertices, e.data.carMassOffset, new Y_(i), r);
+                            const a = e.data.carId, s = new E_(e.data.mountainVertices, new Vector3(e.data.mountainOffset.x, e.data.mountainOffset.y, e.data.mountainOffset.z), t, n, e.data.carCollisionShapeVertices, e.data.carMassOffset, new K_(i), r);
                             s.start();
                             const o = new Xh(e.data.targetFrames);
                             for (; !s.hasFinished() && s.getTime().lessOrEqual(o);)
                                 s.step();
                             const l = s.hasFinished() && s.getTime().equals(o);
                             postMessage({
-                                messageType: Q_.VerifyResult,
+                                messageType: X_.VerifyResult,
                                 carId: a,
                                 result: l
                             }), s.dispose();
                         }(e);
                         break;
-                    case Q_.TestDeterminism:
+                    case X_.TestDeterminism:
                         postMessage({
-                            messageType: Q_.DeterminismResult,
+                            messageType: X_.DeterminismResult,
                             isDeterminstic: r()
                         });
                         break;
-                    case Q_.CreateCar:
+                    case X_.CreateCar:
                         !function (e) {
-                            const i = aw.fromSaveString(e.data.trackData);
+                            const i = sw.fromSaveString(e.data.trackData);
                             if (null == i)
                                 throw new Error('Failed to load track');
                             let r, a = null;
                             const s = e.data.carRecording;
                             if (null == s)
-                                r = new sw(), a = [];
+                                r = new ow(), a = [];
                             else {
                                 const e = Sh.deserialize(s);
                                 if (null == e)
                                     throw new Error('Failed to deserialize recording');
-                                r = new Y_(e);
+                                r = new K_(e);
                             }
                             const o = i.getStartTransform();
                             if (null == o)
                                 throw new Error('Track has no starting point');
-                            const l = e.data.carId, c = new S_(e.data.mountainVertices, new Vector3(e.data.mountainOffset.x, e.data.mountainOffset.y, e.data.mountainOffset.z), t, i, e.data.carCollisionShapeVertices, e.data.carMassOffset, r, o);
+                            const l = e.data.carId, c = new E_(e.data.mountainVertices, new Vector3(e.data.mountainOffset.x, e.data.mountainOffset.y, e.data.mountainOffset.z), t, i, e.data.carCollisionShapeVertices, e.data.carMassOffset, r, o);
                             n.push({
                                 id: l,
                                 model: c,
@@ -26299,7 +26307,7 @@
                             });
                         }(e);
                         break;
-                    case Q_.DeleteCar:
+                    case X_.DeleteCar:
                         !function (e) {
                             const t = e.data.carId;
                             for (let e = 0; e < n.length; e++) {
@@ -26311,7 +26319,7 @@
                             }
                         }(e);
                         break;
-                    case Q_.StartCar:
+                    case X_.StartCar:
                         !function (e) {
                             const t = e.data.carId;
                             for (const i of n)
@@ -26323,7 +26331,7 @@
                                 }
                         }(e);
                         break;
-                    case Q_.ControlCar:
+                    case X_.ControlCar:
                         !function (e) {
                             const t = performance.now(), i = e.data.carId;
                             for (const r of n)
@@ -26363,7 +26371,7 @@
                                 }
                         }(e);
                         break;
-                    case Q_.PauseCar:
+                    case X_.PauseCar:
                         !function (e) {
                             const t = e.data.carId;
                             for (const i of n)
@@ -26374,7 +26382,7 @@
                         }(e);
                     }
                 }
-                for (const e of lw)
+                for (const e of cw)
                     i(e);
                 function r() {
                     if (3.141592653589793 != Math.PI)
@@ -26590,7 +26598,7 @@
                         controls: a
                     };
                 }
-                lw.length = 0, onmessage = i;
+                cw.length = 0, onmessage = i;
                 let s = performance.now(), o = 0;
                 function l() {
                     const e = performance.now();
@@ -26608,7 +26616,7 @@
                                         const t = e.userControls.shift();
                                         if (null != t) {
                                             const n = e.model.controls;
-                                            if (!(n instanceof sw))
+                                            if (!(n instanceof ow))
                                                 throw new Error('Tried to control uncontrollable car');
                                             n.up = t.up, n.right = t.right, n.down = t.down, n.left = t.left, n.reset = t.reset;
                                         }
@@ -26618,7 +26626,7 @@
                         }
                     }
                     t.length > 0 && postMessage({
-                        messageType: Q_.UpdateResult,
+                        messageType: X_.UpdateResult,
                         carStates: t
                     });
                 }
@@ -26641,7 +26649,7 @@
                         } while (Math.max(0, performance.now() - e) / 1000 < 0.01 && !i);
                     }
                     postMessage({
-                        messageType: Q_.UpdateResult,
+                        messageType: X_.UpdateResult,
                         carStates: t
                     });
                 }
