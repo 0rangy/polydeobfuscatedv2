@@ -1,1 +1,3 @@
 ./deobfuscation-tool/node_modules
+./deobfuscator-rs/target
+./deobfuscator-rs/Cargo.lock
